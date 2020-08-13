@@ -33,6 +33,9 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         setupTableView()
         adapter.getCompanyByTicker(ticker: "AAPL")
         adapter.getCompanyByTicker(ticker: "IBM")
+        adapter.getCompanyByTicker(ticker: "AAPL")
+        adapter.getCompanyByTicker(ticker: "IBM")
+        adapter.getCompanyByTicker(ticker: "IBM")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -84,6 +87,10 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as! CompanyCell
         cell.ticker = data[indexPath.row].ticker
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 
 }
