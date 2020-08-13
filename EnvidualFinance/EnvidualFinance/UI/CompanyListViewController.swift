@@ -13,14 +13,14 @@ import shared
 
 class CompanyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private let model = CompanyListViewModel()
     private let tableView = UITableView()
     private var data = [CompanyData]()
     
 
+    // move to view model and work with delegate pattern?
     lazy var adapter: NativeViewModel = NativeViewModel(
-        viewUpdate: { [weak self] summary in
-            self?.viewUpdate(for: summary)
+        viewUpdate: { [weak self] company in
+            self?.viewUpdate(for: company)
         }, errorUpdate: { [weak self] errorMessage in
             self?.errorUpdate(for: errorMessage)
         }
@@ -32,6 +32,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         setupNavigationBar()
         setupTableView()
         adapter.getCompanyByTicker(ticker: "AAPL")
+        adapter.getCompanyByTicker(ticker: "IBM")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,10 +74,6 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
