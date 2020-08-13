@@ -10,12 +10,12 @@ import Foundation
 import shared
 
 func startKoin() {
-    
+
     let userDefaults = UserDefaults(suiteName: "EnvidualFinanceDatabase")!
     let iosAppInfo = IosAppInfo()
     let doOnStartup: () -> () = {}
-    
-    
+
+
     let koinApplication = KoinIOSKt.doInitKoinIos(userDefaults: userDefaults, appInfo: iosAppInfo, doOnStartup: doOnStartup)
     _koin = koinApplication.koin
 }
@@ -29,3 +29,4 @@ var koin: Koin_coreKoin {
 class IosAppInfo: AppInfo {
     let appId: String = Bundle.main.bundleIdentifier!
 }
+

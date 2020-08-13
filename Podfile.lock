@@ -2,15 +2,15 @@ PODS:
   - shared (1.1)
 
 DEPENDENCIES:
-  - shared (from `/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared`)
+  - shared (from `../../Envidual/Envidual-Finance-Touchlab/shared`)
 
 EXTERNAL SOURCES:
   shared:
-    :path: "/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared"
+    :path: "../../Envidual/Envidual-Finance-Touchlab/shared"
 
 SPEC CHECKSUMS:
   shared: eab97f234b6c99d9a9a0a79e76168a40e5cdafcd
 
-PODFILE CHECKSUM: 57673c8aba97fa4876f25a511acc8b2b4c895539
+PODFILE CHECKSUM: 390f2daec7e1c8fef75bd180ee6a12a7b7c59f24
 
 COCOAPODS: 1.9.3

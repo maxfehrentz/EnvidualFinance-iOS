@@ -21,8 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		32AC25A6285C7F9A1C9E04B0310D92C2 /* Pods-EnvidualFinance-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 557E9B44A87DD299B68C2BD08A171E3C /* Pods-EnvidualFinance-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D9AEE09315727FFC51BC9A3FF348C5DB /* Pods-EnvidualFinance-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5188CA83C6268C4796E1C4A420DE2C09 /* Pods-EnvidualFinance-dummy.m */; };
+		32AC25A6285C7F9A1C9E04B0310D92C2 /* Pods-EnvidualFinance-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C665C754AFD9534F35F424F97D3592E /* Pods-EnvidualFinance-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9AEE09315727FFC51BC9A3FF348C5DB /* Pods-EnvidualFinance-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F35B4A40F2D973A12169F744E5812604 /* Pods-EnvidualFinance-dummy.m */; };
 		D9C0A4C2E2BC9EDBE80DED015AEE573E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,21 +37,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		12E3A944DB235D31216BB74CAADD1A65 /* Pods-EnvidualFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnvidualFinance.debug.xcconfig"; sourceTree = "<group>"; };
-		2DD2CB7329733FB36FF7D2C86B8847AC /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = build/cocoapods/framework/shared.framework; sourceTree = "<group>"; };
+		0C665C754AFD9534F35F424F97D3592E /* Pods-EnvidualFinance-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnvidualFinance-umbrella.h"; sourceTree = "<group>"; };
+		1DBEE67C8075683B9437A6D7B3FC540E /* Pods-EnvidualFinance-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnvidualFinance-acknowledgements.plist"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		368A44B8E949D0AC5C37D66CEBBB9910 /* shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.release.xcconfig; sourceTree = "<group>"; };
-		5188CA83C6268C4796E1C4A420DE2C09 /* Pods-EnvidualFinance-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnvidualFinance-dummy.m"; sourceTree = "<group>"; };
-		557E9B44A87DD299B68C2BD08A171E3C /* Pods-EnvidualFinance-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnvidualFinance-umbrella.h"; sourceTree = "<group>"; };
-		584929294FC3C5522299B144E9F1312A /* shared.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = shared.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		5E62755CB40B7F906FA7C7AEF401ADE9 /* Pods-EnvidualFinance-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnvidualFinance-Info.plist"; sourceTree = "<group>"; };
-		854F5AC814A30EB6BEBB82BAF390EE85 /* shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.debug.xcconfig; sourceTree = "<group>"; };
-		9597C3F9AE31FA9962AD15BCC72D4553 /* Pods-EnvidualFinance-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnvidualFinance-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3828DAD62230A2F8E4C81B427AFAAB93 /* shared.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = shared.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4ADA892090E14CFED22E01F82133C9FB /* Pods-EnvidualFinance-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnvidualFinance-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4F6946CCAE6C0A0F720BC8FEF4CF774B /* shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.release.xcconfig; sourceTree = "<group>"; };
+		6FB15391A254253D0212A677F39BA80E /* Pods-EnvidualFinance.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnvidualFinance.modulemap"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A6005F31B22ADF71E447509B6603AF02 /* Pods-EnvidualFinance-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnvidualFinance-frameworks.sh"; sourceTree = "<group>"; };
 		A6387E913DB2A999072260F3C81AF065 /* Pods_EnvidualFinance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnvidualFinance.framework; path = "Pods-EnvidualFinance.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C78D3BD0F13BB9D4E8F170EA9F531321 /* Pods-EnvidualFinance-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnvidualFinance-acknowledgements.plist"; sourceTree = "<group>"; };
-		E892973C6B47650795E6651F6044E4D3 /* Pods-EnvidualFinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnvidualFinance.release.xcconfig"; sourceTree = "<group>"; };
-		ED568185AC19D1ECA667246AA9F74F75 /* Pods-EnvidualFinance.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnvidualFinance.modulemap"; sourceTree = "<group>"; };
+		B282B1D0A65938BCD7BD6F0F6565B486 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = build/cocoapods/framework/shared.framework; sourceTree = "<group>"; };
+		E0B7721ECCD76B0D153723BFD6932308 /* Pods-EnvidualFinance-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnvidualFinance-Info.plist"; sourceTree = "<group>"; };
+		F35B4A40F2D973A12169F744E5812604 /* Pods-EnvidualFinance-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnvidualFinance-dummy.m"; sourceTree = "<group>"; };
+		F8C83BB67D97609324BF20212865A12D /* shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.debug.xcconfig; sourceTree = "<group>"; };
+		FBD70E127B9E1D9881484CDF1EB4DAC0 /* Pods-EnvidualFinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnvidualFinance.release.xcconfig"; sourceTree = "<group>"; };
+		FE2921CD7825B1DEFCF9705B2F5E9F32 /* Pods-EnvidualFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnvidualFinance.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,32 +67,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0BD0A2E647CF92C091E549CC5A6DB733 /* Pod */ = {
+		37C26B94E90FFAFFB95DA73AD6B23433 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				584929294FC3C5522299B144E9F1312A /* shared.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		32539F0505E7034F21AFF5D404111406 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2DD2CB7329733FB36FF7D2C86B8847AC /* shared.framework */,
+				B282B1D0A65938BCD7BD6F0F6565B486 /* shared.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		84C260DB779596C275D12A2BAEA1516C /* shared */ = {
+		4C110FFA6D4CEC87C9BAE6FD792E8B62 /* shared */ = {
 			isa = PBXGroup;
 			children = (
-				32539F0505E7034F21AFF5D404111406 /* Frameworks */,
-				0BD0A2E647CF92C091E549CC5A6DB733 /* Pod */,
-				BABBE97489064746F47BA085A25A7891 /* Support Files */,
+				37C26B94E90FFAFFB95DA73AD6B23433 /* Frameworks */,
+				D9F966D0642E90BA04C486BDDE763C0C /* Pod */,
+				B827671D60C624C9873A1CFE06F84A8E /* Support Files */,
 			);
 			name = shared;
-			path = "/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared";
-			sourceTree = "<absolute>";
+			path = "../../Envidual-Finance-Touchlab/shared";
+			sourceTree = "<group>";
+		};
+		5419985FAB59C33A3B29B577A3B30AE9 /* Pods-EnvidualFinance */ = {
+			isa = PBXGroup;
+			children = (
+				6FB15391A254253D0212A677F39BA80E /* Pods-EnvidualFinance.modulemap */,
+				4ADA892090E14CFED22E01F82133C9FB /* Pods-EnvidualFinance-acknowledgements.markdown */,
+				1DBEE67C8075683B9437A6D7B3FC540E /* Pods-EnvidualFinance-acknowledgements.plist */,
+				F35B4A40F2D973A12169F744E5812604 /* Pods-EnvidualFinance-dummy.m */,
+				A6005F31B22ADF71E447509B6603AF02 /* Pods-EnvidualFinance-frameworks.sh */,
+				E0B7721ECCD76B0D153723BFD6932308 /* Pods-EnvidualFinance-Info.plist */,
+				0C665C754AFD9534F35F424F97D3592E /* Pods-EnvidualFinance-umbrella.h */,
+				FE2921CD7825B1DEFCF9705B2F5E9F32 /* Pods-EnvidualFinance.debug.xcconfig */,
+				FBD70E127B9E1D9881484CDF1EB4DAC0 /* Pods-EnvidualFinance.release.xcconfig */,
+			);
+			name = "Pods-EnvidualFinance";
+			path = "Target Support Files/Pods-EnvidualFinance";
+			sourceTree = "<group>";
+		};
+		A0264E70030CE0A666F196DAC84F63BE /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5419985FAB59C33A3B29B577A3B30AE9 /* Pods-EnvidualFinance */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
 		};
 		A4372ADBD55C81A024AE6844515D6886 /* Products */ = {
 			isa = PBXGroup;
@@ -101,11 +119,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BABBE97489064746F47BA085A25A7891 /* Support Files */ = {
+		B827671D60C624C9873A1CFE06F84A8E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				854F5AC814A30EB6BEBB82BAF390EE85 /* shared.debug.xcconfig */,
-				368A44B8E949D0AC5C37D66CEBBB9910 /* shared.release.xcconfig */,
+				F8C83BB67D97609324BF20212865A12D /* shared.debug.xcconfig */,
+				4F6946CCAE6C0A0F720BC8FEF4CF774B /* shared.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../../EnvidualFinance-iOS/Pods/Target Support Files/shared";
@@ -119,30 +137,14 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		CCFDE46C842DC2645505E1822A622ADC /* Pods-EnvidualFinance */ = {
-			isa = PBXGroup;
-			children = (
-				ED568185AC19D1ECA667246AA9F74F75 /* Pods-EnvidualFinance.modulemap */,
-				9597C3F9AE31FA9962AD15BCC72D4553 /* Pods-EnvidualFinance-acknowledgements.markdown */,
-				C78D3BD0F13BB9D4E8F170EA9F531321 /* Pods-EnvidualFinance-acknowledgements.plist */,
-				5188CA83C6268C4796E1C4A420DE2C09 /* Pods-EnvidualFinance-dummy.m */,
-				5E62755CB40B7F906FA7C7AEF401ADE9 /* Pods-EnvidualFinance-Info.plist */,
-				557E9B44A87DD299B68C2BD08A171E3C /* Pods-EnvidualFinance-umbrella.h */,
-				12E3A944DB235D31216BB74CAADD1A65 /* Pods-EnvidualFinance.debug.xcconfig */,
-				E892973C6B47650795E6651F6044E4D3 /* Pods-EnvidualFinance.release.xcconfig */,
-			);
-			name = "Pods-EnvidualFinance";
-			path = "Target Support Files/Pods-EnvidualFinance";
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				FE89627157731FC58934384EA2A27E93 /* Development Pods */,
+				E600C8E52FA91AC8D20023127949373A /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				A4372ADBD55C81A024AE6844515D6886 /* Products */,
-				D3021BD370A75C36206AECECE5A80EE5 /* Targets Support Files */,
+				A0264E70030CE0A666F196DAC84F63BE /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,18 +156,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D3021BD370A75C36206AECECE5A80EE5 /* Targets Support Files */ = {
+		D9F966D0642E90BA04C486BDDE763C0C /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				CCFDE46C842DC2645505E1822A622ADC /* Pods-EnvidualFinance */,
+				3828DAD62230A2F8E4C81B427AFAAB93 /* shared.podspec */,
 			);
-			name = "Targets Support Files";
+			name = Pod;
 			sourceTree = "<group>";
 		};
-		FE89627157731FC58934384EA2A27E93 /* Development Pods */ = {
+		E600C8E52FA91AC8D20023127949373A /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				84C260DB779596C275D12A2BAEA1516C /* shared */,
+				4C110FFA6D4CEC87C9BAE6FD792E8B62 /* shared */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -285,69 +287,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1422B121EAEAEA11307496903FA623C6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
 		1B6539109B895CC1CB7F10EAED6F8747 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 368A44B8E949D0AC5C37D66CEBBB9910 /* shared.release.xcconfig */;
+			baseConfigurationReference = 4F6946CCAE6C0A0F720BC8FEF4CF774B /* shared.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -361,48 +303,10 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		4E030D5068A3A89CED6F3D4F05CD289F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12E3A944DB235D31216BB74CAADD1A65 /* Pods-EnvidualFinance.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		661EF0EB4B7C2A234D49D85BEA5D4EBC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 854F5AC814A30EB6BEBB82BAF390EE85 /* shared.debug.xcconfig */;
+			baseConfigurationReference = F8C83BB67D97609324BF20212865A12D /* shared.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -416,46 +320,7 @@
 			};
 			name = Debug;
 		};
-		94D6EEED2A757D10AE9566996605634B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E892973C6B47650795E6651F6044E4D3 /* Pods-EnvidualFinance.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		ED7888FA6713EABBF66D26A8003AD1CA /* Debug */ = {
+		939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -506,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -519,14 +384,151 @@
 			};
 			name = Debug;
 		};
+		ECB437504DF805BD96CAABF97400B526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		F56299230C71C64F881E139FD861A94B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE2921CD7825B1DEFCF9705B2F5E9F32 /* Pods-EnvidualFinance.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD90D0D807E9F89077B391BE6B70C224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBD70E127B9E1D9881484CDF1EB4DAC0 /* Pods-EnvidualFinance.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ED7888FA6713EABBF66D26A8003AD1CA /* Debug */,
-				1422B121EAEAEA11307496903FA623C6 /* Release */,
+				939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */,
+				ECB437504DF805BD96CAABF97400B526 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -534,8 +536,8 @@
 		AA114F4FC74418DA76837C640C04EFFC /* Build configuration list for PBXNativeTarget "Pods-EnvidualFinance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4E030D5068A3A89CED6F3D4F05CD289F /* Debug */,
-				94D6EEED2A757D10AE9566996605634B /* Release */,
+				F56299230C71C64F881E139FD861A94B /* Debug */,
+				FD90D0D807E9F89077B391BE6B70C224 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

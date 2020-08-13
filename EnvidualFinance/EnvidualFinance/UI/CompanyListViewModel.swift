@@ -12,10 +12,9 @@ import shared
 struct CompanyListViewModel {
     
     private(set) var companies: [CompanyData] = []
-//    private let getCompanyByTickerUseCase = GetCompanyByTickerUseCase()
+    private let getCompanyByTickerUseCase = GetCompanyByTickerUseCase()
     
     func getCompany(_ ticker: String) {
-//        getCompanyByTickerUseCase
     }
     
 }

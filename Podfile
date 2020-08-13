@@ -1,4 +1,4 @@
-platform :ios, '13.0'
+platform :ios, '13.2'
 workspace 'EnvidualFinance'
 use_frameworks!
 
@@ -6,6 +6,6 @@ use_frameworks!
 target 'EnvidualFinance' do
   	project 'EnvidualFinance/EnvidualFinance.xcodeproj'
 
-    pod 'shared', :path => '/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared'
+    pod 'shared', :path => '../../Envidual/Envidual-Finance-Touchlab/shared'
 
 end
