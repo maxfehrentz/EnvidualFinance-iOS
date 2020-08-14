@@ -16,13 +16,23 @@ class CompanyCell: UITableViewCell {
         }
     }
     
+//    var companyName: String? {
+//        didSet {
+//            setNeedsLayout()
+//        }
+//    }
+    
+//    private var stackView = UIStackView()
     private var tickerLabel = UILabel()
+//    private var companyNameLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addAllSubviews()
         layoutTickerLabel()
         configureTickerLabel()
+//        layoutCompanyNameLabel()
+//        configureCompanyNameLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -32,10 +42,12 @@ class CompanyCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         tickerLabel.text = ticker
+//        companyNameLabel.text = companyName
     }
     
     private func addAllSubviews() {
         contentView.addSubview(tickerLabel)
+//        contentView.addSubview(companyNameLabel)
     }
     
     private func layoutTickerLabel() {
@@ -51,6 +63,20 @@ class CompanyCell: UITableViewCell {
         tickerLabel.numberOfLines = 0
         tickerLabel.textAlignment = .center
     }
+    
+//    private func layoutCompanyNameLabel() {
+//        companyNameLabel.translatesAutoresizingMaskIntoConstraints = false
+//        companyNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+//        companyNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+//        companyNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+//        companyNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+//    }
+//
+//    private func configureCompanyNameLabel() {
+//        tickerLabel.adjustsFontSizeToFitWidth = true
+//        tickerLabel.numberOfLines = 0
+//        tickerLabel.textAlignment = .center
+//    }
 
 //    override func awakeFromNib() {
 //        super.awakeFromNib()

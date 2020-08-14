@@ -12,6 +12,7 @@
 		50448C6424E4122100082E07 /* Pods_EnvidualFinance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6BCF7A014CED505627E34DA /* Pods_EnvidualFinance.framework */; };
 		50448C6524E4122100082E07 /* Pods_EnvidualFinance.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6BCF7A014CED505627E34DA /* Pods_EnvidualFinance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50448C6824E413EF00082E07 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50448C6724E413EF00082E07 /* Koin.swift */; };
+		5085FC4324E52CB900CAD3CC /* CompanyListConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085FC4224E52CB900CAD3CC /* CompanyListConstants.swift */; };
 		508851DC24E3DD1000F577B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508851DB24E3DD1000F577B2 /* AppDelegate.swift */; };
 		508851DE24E3DD1000F577B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508851DD24E3DD1000F577B2 /* SceneDelegate.swift */; };
 		508851E324E3DD1000F577B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508851E124E3DD1000F577B2 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		50448C6024E3DE6900082E07 /* CompanyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListViewController.swift; sourceTree = "<group>"; };
 		50448C6224E3E2AD00082E07 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		50448C6724E413EF00082E07 /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
+		5085FC4224E52CB900CAD3CC /* CompanyListConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListConstants.swift; sourceTree = "<group>"; };
 		508851D824E3DD1000F577B2 /* EnvidualFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnvidualFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		508851DB24E3DD1000F577B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		508851DD24E3DD1000F577B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				50448C6024E3DE6900082E07 /* CompanyListViewController.swift */,
 				50448C6224E3E2AD00082E07 /* CompanyCell.swift */,
+				5085FC4224E52CB900CAD3CC /* CompanyListConstants.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -141,7 +144,7 @@
 				508851D524E3DD1000F577B2 /* Frameworks */,
 				508851D624E3DD1000F577B2 /* Resources */,
 				50448C6624E4122100082E07 /* Embed Frameworks */,
-				2B64808DF8AEFD9E84A9166B /* [CP] Embed Pods Frameworks */,
+				A4ADF0A6A3B61909DB68ABAC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -221,7 +224,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2B64808DF8AEFD9E84A9166B /* [CP] Embed Pods Frameworks */ = {
+		A4ADF0A6A3B61909DB68ABAC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50448C6824E413EF00082E07 /* Koin.swift in Sources */,
+				5085FC4324E52CB900CAD3CC /* CompanyListConstants.swift in Sources */,
 				50448C6324E3E2AD00082E07 /* CompanyCell.swift in Sources */,
 				50448C6124E3DE6900082E07 /* CompanyListViewController.swift in Sources */,
 				508851DC24E3DD1000F577B2 /* AppDelegate.swift in Sources */,

@@ -17,7 +17,6 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
     private var data = [CompanyData]()
     
 
-    // move to view model and work with delegate pattern?
     lazy var adapter: NativeViewModel = NativeViewModel(
         viewUpdate: { [weak self] company in
             self?.viewUpdate(for: company)
@@ -32,10 +31,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         setupNavigationBar()
         setupTableView()
         adapter.getCompanyByTicker(ticker: "AAPL")
-        adapter.getCompanyByTicker(ticker: "IBM")
         adapter.getCompanyByTicker(ticker: "AAPL")
-        adapter.getCompanyByTicker(ticker: "IBM")
-        adapter.getCompanyByTicker(ticker: "IBM")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -90,7 +86,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return CompanyListConstants.cellHeight
     }
 
 }
