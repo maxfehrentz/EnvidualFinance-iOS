@@ -77,5 +77,4 @@ xcuserdata
 #
 # We're using source-control, so this is a "feature" that we do not want!
 *.moved-aside
-# we don't want to share the podfile right now because it contains a path to a local file
-podfile
+
