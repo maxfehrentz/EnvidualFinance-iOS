@@ -30,8 +30,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         addAllSubviews()
         setupNavigationBar()
         setupTableView()
-        adapter.getCompanyByTicker(ticker: "AAPL")
-        adapter.getCompanyByTicker(ticker: "AAPL")
+        adapter.getCompaniesForExplore()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -39,8 +38,8 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         adapter.onDestroy()
     }
     
-    private func viewUpdate(for company: CompanyData) {
-        data.append(company)
+    private func viewUpdate(for companies: [CompanyData]) {
+        data += companies
         tableView.reloadData()
     }
     
