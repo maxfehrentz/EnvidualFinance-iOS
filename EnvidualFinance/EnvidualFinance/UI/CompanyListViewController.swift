@@ -9,12 +9,14 @@
 import Foundation
 import UIKit
 import shared
+import SnapKit
 
 
-class CompanyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CompanyListViewController: UIViewController {
     
     private let tableView = UITableView()
-    private var data = [CompanyData]()
+    private var companies = [CompanyData]()
+    private var activityIndicator = UIActivityIndicatorView()
     
 
     lazy var adapter: NativeViewModel = NativeViewModel(
@@ -28,19 +30,22 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         addAllSubviews()
+        layout()
         setupNavigationBar()
         setupTableView()
-        adapter.getCompaniesForExplore()
+        setupActivityIndicator()
+        activityIndicator.startAnimating()
+        adapter.startObservingFavorites()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    deinit {
         adapter.onDestroy()
     }
     
     private func viewUpdate(for companies: [CompanyData]) {
-        data += companies
+        self.companies = companies
         tableView.reloadData()
+        activityIndicator.stopAnimating()
     }
     
     private func errorUpdate(for errorMessage: String) {
@@ -51,113 +56,64 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
     
     private func addAllSubviews() {
         view.addSubview(tableView)
+        view.addSubview(activityIndicator)
+    }
+    
+    
+    private func layout() {
+        tableView.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+        activityIndicator.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.75)
+            make.width.equalTo(activityIndicator.snp.width)
+        }
+        
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "Companies"
-//        navigationController?.navigationBar.titleTextAttributes =
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+        navigationItem.title = "Favorites"
+        navigationController?.navigationBar.barTintColor = Constants.envidualBlue
+        let navigationTitleFont = UIFont.systemFont(ofSize: 29, weight: .light)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont, NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     private func setupTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        layoutTableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(CompanyCell.self, forCellReuseIdentifier: "CompanyCell")
     }
     
-    private func layoutTableView() {
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    private func setupActivityIndicator() {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = UIColor.black
     }
+    
+}
 
+
+extension CompanyListViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return companies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as! CompanyCell
-        cell.ticker = data[indexPath.row].ticker
+        cell.ticker = companies[indexPath.row].ticker
+        cell.name = companies[indexPath.row].name
+        cell.marketCapitalization = companies[indexPath.row].marketCapitalization as? Float
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CompanyListConstants.cellHeight
+        return Constants.cellHeight
     }
-
+    
 }
-
-
-//class BreedsViewController: UIViewController {
-//
-//    @IBOutlet weak var breedTableView: UITableView!
-//    var data: [Breed] = []
-//
-//    let log = koin.get(objCClass: Kermit.self, parameter: "ViewController") as! Kermit
-//
-//    lazy var adapter: NativeViewModel = NativeViewModel(
-//        viewUpdate: { [weak self] summary in
-//            self?.viewUpdate(for: summary)
-//        }, errorUpdate: { [weak self] errorMessage in
-//            self?.errorUpdate(for: errorMessage)
-//        }
-//    )
-//
-//    // MARK: View Lifecycle
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        breedTableView.dataSource = self
-//
-//        //We check for stalk data in this method
-//        adapter.getBreedsFromNetwork()
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        adapter.onDestroy()
-//    }
-//
-//    // MARK: BreedModel Closures
-//
-//    private func viewUpdate(for summary: ItemDataSummary) {
-//        log.d(withMessage: {"View updating with \(summary.allItems.count) breeds"})
-//        data = summary.allItems
-//        breedTableView.reloadData()
-//    }
-//
-//    private func errorUpdate(for errorMessage: String) {
-//        log.e(withMessage: {"Displaying error: \(errorMessage)"})
-//        let alertController = UIAlertController(title: "error", message: errorMessage, preferredStyle: .actionSheet)
-//        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-//        present(alertController, animated: true, completion: nil)
-//    }
-//
-//}
-//
-//// MARK: - UITableViewDataSource
-//extension BreedsViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return data.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "BreedCell", for: indexPath)
-//        if let breedCell = cell as? BreedCell {
-//            let breed = data[indexPath.row]
-//            breedCell.bind(breed)
-//            breedCell.delegate = self
-//        }
-//        return cell
-//    }
-//}
-//
-//// MARK: - BreedCellDelegate
-//extension BreedsViewController: BreedCellDelegate {
-//    func toggleFavorite(_ breed: Breed) {
-//        adapter.updateBreedFavorite(breed: breed)
-//    }
-//}

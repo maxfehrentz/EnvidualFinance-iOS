@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance-frameworks.sh
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${PODS_ROOT}/../../Envidual-Finance-Touchlab/shared/build/cocoapods/framework/shared.framework
 ${PODS_ROOT}/../../Envidual-Finance-Touchlab/shared/build/cocoapods/framework/shared.framework.dSYM
