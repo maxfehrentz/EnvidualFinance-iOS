@@ -16,6 +16,8 @@ class SearchViewController: UIViewController {
     private var tableView = UITableView()
     private var activityIndicator = UIActivityIndicatorView()
     private var previousSearches = [CompanyData]()
+    // displayedSearches is necessary to filter already exisiting searches by their ticker
+    private var displayedSearches = [CompanyData]()
     
     lazy var adapter: NativeViewModel = NativeViewModel(
         viewUpdate: { [weak self] company in
@@ -51,6 +53,7 @@ class SearchViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
         navigationItem.title = "Search"
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = Constants.envidualBlue
@@ -82,20 +85,23 @@ class SearchViewController: UIViewController {
         activityIndicator.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalToSuperview()
-            make.width.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.75)
+            make.height.equalTo(activityIndicator.snp.width)
         }
     }
     
     private func viewUpdate(for companies: [CompanyData]) {
         previousSearches = companies
+        displayedSearches = companies
+//        displayedSearches = previousSearches
         tableView.reloadData()
         activityIndicator.stopAnimating()
+        searchController.isActive = false
     }
     
     private func errorUpdate(for errorMessage: String) {
-        let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+        let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
         activityIndicator.stopAnimating()
         present(alertController, animated: true, completion: nil)
     }
@@ -105,10 +111,25 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let possibleTicker = searchBar.text {
+        // make the searchbar text uppercased to avoid problems
+        if let possibleTicker = searchBar.text?.uppercased() {
+            // check if a company with this ticker is already in the list; if it is, we don't want to start a new request
+            let companiesMappedToTickers = displayedSearches.map { company in
+                company.ticker
+            }
+            if companiesMappedToTickers.contains(possibleTicker) {
+                return
+            }
+            // if it is not in the list, we start a new request
             activityIndicator.startAnimating()
             adapter.getCompanyByTicker(ticker: possibleTicker)
         }
+    }
+    
+    // function restores the displayedSearches to show everything in the tableView
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        displayedSearches = previousSearches
+        tableView.reloadData()
     }
     
 }
@@ -116,14 +137,15 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return previousSearches.count
+        return displayedSearches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanySearchCell", for: indexPath) as! CompanySearchCell
         cell.delegate = self
-        cell.ticker = previousSearches[indexPath.row].ticker
-        cell.name = previousSearches[indexPath.row].name
+        cell.ticker = displayedSearches[indexPath.row].ticker
+        cell.name = displayedSearches[indexPath.row].name
+//        cell.isFavorite = displayedSearches[indexPath.row].checked
         return cell
     }
     
@@ -136,18 +158,20 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: SearchDelegate {
     
     func addCompanyToFavourites(forTicker ticker: String) {
-        for previousSearch in previousSearches {
-            if ticker == previousSearch.ticker {
-                adapter.addFavorite(company: previousSearch)
+        // find the CompanyData corresponding to the ticker of the cell and call the corresponding use case
+        for displayedSearch in displayedSearches {
+            if ticker == displayedSearch.ticker {
+                adapter.addFavorite(company: displayedSearch)
                 break
             }
         }
     }
     
     func removeCompanyFromFavourites(forTicker ticker: String) {
-        for previousSearch in previousSearches {
-            if ticker == previousSearch.ticker {
-                adapter.removeFavorite(company: previousSearch)
+        // find the CompanyData corresponding to the ticker of the cell and call the corresponding use case
+        for displayedSearch in displayedSearches {
+            if ticker == displayedSearch.ticker {
+                adapter.removeFavorite(company: displayedSearch)
                 break
             }
         }
@@ -155,88 +179,18 @@ extension SearchViewController: SearchDelegate {
     
 }
 
-//class CompanyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-//    
-//    private let tableView = UITableView()
-//    private var data = [CompanyData]()
-//    
-//
-//    lazy var adapter: NativeViewModel = NativeViewModel(
-//        viewUpdate: { [weak self] company in
-//            self?.viewUpdate(for: company)
-//        }, errorUpdate: { [weak self] errorMessage in
-//            self?.errorUpdate(for: errorMessage)
-//        }
-//    )
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        addAllSubviews()
-//        setupNavigationBar()
-//        setupTabBarItem()
-//        setupTableView()
-//        adapter.getCompaniesForExplore()
-//    }
-//    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        adapter.onDestroy()
-//    }
-//    
-//    private func viewUpdate(for companies: [CompanyData]) {
-//        data += companies
-//        tableView.reloadData()
-//    }
-//    
-//    private func errorUpdate(for errorMessage: String) {
-//        let alertController = UIAlertController(title: "error", message: errorMessage, preferredStyle: .actionSheet)
-//        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-//        present(alertController, animated: true, completion: nil)
-//    }
-//    
-//    private func addAllSubviews() {
-//        view.addSubview(tableView)
-//    }
-//    
-//    private func setupNavigationBar() {
-//        navigationItem.title = "Favorites"
-//        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
-//    }
-//    
-//    private func setupTabBarItem() {
-//        title = "Favourites"
-//    }
-//    
-//    private func setupTableView() {
-//        layoutTableView()
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//        tableView.register(CompanyCell.self, forCellReuseIdentifier: "CompanyCell")
-//    }
-//    
-//    private func layoutTableView() {
-//        tableView.translatesAutoresizingMaskIntoConstraints = false
-//        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return data.count
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as! CompanyCell
-//        cell.ticker = data[indexPath.row].ticker
-//        cell.name = data[indexPath.row].name
-//        return cell
-//    }
-//    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return CompanyListConstants.cellHeight
-//    }
-//
-//}
+extension SearchViewController: UISearchResultsUpdating {
+    
+    // filter the tableView by user input in the searchBar
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            displayedSearches = previousSearches.filter { company in
+                company.ticker!.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+        tableView.reloadData()
+    }
+    
+}
 
 

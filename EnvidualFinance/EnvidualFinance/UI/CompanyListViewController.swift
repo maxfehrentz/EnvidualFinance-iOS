@@ -71,7 +71,7 @@ class CompanyListViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.75)
-            make.width.equalTo(activityIndicator.snp.width)
+            make.height.equalTo(activityIndicator.snp.width)
         }
         
     }
