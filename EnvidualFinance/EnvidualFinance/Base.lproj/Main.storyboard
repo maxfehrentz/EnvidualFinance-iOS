@@ -18,10 +18,29 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="8SA-4A-vbu"/>
+                    <connections>
+                        <segue destination="qjq-WK-7Xe" kind="presentation" identifier="SegueToCompanyDetails" id="bLW-qd-NXz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104" y="376"/>
+            <point key="canvasLocation" x="-894" y="-491"/>
+        </scene>
+        <!--Company Detail View Controller-->
+        <scene sceneID="uST-7F-OK3">
+            <objects>
+                <viewController id="qjq-WK-7Xe" customClass="CompanyDetailViewController" customModule="EnvidualFinance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q4O-A5-FLO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="eaK-dR-DFC"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="A6P-Gg-up2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PzJ-sl-lcL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="649" y="-492"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="rz2-7i-XXB">
@@ -37,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUF-Oi-pHx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="965" y="-427"/>
+            <point key="canvasLocation" x="-894" y="688"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="J9v-WN-Khz">
@@ -55,7 +74,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8l-bx-AKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1578" y="-90"/>
+            <point key="canvasLocation" x="-4016" y="-84"/>
         </scene>
         <!--Item-->
         <scene sceneID="FMd-WC-jN9">
@@ -74,7 +93,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Szc-T0-anh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-481" y="376"/>
+            <point key="canvasLocation" x="-2603" y="-491"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="fdG-NS-C9I">
@@ -93,7 +112,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YHK-8Y-HLv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-168" y="-426"/>
+            <point key="canvasLocation" x="-2604" y="689"/>
         </scene>
     </scenes>
 </document>

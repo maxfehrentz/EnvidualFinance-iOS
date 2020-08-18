@@ -16,7 +16,8 @@ class CompanyListViewController: UIViewController {
     
     private let tableView = UITableView()
     private var companies = [CompanyData]()
-    private var activityIndicator = UIActivityIndicatorView()
+    private let activityIndicator = UIActivityIndicatorView()
+    private var companyForSegue: CompanyData?
     
 
     lazy var adapter: NativeViewModel = NativeViewModel(
@@ -125,6 +126,20 @@ extension CompanyListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == .delete) {
             adapter.removeFavorite(company: companies[indexPath.row])
+        }
+    }
+    
+    // preparation for segue
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        companyForSegue = companies[indexPath.row]
+        performSegue(withIdentifier: "SegueToCompanyDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SegueToCompanyDetails" {
+            if let viewController = segue.destination as? CompanyDetailViewController {
+                viewController.company = self.companyForSegue
+            }
         }
     }
 }
