@@ -145,7 +145,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         cell.ticker = displayedSearches[indexPath.row].ticker
         cell.name = displayedSearches[indexPath.row].name
-//        cell.isFavorite = displayedSearches[indexPath.row].checked
+        cell.isFavorite = displayedSearches[indexPath.row].checked as? Bool
         return cell
     }
     
