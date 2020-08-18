@@ -29,6 +29,12 @@ class CompanyCell: UITableViewCell {
         }
     }
     
+    var currency: String? {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
     private var tickerLabel = UILabel()
     
     private var companyNameLabel = UILabel()
@@ -52,8 +58,8 @@ class CompanyCell: UITableViewCell {
         super.layoutSubviews()
         tickerLabel.text = ticker
         companyNameLabel.text = name
-        if let value = marketCapitalization {
-            marketCapitalizationLabel.text = "\(value)"
+        if let value = marketCapitalization, let curr = currency {
+            marketCapitalizationLabel.text = "\(value) \(curr)"
         }
         else {
             marketCapitalizationLabel.text = ""

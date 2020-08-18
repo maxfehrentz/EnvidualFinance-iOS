@@ -109,6 +109,7 @@ extension CompanyListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.ticker = companies[indexPath.row].ticker
         cell.name = companies[indexPath.row].name
         cell.marketCapitalization = companies[indexPath.row].marketCapitalization as? Float
+        cell.currency = companies[indexPath.row].currency
         return cell
     }
     
@@ -116,4 +117,14 @@ extension CompanyListViewController: UITableViewDelegate, UITableViewDataSource 
         return Constants.cellHeight
     }
     
+    // handle deleting
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete) {
+            adapter.removeFavorite(company: companies[indexPath.row])
+        }
+    }
 }
