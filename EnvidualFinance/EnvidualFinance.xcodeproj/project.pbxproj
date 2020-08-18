@@ -16,7 +16,7 @@
 		5085FC4524E6B86400CAD3CC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085FC4424E6B86400CAD3CC /* SearchViewController.swift */; };
 		5085FC5024E6D14400CAD3CC /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085FC4F24E6D14400CAD3CC /* CustomTabBarController.swift */; };
 		5085FC5224E6D36700CAD3CC /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085FC5124E6D36700CAD3CC /* CompanyCell.swift */; };
-		5087B21524EA8FDC00892789 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B21424EA8FDC00892789 /* Delegate.swift */; };
+		5087B21524EA8FDC00892789 /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B21424EA8FDC00892789 /* SearchDelegate.swift */; };
 		508851DC24E3DD1000F577B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508851DB24E3DD1000F577B2 /* AppDelegate.swift */; };
 		508851DE24E3DD1000F577B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508851DD24E3DD1000F577B2 /* SceneDelegate.swift */; };
 		508851E324E3DD1000F577B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508851E124E3DD1000F577B2 /* Main.storyboard */; };
@@ -46,7 +46,7 @@
 		5085FC4424E6B86400CAD3CC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5085FC4F24E6D14400CAD3CC /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		5085FC5124E6D36700CAD3CC /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
-		5087B21424EA8FDC00892789 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		5087B21424EA8FDC00892789 /* SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
 		508851D824E3DD1000F577B2 /* EnvidualFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnvidualFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		508851DB24E3DD1000F577B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		508851DD24E3DD1000F577B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 				50448C6224E3E2AD00082E07 /* CompanySearchCell.swift */,
 				5085FC4224E52CB900CAD3CC /* Constants.swift */,
 				5085FC5124E6D36700CAD3CC /* CompanyCell.swift */,
-				5087B21424EA8FDC00892789 /* Delegate.swift */,
+				5087B21424EA8FDC00892789 /* SearchDelegate.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 			files = (
 				50448C6824E413EF00082E07 /* Koin.swift in Sources */,
 				5085FC4524E6B86400CAD3CC /* SearchViewController.swift in Sources */,
-				5087B21524EA8FDC00892789 /* Delegate.swift in Sources */,
+				5087B21524EA8FDC00892789 /* SearchDelegate.swift in Sources */,
 				5085FC5024E6D14400CAD3CC /* CustomTabBarController.swift in Sources */,
 				5085FC4324E52CB900CAD3CC /* Constants.swift in Sources */,
 				5085FC5224E6D36700CAD3CC /* CompanyCell.swift in Sources */,

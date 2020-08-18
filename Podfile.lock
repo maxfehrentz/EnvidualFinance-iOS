@@ -3,7 +3,7 @@ PODS:
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - shared (from `../Envidual-Finance-Touchlab/shared`)
+  - shared (from `/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared`)
   - SnapKit
 
 SPEC REPOS:
@@ -12,12 +12,12 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   shared:
-    :path: "../Envidual-Finance-Touchlab/shared"
+    :path: "/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared"
 
 SPEC CHECKSUMS:
   shared: eab97f234b6c99d9a9a0a79e76168a40e5cdafcd
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: e90ac2a945e460412b2c09d170c445a88796afbf
+PODFILE CHECKSUM: 85a2ed47897b145f602b4ec9bde363ea04088c5e
 
 COCOAPODS: 1.9.3

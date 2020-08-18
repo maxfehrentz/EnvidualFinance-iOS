@@ -9,7 +9,7 @@
 import Foundation
 import shared
 
-protocol Delegate {
+protocol SearchDelegate {
     func addCompanyToFavourites(forTicker ticker: String)
     func removeCompanyFromFavourites(forTicker ticker: String)
 }

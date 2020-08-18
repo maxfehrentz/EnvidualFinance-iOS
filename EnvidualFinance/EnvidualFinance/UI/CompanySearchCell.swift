@@ -23,7 +23,7 @@ class CompanySearchCell: UITableViewCell {
         }
     }
     
-    var delegate: Delegate?
+    var delegate: SearchDelegate?
     
     private var tickerLabel = UILabel()
     private var companyNameLabel = UILabel()

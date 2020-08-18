@@ -94,8 +94,9 @@ class SearchViewController: UIViewController {
     }
     
     private func errorUpdate(for errorMessage: String) {
-        let alertController = UIAlertController(title: "error", message: errorMessage, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+        activityIndicator.stopAnimating()
         present(alertController, animated: true, completion: nil)
     }
 
@@ -104,7 +105,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let possibleTicker = searchBar.text?.uppercased() {
+        if let possibleTicker = searchBar.text {
             activityIndicator.startAnimating()
             adapter.getCompanyByTicker(ticker: possibleTicker)
         }
@@ -132,7 +133,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension SearchViewController: Delegate {
+extension SearchViewController: SearchDelegate {
     
     func addCompanyToFavourites(forTicker ticker: String) {
         for previousSearch in previousSearches {

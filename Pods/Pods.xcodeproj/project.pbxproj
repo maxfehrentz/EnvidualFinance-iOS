@@ -93,18 +93,19 @@
 		250E41DBB680A3A2ECDDD2210311B230 /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
 		25479F58B67AA43E092C7B156C1B5C1B /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
 		2975CA5A0D26BC84F3EE9912FEBDA795 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Source/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
+		2DD2CB7329733FB36FF7D2C86B8847AC /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = build/cocoapods/framework/shared.framework; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3828DAD62230A2F8E4C81B427AFAAB93 /* shared.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = shared.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		368A44B8E949D0AC5C37D66CEBBB9910 /* shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.release.xcconfig; sourceTree = "<group>"; };
 		391A6F8B42D2CD885F8F3C4CE6859439 /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
 		3D705690D879064ED84970813189D8D4 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		464C01543F3BCEDEE51ABAA696513D0B /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Source/LayoutConstraintItem.swift; sourceTree = "<group>"; };
 		474AFC560A8B414B467174737DBC891A /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
 		47B200BD964F52F6693D4168248B8645 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintOffsetTarget.swift; path = Source/ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
 		4ADA892090E14CFED22E01F82133C9FB /* Pods-EnvidualFinance-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnvidualFinance-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4F6946CCAE6C0A0F720BC8FEF4CF774B /* shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.release.xcconfig; sourceTree = "<group>"; };
 		50380F281EC3EE769C85035CCEA77226 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Source/Constraint.swift; sourceTree = "<group>"; };
 		549471CD1FE3A1E1865DD172864918D3 /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		56006AA49A060CA2830F32CD6F394823 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Source/ConstraintViewDSL.swift; sourceTree = "<group>"; };
+		584929294FC3C5522299B144E9F1312A /* shared.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = shared.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		66C5188AE61F0E667CD9E7ED28CDD61C /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Source/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
 		6A9341666EAC154422A032092A7DC2D7 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		6D990E0FED5B41C1F13AC6B08208A99B /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		7AE00ECC24C5CC6DC938204FF42AD0E5 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Source/ConstraintDSL.swift; sourceTree = "<group>"; };
 		7C21E0C93A1141A1E2EB51575500E27D /* SnapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.debug.xcconfig; sourceTree = "<group>"; };
 		7C2EC377264B25FB0E67D150E37E87CD /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Source/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
+		854F5AC814A30EB6BEBB82BAF390EE85 /* shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.debug.xcconfig; sourceTree = "<group>"; };
 		91164BE769DA144776663FBF46785561 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsets.swift; path = Source/ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
 		91A53CAF547D71AEFABE49D91B4E6816 /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPriortizable.swift; path = Source/ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
 		9716AD15FADF38A93170E034F2BCE457 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
@@ -124,7 +126,6 @@
 		A6005F31B22ADF71E447509B6603AF02 /* Pods-EnvidualFinance-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnvidualFinance-frameworks.sh"; sourceTree = "<group>"; };
 		A6387E913DB2A999072260F3C81AF065 /* Pods_EnvidualFinance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnvidualFinance.framework; path = "Pods-EnvidualFinance.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D358AA1606C7B2CDC8555485807E9E /* ConstraintDirectionalInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsetTarget.swift; path = Source/ConstraintDirectionalInsetTarget.swift; sourceTree = "<group>"; };
-		B282B1D0A65938BCD7BD6F0F6565B486 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = build/cocoapods/framework/shared.framework; sourceTree = "<group>"; };
 		BE0BE9F3D55FDB29EF516F6D6B1B6BCA /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Source/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
 		C4A46A8054577838D49C60142EB88B13 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Source/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		CB1D9F6F4E2364DFAF158E04AF5D5EAA /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Source/ConstraintDescription.swift; sourceTree = "<group>"; };
@@ -140,7 +141,6 @@
 		F35B4A40F2D973A12169F744E5812604 /* Pods-EnvidualFinance-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnvidualFinance-dummy.m"; sourceTree = "<group>"; };
 		F44C5B72775F6AF0891BF331F32FE10D /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
 		F7AB9BB47A2175181386A432C07253AE /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
-		F8C83BB67D97609324BF20212865A12D /* shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.debug.xcconfig; sourceTree = "<group>"; };
 		FBD70E127B9E1D9881484CDF1EB4DAC0 /* Pods-EnvidualFinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnvidualFinance.release.xcconfig"; sourceTree = "<group>"; };
 		FE2921CD7825B1DEFCF9705B2F5E9F32 /* Pods-EnvidualFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnvidualFinance.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,23 +165,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		37C26B94E90FFAFFB95DA73AD6B23433 /* Frameworks */ = {
+		0BD0A2E647CF92C091E549CC5A6DB733 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				B282B1D0A65938BCD7BD6F0F6565B486 /* shared.framework */,
+				584929294FC3C5522299B144E9F1312A /* shared.podspec */,
 			);
-			name = Frameworks;
+			name = Pod;
 			sourceTree = "<group>";
 		};
-		4C110FFA6D4CEC87C9BAE6FD792E8B62 /* shared */ = {
+		32539F0505E7034F21AFF5D404111406 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				37C26B94E90FFAFFB95DA73AD6B23433 /* Frameworks */,
-				D9F966D0642E90BA04C486BDDE763C0C /* Pod */,
-				B827671D60C624C9873A1CFE06F84A8E /* Support Files */,
+				2DD2CB7329733FB36FF7D2C86B8847AC /* shared.framework */,
 			);
-			name = shared;
-			path = "../../Envidual-Finance-Touchlab/shared";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5419985FAB59C33A3B29B577A3B30AE9 /* Pods-EnvidualFinance */ = {
@@ -261,6 +258,17 @@
 			path = "../Target Support Files/SnapKit";
 			sourceTree = "<group>";
 		};
+		84C260DB779596C275D12A2BAEA1516C /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				32539F0505E7034F21AFF5D404111406 /* Frameworks */,
+				0BD0A2E647CF92C091E549CC5A6DB733 /* Pod */,
+				BABBE97489064746F47BA085A25A7891 /* Support Files */,
+			);
+			name = shared;
+			path = "/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared";
+			sourceTree = "<absolute>";
+		};
 		9D99668D022A152DACCE543BCD9CE828 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,22 +286,22 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		B827671D60C624C9873A1CFE06F84A8E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F8C83BB67D97609324BF20212865A12D /* shared.debug.xcconfig */,
-				4F6946CCAE6C0A0F720BC8FEF4CF774B /* shared.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../../EnvidualFinance-iOS/Pods/Target Support Files/shared";
-			sourceTree = "<group>";
-		};
 		BA22F08D059965C9A09F78196176CEDB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				7F02E3862C6E84203E8324D9D0088797 /* SnapKit */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BABBE97489064746F47BA085A25A7891 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				854F5AC814A30EB6BEBB82BAF390EE85 /* shared.debug.xcconfig */,
+				368A44B8E949D0AC5C37D66CEBBB9910 /* shared.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../EnvidualFinance-iOS/Pods/Target Support Files/shared";
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -308,7 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				E600C8E52FA91AC8D20023127949373A /* Development Pods */,
+				FE89627157731FC58934384EA2A27E93 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				BA22F08D059965C9A09F78196176CEDB /* Pods */,
 				9D99668D022A152DACCE543BCD9CE828 /* Products */,
@@ -324,18 +332,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D9F966D0642E90BA04C486BDDE763C0C /* Pod */ = {
+		FE89627157731FC58934384EA2A27E93 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3828DAD62230A2F8E4C81B427AFAAB93 /* shared.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		E600C8E52FA91AC8D20023127949373A /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4C110FFA6D4CEC87C9BAE6FD792E8B62 /* shared */,
+				84C260DB779596C275D12A2BAEA1516C /* shared */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -602,7 +602,7 @@
 		};
 		1B6539109B895CC1CB7F10EAED6F8747 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F6946CCAE6C0A0F720BC8FEF4CF774B /* shared.release.xcconfig */;
+			baseConfigurationReference = 368A44B8E949D0AC5C37D66CEBBB9910 /* shared.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -658,7 +658,7 @@
 		};
 		661EF0EB4B7C2A234D49D85BEA5D4EBC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8C83BB67D97609324BF20212865A12D /* shared.debug.xcconfig */;
+			baseConfigurationReference = 854F5AC814A30EB6BEBB82BAF390EE85 /* shared.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
