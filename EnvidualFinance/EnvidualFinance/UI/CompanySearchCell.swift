@@ -63,27 +63,30 @@ class CompanySearchCell: UITableViewCell {
     
     private func layout() {
         tickerLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.5)
-            make.height.equalToSuperview().multipliedBy(0.33)
+            make.width.equalToSuperview().multipliedBy(DesignConstants.half)
+            make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
         }
         companyNameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(tickerLabel.snp.bottom).offset(10)
+            make.top.equalTo(tickerLabel.snp.bottom)
+                .offset(DesignConstants.standardOffsetBetweenElements)
             make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
+            make.trailing.equalTo(likeButton.snp.leading)
+                .offset(DesignConstants.standardInsetFromEdges)
         }
         likeButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-20)
+            make.trailing.equalToSuperview().offset(-DesignConstants.standardInsetFromEdges)
         }
     }
     
     private func configureButton() {
-        likeButton.setImage(UIImage(systemName: "heart")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        likeButton.setImage(UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate), for: .selected)
-//        likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+        likeButton.setImage(UIImage(systemName: DesignConstants.sfSymbolNotLiked)?.withRenderingMode(.alwaysTemplate), for: .normal)
+        likeButton.setImage(UIImage(systemName: DesignConstants.sfSymbolLiked)?.withRenderingMode(.alwaysTemplate), for: .selected)
         likeButton.addTarget(self, action: #selector(self.likeButtonPressed), for: .touchUpInside)
-        likeButton.tintColor = Constants.pinkColor
+        likeButton.tintColor = DesignConstants.pinkColor
     }
     
     @objc private func likeButtonPressed(sender : UIButton) {
@@ -102,7 +105,7 @@ class CompanySearchCell: UITableViewCell {
         tickerLabel.adjustsFontSizeToFitWidth = true
         tickerLabel.numberOfLines = 0
         tickerLabel.textAlignment = .center
-        tickerLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        tickerLabel.font = DesignConstants.companySearchCellTickerFont
     }
     
     private func configureCompanyNameLabel() {
@@ -110,6 +113,7 @@ class CompanySearchCell: UITableViewCell {
         companyNameLabel.adjustsFontSizeToFitWidth = true
         companyNameLabel.numberOfLines = 0
         companyNameLabel.textAlignment = .center
+        companyNameLabel.font = DesignConstants.companySearchCellNameFont
     }
     
 

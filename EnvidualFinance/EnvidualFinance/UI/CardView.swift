@@ -11,18 +11,7 @@ import UIKit
 class CardView: UIView {
     
     var cornerRadius: CGFloat {
-        50
-    }
-    
-    var shadowColor: CGColor {
-        return UIColor.gray.cgColor
-    }
-    
-    var shadowOpacitiy: Float {
-        10
-    }
-    var shadowOffset: CGSize {
-        CGSize(width: 10, height: 10)
+        DesignConstants.cardViewCornerRadius
     }
     
     var color: UIColor {

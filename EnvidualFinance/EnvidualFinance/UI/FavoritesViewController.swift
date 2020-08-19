@@ -12,7 +12,7 @@ import shared
 import SnapKit
 
 
-class CompanyListViewController: UIViewController {
+class FavoritesViewController: UIViewController {
     
     private let tableView = UITableView()
     private var companies = [CompanyData]()
@@ -71,7 +71,7 @@ class CompanyListViewController: UIViewController {
         activityIndicator.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.75)
+            make.width.equalToSuperview().multipliedBy(DesignConstants.activityIndicatorWidthAndHeightToSuperview)
             make.height.equalTo(activityIndicator.snp.width)
         }
         
@@ -79,7 +79,7 @@ class CompanyListViewController: UIViewController {
     
     private func setupNavigationBar() {
         navigationItem.title = "Favorites"
-        navigationController?.navigationBar.barTintColor = Constants.envidualBlue
+        navigationController?.navigationBar.barTintColor = DesignConstants.navConBlue
         let navigationTitleFont = UIFont.systemFont(ofSize: 29, weight: .light)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont, NSAttributedString.Key.foregroundColor: UIColor.white]
     }
@@ -93,13 +93,13 @@ class CompanyListViewController: UIViewController {
     
     private func setupActivityIndicator() {
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.color = UIColor.black
+        activityIndicator.color = DesignConstants.activityIndicatorColor
     }
     
 }
 
 
-extension CompanyListViewController: UITableViewDelegate, UITableViewDataSource {
+extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return companies.count
@@ -115,7 +115,11 @@ extension CompanyListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.cellHeight
+        return DesignConstants.cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     
     // handle deleting

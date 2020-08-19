@@ -26,23 +26,13 @@ class CompanyDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGradientBackground(colorTop: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), colorBottom: Constants.envidualBlue)
+        DesignConstants.setGradientBackground(for: view, colorTop: DesignConstants.standardPurple, colorBottom: DesignConstants.pinkColor)
         addAllSubviews()
         layout()
         configureLogo()
         configureCardView()
         configureLabels()
         // Do any additional setup after loading the view.
-    }
-    
-    func setGradientBackground(colorTop: UIColor, colorBottom: UIColor){
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.locations = [NSNumber(floatLiteral: 0.0), NSNumber(floatLiteral: 1.0)]
-        gradientLayer.frame = view.bounds
-        view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     private func addAllSubviews() {
@@ -58,70 +48,67 @@ class CompanyDetailViewController: UIViewController {
     
     private func layout() {
         nameLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(80)
-            make.left.right.equalToSuperview().inset(5)
-            make.height.equalToSuperview().multipliedBy(0.2)
+            make.top.equalToSuperview().offset(DesignConstants.detailVcNameLabelOffsetFromTop)
+            make.left.right.equalToSuperview().inset(DesignConstants.minInsetFromEdges)
+            make.height.equalToSuperview().multipliedBy(DesignConstants.flatLabelHeightToSuperview)
         }
-        logo.snp.makeConstraints { (make) in
-            make.top.equalTo(nameLabel.snp.bottom).offset(30)
+        logo.snp.makeConstraints { (make) in make.top.equalTo(nameLabel.snp.bottom).offset(DesignConstants.detailVcOffsetBetweenLargeElements)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.5)
+            make.width.equalToSuperview().multipliedBy(DesignConstants.half)
             make.height.equalTo(logo.snp.width)
         }
         cardView.snp.makeConstraints { (make) in
-            make.top.equalTo(logo.snp.bottom).offset(30)
+            make.top.equalTo(logo.snp.bottom)
+            .offset(DesignConstants.detailVcOffsetBetweenLargeElements)
             make.left.right.bottom.equalToSuperview()
         }
         tickerLabel.snp.makeConstraints { (make) in
             make.top.leading.equalToSuperview()
             make.trailing.equalTo(cardView.snp.centerX)
-            make.height.equalToSuperview().multipliedBy(0.33333)
+            make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
         }
         countryLabel.snp.makeConstraints { (make) in
             make.top.equalTo(tickerLabel.snp.bottom)
             make.leading.equalToSuperview()
             make.trailing.equalTo(cardView.snp.centerX)
-            make.height.equalToSuperview().multipliedBy(0.33333)
+            make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
         }
         valueLabel.snp.makeConstraints { (make) in
             make.top.equalTo(countryLabel.snp.bottom)
             make.leading.equalToSuperview()
             make.trailing.equalTo(cardView.snp.centerX)
-            make.height.equalToSuperview().multipliedBy(0.33333)
+            make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
         }
         industryLabel.snp.makeConstraints { (make) in
             make.top.trailing.equalToSuperview()
             make.leading.equalTo(cardView.snp.centerX)
-            make.bottom.equalTo(cardView.snp.centerY)
+            make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
         }
         ipoLabel.snp.makeConstraints { (make) in
             make.trailing.equalToSuperview()
             make.top.equalTo(industryLabel.snp.bottom)
             make.leading.equalTo(cardView.snp.centerX)
-            make.bottom.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
         }
     }
     
     private func configureLogo() {
         logo.kf.setImage(with: URL(string: company.logo!))
-        logo.layer.cornerRadius = 30
+        logo.layer.cornerRadius = DesignConstants.logoCornerRadius
         logo.layer.masksToBounds = true
     }
     
     private func configureCardView() {
         cardView.backgroundColor = cardView.color
         cardView.layer.cornerRadius = cardView.cornerRadius
-        cardView.layer.shadowOffset = cardView.shadowOffset
-        cardView.layer.shadowColor = cardView.shadowColor
-        cardView.layer.shadowOpacity = cardView.shadowOpacitiy
     }
     
     private func configureLabels() {
         nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.numberOfLines = 0
         nameLabel.textAlignment = .center
-        let nameLabelFont = UIFont.systemFont(ofSize: 40, weight: .heavy)
-        let attributes = [NSAttributedString.Key.font : nameLabelFont, NSAttributedString.Key.foregroundColor : UIColor.white]
+        let nameLabelFont = DesignConstants.detailVcNameFont
+        let attributes = [NSAttributedString.Key.font : nameLabelFont, NSAttributedString.Key.foregroundColor : DesignConstants.detailVcNameFontColor]
         let attributedString = NSAttributedString(string: company.name ?? "", attributes: attributes)
         nameLabel.attributedText = attributedString
 
@@ -171,7 +158,7 @@ class CompanyDetailViewController: UIViewController {
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 25, weight: .light)
+        label.font = DesignConstants.detailVcCardViewLabelsFont
     }
     
 

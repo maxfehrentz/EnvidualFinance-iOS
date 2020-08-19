@@ -56,7 +56,7 @@ class SearchViewController: UIViewController {
         searchController.searchResultsUpdater = self
         navigationItem.title = "Search"
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = Constants.envidualBlue
+        appearance.backgroundColor = DesignConstants.navConBlue
         let navigationTitleFont = UIFont.systemFont(ofSize: 29, weight: .light)
         appearance.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont, NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.standardAppearance = appearance
@@ -85,7 +85,7 @@ class SearchViewController: UIViewController {
         activityIndicator.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.75)
+        make.width.equalToSuperview().multipliedBy(DesignConstants.activityIndicatorWidthAndHeightToSuperview)
             make.height.equalTo(activityIndicator.snp.width)
         }
     }
@@ -93,9 +93,9 @@ class SearchViewController: UIViewController {
     private func viewUpdate(for companies: [CompanyData]) {
         previousSearches = companies
         displayedSearches = companies
-//        displayedSearches = previousSearches
         tableView.reloadData()
         activityIndicator.stopAnimating()
+        // makes search bar collaps to indicate that something has been found
         searchController.isActive = false
     }
     
@@ -150,7 +150,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.cellHeight
+        return DesignConstants.cellHeight
     }
     
 }

@@ -9,10 +9,6 @@
 import UIKit
 
 class CustomTabBarController: UITabBarController {
-    
-    // sf symbols used from left to right as Strings
-    let sfSymbols = ["suit.heart", "magnifyingglass"]
-    let tabNames = ["Favorites", "Search"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +19,15 @@ class CustomTabBarController: UITabBarController {
     private func setupItems() {
         if let items = self.tabBar.items {
             for (index, item) in items.enumerated() {
-                item.image = UIImage(systemName: sfSymbols[index])
-                item.title = tabNames[index]
+                item.image = UIImage(systemName: DesignConstants.sfSymbolsTabBar[index])
+                item.title = DesignConstants.tabNames[index]
             }
         }
     }
     
     private func setColor() {
-        tabBar.barTintColor = Constants.envidualBlue
-        tabBar.tintColor = Constants.pinkColor
+        tabBar.barTintColor = DesignConstants.navConBlue
+        tabBar.tintColor = DesignConstants.pinkColor
     }
     
 

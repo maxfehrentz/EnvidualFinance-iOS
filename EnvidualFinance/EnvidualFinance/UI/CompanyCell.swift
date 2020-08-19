@@ -74,22 +74,21 @@ class CompanyCell: UITableViewCell {
 
     private func layout() {
         companyNameLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.5)
-            make.height.equalToSuperview().multipliedBy(0.3)
+            make.top.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
+            make.leading.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
+            make.trailing.equalToSuperview().offset(-DesignConstants.standardInsetFromEdges)
+            make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
         }
         tickerLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(companyNameLabel).offset(10)
-            make.bottom.equalToSuperview().offset(20)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalTo(companyNameLabel.snp.centerX).offset(-Constants.companyCellOLabelOffset)
+            make.top.equalTo(companyNameLabel).offset(DesignConstants.standardOffsetBetweenElements)
+            make.leading.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
+            make.bottom.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
+            make.right.equalTo(companyNameLabel.snp.centerX)
         }
         marketCapitalizationLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(companyNameLabel).offset(10)
-            make.bottom.equalToSuperview().offset(20)
-            make.right.equalToSuperview().offset(-10)
-            make.left.equalTo(companyNameLabel.snp.centerX).offset(Constants.companyCellOLabelOffset)
+            make.top.equalTo(companyNameLabel).offset(DesignConstants.standardOffsetBetweenElements)
+            make.bottom.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
+            make.right.equalToSuperview().offset(-DesignConstants.standardInsetFromEdges)
         }
     }
     
@@ -97,15 +96,15 @@ class CompanyCell: UITableViewCell {
         tickerLabel.translatesAutoresizingMaskIntoConstraints = false
         tickerLabel.adjustsFontSizeToFitWidth = true
         tickerLabel.numberOfLines = 0
-        tickerLabel.textAlignment = .center
+        tickerLabel.textAlignment = .left
     }
      
     private func configureCompanyNameLabel() {
         companyNameLabel.translatesAutoresizingMaskIntoConstraints = false
         companyNameLabel.adjustsFontSizeToFitWidth = true
         companyNameLabel.numberOfLines = 0
-        companyNameLabel.textAlignment = .center
-        companyNameLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        companyNameLabel.textAlignment = .left
+        companyNameLabel.font = DesignConstants.companyCellNameFont
     }
     
     private func configureMarketCapitalizationLabel() {
@@ -113,7 +112,7 @@ class CompanyCell: UITableViewCell {
         marketCapitalizationLabel.adjustsFontSizeToFitWidth = true
         marketCapitalizationLabel.numberOfLines = 0
         marketCapitalizationLabel.textAlignment = .center
-        marketCapitalizationLabel.textColor = UIColor.green
+        marketCapitalizationLabel.textColor = DesignConstants.marketCapitalizationLabelFontColor
     }
 
 //    override func awakeFromNib() {
