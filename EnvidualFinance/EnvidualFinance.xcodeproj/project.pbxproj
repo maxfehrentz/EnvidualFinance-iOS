@@ -18,6 +18,7 @@
 		5085FC5224E6D36700CAD3CC /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085FC5124E6D36700CAD3CC /* CompanyCell.swift */; };
 		5087B21524EA8FDC00892789 /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B21424EA8FDC00892789 /* SearchDelegate.swift */; };
 		5087B21724EC12D700892789 /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B21624EC12D700892789 /* CompanyDetailViewController.swift */; };
+		5087B21924EC369000892789 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B21824EC369000892789 /* CardView.swift */; };
 		508851DC24E3DD1000F577B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508851DB24E3DD1000F577B2 /* AppDelegate.swift */; };
 		508851DE24E3DD1000F577B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508851DD24E3DD1000F577B2 /* SceneDelegate.swift */; };
 		508851E324E3DD1000F577B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508851E124E3DD1000F577B2 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		5085FC5124E6D36700CAD3CC /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		5087B21424EA8FDC00892789 /* SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
 		5087B21624EC12D700892789 /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
+		5087B21824EC369000892789 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		508851D824E3DD1000F577B2 /* EnvidualFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnvidualFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		508851DB24E3DD1000F577B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		508851DD24E3DD1000F577B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				50448C6024E3DE6900082E07 /* CompanyListViewController.swift */,
 				5085FC4424E6B86400CAD3CC /* SearchViewController.swift */,
 				5087B21624EC12D700892789 /* CompanyDetailViewController.swift */,
+				5087B21824EC369000892789 /* CardView.swift */,
 				50448C6224E3E2AD00082E07 /* CompanySearchCell.swift */,
 				5085FC4224E52CB900CAD3CC /* Constants.swift */,
 				5085FC5124E6D36700CAD3CC /* CompanyCell.swift */,
@@ -273,6 +276,7 @@
 				50448C6124E3DE6900082E07 /* CompanyListViewController.swift in Sources */,
 				5087B21724EC12D700892789 /* CompanyDetailViewController.swift in Sources */,
 				508851DC24E3DD1000F577B2 /* AppDelegate.swift in Sources */,
+				5087B21924EC369000892789 /* CardView.swift in Sources */,
 				508851DE24E3DD1000F577B2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
