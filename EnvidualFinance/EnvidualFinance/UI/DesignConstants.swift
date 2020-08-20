@@ -40,7 +40,11 @@ struct DesignConstants {
     static let companySearchCellNameFont = UIFont.systemFont(ofSize: 25, weight: .ultraLight)
     static let companyCellNameFont = UIFont.systemFont(ofSize: 39, weight: .light)
     static let marketCapitalizationLabelFontColor = UIColor.green
-    
+    static let borderColorForCompanyCell = UIColor.black.cgColor
+    static let borderWidthForCompanyCell: CGFloat = 0.5
+    static let cornerRadiusForCompanyCell: CGFloat = 20
+    static let spacingBetweenCompanyCells: CGFloat = 30
+    static let insetFromLeftAndRightForCompanyCells: CGFloat = 30
     
     static func setGradientBackground(for view: UIView, colorTop: UIColor, colorBottom: UIColor){
         let gradientLayer = CAGradientLayer()

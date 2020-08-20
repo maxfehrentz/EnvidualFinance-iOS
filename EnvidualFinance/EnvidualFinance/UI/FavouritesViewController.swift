@@ -63,15 +63,13 @@ class FavouritesViewController: UIViewController {
     
     private func layout() {
         tableView.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.height.equalToSuperview()
-            make.width.equalToSuperview()
+            make.top.bottom.leading.trailing.equalToSuperview()
         }
         activityIndicator.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(DesignConstants.activityIndicatorWidthAndHeightToSuperview)
+            make.width.equalToSuperview()
+                .multipliedBy(DesignConstants.activityIndicatorWidthAndHeightToSuperview)
             make.height.equalTo(activityIndicator.snp.width)
         }
         
@@ -101,41 +99,70 @@ class FavouritesViewController: UIViewController {
 
 extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return companies.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as! CompanyCell
-        cell.ticker = companies[indexPath.row].ticker
-        cell.name = companies[indexPath.row].name
-        cell.marketCapitalization = companies[indexPath.row].marketCapitalization as? Float
-        cell.currency = companies[indexPath.row].currency
+        let model = companies[indexPath.section]
+        cell.tickerLabel.text = model.ticker
+        cell.companyNameLabel.text = model.name
+        if let value = model.marketCapitalization, let curr = model.currency {
+            cell.marketCapitalizationLabel.text = "\(value) \(curr)"
+        }
+        else {
+            cell.marketCapitalizationLabel.text = ""
+        }
         return cell
     }
-    
+        
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return DesignConstants.cellHeight
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
+    // configure cells to look like small cards
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        DesignConstants.spacingBetweenCompanyCells
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        // only the last section gets a footer so that there is space to the TabBar at the bottom
+        if(section == companies.count - 1) {
+            return DesignConstants.spacingBetweenCompanyCells
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = UIColor.clear
+        return footerView
     }
     
     // handle deleting
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditSection indexPath: IndexPath) -> Bool {
         true
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == .delete) {
-            adapter.removeFavourite(company: companies[indexPath.row])
+            adapter.removeFavourite(company: companies[indexPath.section])
         }
     }
     
     // preparation for segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        companyForSegue = companies[indexPath.row]
+        companyForSegue = companies[indexPath.section]
         performSegue(withIdentifier: "SegueToCompanyDetails", sender: self)
     }
     

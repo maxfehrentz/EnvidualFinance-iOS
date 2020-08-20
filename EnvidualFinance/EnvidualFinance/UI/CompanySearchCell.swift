@@ -11,34 +11,17 @@ import SnapKit
 
 class CompanySearchCell: UITableViewCell {
     
-    var ticker: String? {
-        didSet {
-            setNeedsLayout()
-        }
-    }
-    
-    var name: String? {
-        didSet {
-            setNeedsLayout()
-        }
-    }
-    
-    var isFavourite: Bool? {
-        didSet {
-            setNeedsLayout()
-        }
-    }
-    
     var delegate: SearchDelegate?
     
-    private var tickerLabel = UILabel()
-    private var companyNameLabel = UILabel()
-    private var likeButton = UIButton()
+    let tickerLabel = UILabel()
+    let companyNameLabel = UILabel()
+    let likeButton = UIButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addAllSubviews()
         layout()
+        configureCellAppearance()
         configureButton()
         configureTickerLabel()
         configureCompanyNameLabel()
@@ -46,13 +29,6 @@ class CompanySearchCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        tickerLabel.text = ticker
-        companyNameLabel.text = name
-        likeButton.isSelected = isFavourite ?? false
     }
     
     private func addAllSubviews() {
@@ -82,6 +58,10 @@ class CompanySearchCell: UITableViewCell {
         }
     }
     
+    private func configureCellAppearance() {
+        selectionStyle = .none
+    }
+    
     private func configureButton() {
         likeButton.setImage(UIImage(systemName: DesignConstants.sfSymbolNotLiked)?.withRenderingMode(.alwaysTemplate), for: .normal)
         likeButton.setImage(UIImage(systemName: DesignConstants.sfSymbolLiked)?.withRenderingMode(.alwaysTemplate), for: .selected)
@@ -92,10 +72,10 @@ class CompanySearchCell: UITableViewCell {
     @objc private func likeButtonPressed(sender : UIButton) {
         if !sender.isSelected {
             // the ticker should never be null; if it is though we want the app to crash
-            delegate?.addCompanyToFavourites(forTicker: ticker!)
+            delegate?.addCompanyToFavourites(forTicker: tickerLabel.text!)
         }
         else {
-            delegate?.removeCompanyFromFavourites(forTicker: ticker!)
+            delegate?.removeCompanyFromFavourites(forTicker: tickerLabel.text!)
         }
         sender.isSelected = !sender.isSelected
     }

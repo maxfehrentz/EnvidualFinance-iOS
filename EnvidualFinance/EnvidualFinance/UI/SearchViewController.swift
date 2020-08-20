@@ -145,9 +145,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanySearchCell", for: indexPath) as! CompanySearchCell
         cell.delegate = self
-        cell.ticker = displayedSearches[indexPath.row].ticker
-        cell.name = displayedSearches[indexPath.row].name
-        cell.isFavourite = displayedSearches[indexPath.row].isFavourite as? Bool
+        let model = displayedSearches[indexPath.row]
+        cell.tickerLabel.text = model.ticker
+        cell.companyNameLabel.text = model.name
+        cell.likeButton.isSelected = (model.isFavourite as? Bool) ?? false
         return cell
     }
     

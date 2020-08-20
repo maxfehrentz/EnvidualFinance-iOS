@@ -11,40 +11,16 @@ import SnapKit
 
 class CompanyCell: UITableViewCell {
     
-    var ticker: String? {
-        didSet {
-            setNeedsLayout()
-        }
-    }
-    
-    var name: String? {
-        didSet {
-            setNeedsLayout()
-        }
-    }
-    
-    var marketCapitalization: Float? {
-        didSet {
-            setNeedsLayout()
-        }
-    }
-    
-    var currency: String? {
-        didSet {
-            setNeedsLayout()
-        }
-    }
-    
-    private var tickerLabel = UILabel()
-    
-    private var companyNameLabel = UILabel()
-    
-    private var marketCapitalizationLabel = UILabel()
+    private let containerView = UIView()
+    let tickerLabel = UILabel()
+    let companyNameLabel = UILabel()
+    let marketCapitalizationLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addAllSubviews()
         layout()
+        configureCellAppearance()
         configureTickerLabel()
         configureCompanyNameLabel()
         configureMarketCapitalizationLabel()
@@ -54,25 +30,19 @@ class CompanyCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        tickerLabel.text = ticker
-        companyNameLabel.text = name
-        if let value = marketCapitalization, let curr = currency {
-            marketCapitalizationLabel.text = "\(value) \(curr)"
-        }
-        else {
-            marketCapitalizationLabel.text = ""
-        }
-    }
-    
     private func addAllSubviews() {
-        contentView.addSubview(companyNameLabel)
-        contentView.addSubview(tickerLabel)
-        contentView.addSubview(marketCapitalizationLabel)
+        contentView.addSubview(containerView)
+        containerView.addSubview(companyNameLabel)
+        containerView.addSubview(tickerLabel)
+        containerView.addSubview(marketCapitalizationLabel)
     }
 
     private func layout() {
+        containerView.snp.makeConstraints { (make) in
+            make.top.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+                .inset(DesignConstants.insetFromLeftAndRightForCompanyCells)
+        }
         companyNameLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
             make.leading.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
@@ -92,6 +62,15 @@ class CompanyCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
             make.right.equalToSuperview().offset(-DesignConstants.standardInsetFromEdges)
         }
+    }
+    
+    private func configureCellAppearance() {
+        // we do not want selected cells to be highlighted
+        selectionStyle = .none
+        // make cells round
+        containerView.layer.borderColor = DesignConstants.borderColorForCompanyCell
+        containerView.layer.borderWidth = DesignConstants.borderWidthForCompanyCell
+        containerView.layer.cornerRadius = DesignConstants.cornerRadiusForCompanyCell
     }
     
     private func configureTickerLabel() {
@@ -116,7 +95,7 @@ class CompanyCell: UITableViewCell {
         marketCapitalizationLabel.textAlignment = .center
         marketCapitalizationLabel.textColor = DesignConstants.marketCapitalizationLabelFontColor
     }
-
+    
 //    override func awakeFromNib() {
 //        super.awakeFromNib()
 //        // Initialization code
