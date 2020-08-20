@@ -92,7 +92,9 @@ class SearchViewController: UIViewController {
     
     private func viewUpdate(for companies: [CompanyData]) {
         previousSearches = companies
-        displayedSearches = companies
+        // reverse the searches to show latest first
+        previousSearches.reverse()
+        displayedSearches = previousSearches
         tableView.reloadData()
         activityIndicator.stopAnimating()
         // makes search bar collaps to indicate that something has been found
@@ -145,7 +147,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         cell.ticker = displayedSearches[indexPath.row].ticker
         cell.name = displayedSearches[indexPath.row].name
-        cell.isFavorite = displayedSearches[indexPath.row].checked as? Bool
+        cell.isFavorite = displayedSearches[indexPath.row].isFavourite as? Bool
         return cell
     }
     

@@ -174,10 +174,9 @@
 		2174E45FE869C50271E442D43E0F8535 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Sources/Networking/SessionDelegate.swift; sourceTree = "<group>"; };
 		23D64F0024CCF623672021F3973540E7 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Source/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
 		2D7C93EC8AE12D57E8BD5A8EA3153F16 /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Source/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
-		2DD2CB7329733FB36FF7D2C86B8847AC /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = build/cocoapods/framework/shared.framework; sourceTree = "<group>"; };
 		32409366EC37F2DDAEBFCCF0A7A178AF /* KingfisherError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherError.swift; path = Sources/General/KingfisherError.swift; sourceTree = "<group>"; };
-		368A44B8E949D0AC5C37D66CEBBB9910 /* shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.release.xcconfig; sourceTree = "<group>"; };
 		3774BEFB9EC985A152A150C2A6AE2EE6 /* SizeExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SizeExtensions.swift; path = Sources/Utility/SizeExtensions.swift; sourceTree = "<group>"; };
+		3828DAD62230A2F8E4C81B427AFAAB93 /* shared.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = shared.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		384D0116B658CAD84DE16124C993639B /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Views/Indicator.swift; sourceTree = "<group>"; };
 		391D345FD028B4926035E133588BAD58 /* Runtime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Runtime.swift; path = Sources/Utility/Runtime.swift; sourceTree = "<group>"; };
 		399BBBF8FEB90839843EC858B5E6449E /* Source.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Source.swift; path = Sources/General/ImageSource/Source.swift; sourceTree = "<group>"; };
@@ -194,11 +193,11 @@
 		4ADA892090E14CFED22E01F82133C9FB /* Pods-EnvidualFinance-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnvidualFinance-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4B3F969FB9A753956C0E3DA5A886FBED /* Kingfisher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.release.xcconfig; sourceTree = "<group>"; };
 		4B5F66DFC8DBE50049D90B46ED29A9B6 /* FormatIndicatedCacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormatIndicatedCacheSerializer.swift; path = Sources/Cache/FormatIndicatedCacheSerializer.swift; sourceTree = "<group>"; };
+		4F6946CCAE6C0A0F720BC8FEF4CF774B /* shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.release.xcconfig; sourceTree = "<group>"; };
 		4FF8C117917697A52EE589751CA4C178 /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
 		519C363C3429BE82E8490EC70A96099E /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Source/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
 		55043E595EF71EE0ED0C8AD9747B4D5E /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		569D9978D1B6D0FEF046A001E0C8F79E /* AuthenticationChallengeResponsable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticationChallengeResponsable.swift; path = Sources/Networking/AuthenticationChallengeResponsable.swift; sourceTree = "<group>"; };
-		584929294FC3C5522299B144E9F1312A /* shared.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = shared.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		588DC0DC9410D6DF7272682449BDABA0 /* ImageDataProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDataProcessor.swift; path = Sources/Networking/ImageDataProcessor.swift; sourceTree = "<group>"; };
 		5D977A6F9C796F74B7850D3697FEE880 /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Utility/Box.swift; sourceTree = "<group>"; };
 		5EE9A296F5A6E1460FEFC1F132838C56 /* ImageDownloaderDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloaderDelegate.swift; path = Sources/Networking/ImageDownloaderDelegate.swift; sourceTree = "<group>"; };
@@ -217,7 +216,6 @@
 		7C72AD68E3C7EB80041B5E6FFD0A4337 /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/Cache/CacheSerializer.swift; sourceTree = "<group>"; };
 		8013C121286B697A34AC2F593C4EFF7B /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/General/ImageSource/Resource.swift; sourceTree = "<group>"; };
 		83AD4B150B3CD1810236A455B662963A /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/General/KingfisherManager.swift; sourceTree = "<group>"; };
-		854F5AC814A30EB6BEBB82BAF390EE85 /* shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.debug.xcconfig; sourceTree = "<group>"; };
 		8C5158EA8C1BEE68F5B0B0AAB6309893 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Source/ConstraintDSL.swift; sourceTree = "<group>"; };
 		8D3BF06BD92238CB43628415C234BF25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		90C446B99C1FF5096F79D11F39D41D99 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
@@ -237,6 +235,7 @@
 		A9BC985A5FA1910B6C80DF4A03D942A4 /* Placeholder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Placeholder.swift; path = Sources/Image/Placeholder.swift; sourceTree = "<group>"; };
 		AB4C89E75FE201881592DE0B0BC4E96B /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		ACC3DB60899F368ED991976367511C4C /* ImageProgressive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProgressive.swift; path = Sources/Image/ImageProgressive.swift; sourceTree = "<group>"; };
+		B282B1D0A65938BCD7BD6F0F6565B486 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = build/cocoapods/framework/shared.framework; sourceTree = "<group>"; };
 		B3377DA9A4369D80C654DC13CEBA1073 /* SnapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.release.xcconfig; sourceTree = "<group>"; };
 		B50BD1158B9DEB3D25CC8A5E1338CF40 /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
 		B836570F725C5B90186520791AE96392 /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
@@ -263,6 +262,7 @@
 		F35B4A40F2D973A12169F744E5812604 /* Pods-EnvidualFinance-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnvidualFinance-dummy.m"; sourceTree = "<group>"; };
 		F4B0649B5D0D3A485A5157833D8BBF48 /* Delegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Delegate.swift; path = Sources/Utility/Delegate.swift; sourceTree = "<group>"; };
 		F8840D91B96E814B35BBCAA1A6183D42 /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
+		F8C83BB67D97609324BF20212865A12D /* shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.debug.xcconfig; sourceTree = "<group>"; };
 		FBD70E127B9E1D9881484CDF1EB4DAC0 /* Pods-EnvidualFinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnvidualFinance.release.xcconfig"; sourceTree = "<group>"; };
 		FE2921CD7825B1DEFCF9705B2F5E9F32 /* Pods-EnvidualFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnvidualFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FE74EFD9E81B1CA78B571A998E961BC8 /* DiskStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskStorage.swift; path = Sources/Cache/DiskStorage.swift; sourceTree = "<group>"; };
@@ -305,14 +305,6 @@
 				F4EDCEE8FA60C58BE6C758D9C25D78AE /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		0BD0A2E647CF92C091E549CC5A6DB733 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				584929294FC3C5522299B144E9F1312A /* shared.podspec */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		1A7222494E377BAEEFB312373A154121 /* Core */ = {
@@ -373,12 +365,23 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		32539F0505E7034F21AFF5D404111406 /* Frameworks */ = {
+		37C26B94E90FFAFFB95DA73AD6B23433 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2DD2CB7329733FB36FF7D2C86B8847AC /* shared.framework */,
+				B282B1D0A65938BCD7BD6F0F6565B486 /* shared.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C110FFA6D4CEC87C9BAE6FD792E8B62 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				37C26B94E90FFAFFB95DA73AD6B23433 /* Frameworks */,
+				D9F966D0642E90BA04C486BDDE763C0C /* Pod */,
+				B827671D60C624C9873A1CFE06F84A8E /* Support Files */,
+			);
+			name = shared;
+			path = "../../Envidual-Finance-Touchlab/shared";
 			sourceTree = "<group>";
 		};
 		4DFEF3145FF4EFFB13DB159E8078C74F /* SnapKit */ = {
@@ -452,17 +455,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		84C260DB779596C275D12A2BAEA1516C /* shared */ = {
-			isa = PBXGroup;
-			children = (
-				32539F0505E7034F21AFF5D404111406 /* Frameworks */,
-				0BD0A2E647CF92C091E549CC5A6DB733 /* Pod */,
-				BABBE97489064746F47BA085A25A7891 /* Support Files */,
-			);
-			name = shared;
-			path = "/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared";
-			sourceTree = "<absolute>";
-		};
 		9D95C485CBAA7E45C4404C73940A671D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,11 +488,11 @@
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
-		BABBE97489064746F47BA085A25A7891 /* Support Files */ = {
+		B827671D60C624C9873A1CFE06F84A8E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				854F5AC814A30EB6BEBB82BAF390EE85 /* shared.debug.xcconfig */,
-				368A44B8E949D0AC5C37D66CEBBB9910 /* shared.release.xcconfig */,
+				F8C83BB67D97609324BF20212865A12D /* shared.debug.xcconfig */,
+				4F6946CCAE6C0A0F720BC8FEF4CF774B /* shared.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../../EnvidualFinance-iOS/Pods/Target Support Files/shared";
@@ -510,7 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				FE89627157731FC58934384EA2A27E93 /* Development Pods */,
+				E600C8E52FA91AC8D20023127949373A /* Development Pods */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
 				63B79EBBE77E032A985398A6D69EA70A /* Pods */,
 				D888E32D62905DCE1B7B7806A0A743BA /* Products */,
@@ -526,6 +518,22 @@
 				979486118B3E90C08386079D57962701 /* SnapKit.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D9F966D0642E90BA04C486BDDE763C0C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				3828DAD62230A2F8E4C81B427AFAAB93 /* shared.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		E600C8E52FA91AC8D20023127949373A /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C110FFA6D4CEC87C9BAE6FD792E8B62 /* shared */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		F2CD6A0967CC157DC7B88FFD54DBF353 /* Support Files */ = {
@@ -551,14 +559,6 @@
 				8D3BF06BD92238CB43628415C234BF25 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		FE89627157731FC58934384EA2A27E93 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				84C260DB779596C275D12A2BAEA1516C /* shared */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -960,7 +960,7 @@
 		};
 		1B6539109B895CC1CB7F10EAED6F8747 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 368A44B8E949D0AC5C37D66CEBBB9910 /* shared.release.xcconfig */;
+			baseConfigurationReference = 4F6946CCAE6C0A0F720BC8FEF4CF774B /* shared.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -977,7 +977,7 @@
 		};
 		661EF0EB4B7C2A234D49D85BEA5D4EBC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 854F5AC814A30EB6BEBB82BAF390EE85 /* shared.debug.xcconfig */;
+			baseConfigurationReference = F8C83BB67D97609324BF20212865A12D /* shared.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

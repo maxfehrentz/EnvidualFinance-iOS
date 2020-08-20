@@ -14,7 +14,7 @@ struct DesignConstants {
     static let sfSymbolsTabBar = ["suit.heart", "magnifyingglass"]
     static let tabNames = ["Favorites", "Search"]
     
-    static let cellHeight: CGFloat = 200
+    static let cellHeight: CGFloat = 150
 //    static let envidualBlue = #colorLiteral(red: 0.01252049021, green: 0.3257434964, blue: 0.4525720477, alpha: 1)
     static let navConBlue = #colorLiteral(red: 0.2514986992, green: 0.2871406078, blue: 0.5895476341, alpha: 1)
     static let pinkColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
