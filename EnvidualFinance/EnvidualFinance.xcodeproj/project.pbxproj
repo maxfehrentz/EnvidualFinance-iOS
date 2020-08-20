@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50448C6124E3DE6900082E07 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50448C6024E3DE6900082E07 /* FavoritesViewController.swift */; };
+		50448C6124E3DE6900082E07 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50448C6024E3DE6900082E07 /* FavouritesViewController.swift */; };
 		50448C6324E3E2AD00082E07 /* CompanySearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50448C6224E3E2AD00082E07 /* CompanySearchCell.swift */; };
 		50448C6424E4122100082E07 /* Pods_EnvidualFinance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6BCF7A014CED505627E34DA /* Pods_EnvidualFinance.framework */; };
 		50448C6524E4122100082E07 /* Pods_EnvidualFinance.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6BCF7A014CED505627E34DA /* Pods_EnvidualFinance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -41,7 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		50448C6024E3DE6900082E07 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		50448C6024E3DE6900082E07 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		50448C6224E3E2AD00082E07 /* CompanySearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanySearchCell.swift; sourceTree = "<group>"; };
 		50448C6724E413EF00082E07 /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 		5085FC4224E52CB900CAD3CC /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				5085FC4F24E6D14400CAD3CC /* CustomTabBarController.swift */,
-				50448C6024E3DE6900082E07 /* FavoritesViewController.swift */,
+				50448C6024E3DE6900082E07 /* FavouritesViewController.swift */,
 				5085FC4424E6B86400CAD3CC /* SearchViewController.swift */,
 				5087B21624EC12D700892789 /* CompanyDetailViewController.swift */,
 				5087B21824EC369000892789 /* CardView.swift */,
@@ -273,7 +273,7 @@
 				5085FC4324E52CB900CAD3CC /* DesignConstants.swift in Sources */,
 				5085FC5224E6D36700CAD3CC /* CompanyCell.swift in Sources */,
 				50448C6324E3E2AD00082E07 /* CompanySearchCell.swift in Sources */,
-				50448C6124E3DE6900082E07 /* FavoritesViewController.swift in Sources */,
+				50448C6124E3DE6900082E07 /* FavouritesViewController.swift in Sources */,
 				5087B21724EC12D700892789 /* CompanyDetailViewController.swift in Sources */,
 				508851DC24E3DD1000F577B2 /* AppDelegate.swift in Sources */,
 				5087B21924EC369000892789 /* CardView.swift in Sources */,

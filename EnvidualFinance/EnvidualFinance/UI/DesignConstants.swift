@@ -12,7 +12,7 @@ import UIKit
 struct DesignConstants {
     // MARK: TabBarController stuff
     static let sfSymbolsTabBar = ["suit.heart", "magnifyingglass"]
-    static let tabNames = ["Favorites", "Search"]
+    static let tabNames = ["Favourites", "Search"]
     
     static let cellHeight: CGFloat = 150
 //    static let envidualBlue = #colorLiteral(red: 0.01252049021, green: 0.3257434964, blue: 0.4525720477, alpha: 1)

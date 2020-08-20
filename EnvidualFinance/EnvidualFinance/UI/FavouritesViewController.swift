@@ -12,7 +12,7 @@ import shared
 import SnapKit
 
 
-class FavoritesViewController: UIViewController {
+class FavouritesViewController: UIViewController {
     
     private let tableView = UITableView()
     private var companies = [CompanyData]()
@@ -36,7 +36,7 @@ class FavoritesViewController: UIViewController {
         setupTableView()
         setupActivityIndicator()
         activityIndicator.startAnimating()
-        adapter.startObservingFavorites()
+        adapter.startObservingFavourites()
     }
     
     deinit {
@@ -78,7 +78,7 @@ class FavoritesViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "Favorites"
+        navigationItem.title = "Favourites"
         navigationController?.navigationBar.barTintColor = DesignConstants.navConBlue
         let navigationTitleFont = UIFont.systemFont(ofSize: 29, weight: .light)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont, NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -99,7 +99,7 @@ class FavoritesViewController: UIViewController {
 }
 
 
-extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
+extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return companies.count
@@ -129,7 +129,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == .delete) {
-            adapter.removeFavorite(company: companies[indexPath.row])
+            adapter.removeFavourite(company: companies[indexPath.row])
         }
     }
     

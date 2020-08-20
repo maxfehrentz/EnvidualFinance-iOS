@@ -147,7 +147,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         cell.ticker = displayedSearches[indexPath.row].ticker
         cell.name = displayedSearches[indexPath.row].name
-        cell.isFavorite = displayedSearches[indexPath.row].isFavourite as? Bool
+        cell.isFavourite = displayedSearches[indexPath.row].isFavourite as? Bool
         return cell
     }
     
@@ -163,7 +163,7 @@ extension SearchViewController: SearchDelegate {
         // find the CompanyData corresponding to the ticker of the cell and call the corresponding use case
         for displayedSearch in displayedSearches {
             if ticker == displayedSearch.ticker {
-                adapter.addFavorite(company: displayedSearch)
+                adapter.addFavourite(company: displayedSearch)
                 break
             }
         }
@@ -173,7 +173,7 @@ extension SearchViewController: SearchDelegate {
         // find the CompanyData corresponding to the ticker of the cell and call the corresponding use case
         for displayedSearch in displayedSearches {
             if ticker == displayedSearch.ticker {
-                adapter.removeFavorite(company: displayedSearch)
+                adapter.removeFavourite(company: displayedSearch)
                 break
             }
         }

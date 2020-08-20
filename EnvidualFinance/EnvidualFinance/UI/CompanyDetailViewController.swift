@@ -94,6 +94,7 @@ class CompanyDetailViewController: UIViewController {
     
     private func configureLogo() {
         logo.kf.setImage(with: URL(string: company.logo!))
+        logo.contentMode = .scaleAspectFit
         logo.layer.cornerRadius = DesignConstants.logoCornerRadius
         logo.layer.masksToBounds = true
     }

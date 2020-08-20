@@ -80,13 +80,15 @@ class CompanyCell: UITableViewCell {
             make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
         }
         tickerLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(companyNameLabel).offset(DesignConstants.standardOffsetBetweenElements)
+            make.top.equalTo(companyNameLabel.snp.bottom)
+                .offset(DesignConstants.standardOffsetBetweenElements)
             make.leading.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
             make.bottom.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
             make.right.equalTo(companyNameLabel.snp.centerX)
         }
         marketCapitalizationLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(companyNameLabel).offset(DesignConstants.standardOffsetBetweenElements)
+            make.top.equalTo(companyNameLabel.snp.bottom)
+                .offset(DesignConstants.standardOffsetBetweenElements)
             make.bottom.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
             make.right.equalToSuperview().offset(-DesignConstants.standardInsetFromEdges)
         }

@@ -23,7 +23,7 @@ class CompanySearchCell: UITableViewCell {
         }
     }
     
-    var isFavorite: Bool? {
+    var isFavourite: Bool? {
         didSet {
             setNeedsLayout()
         }
@@ -52,7 +52,7 @@ class CompanySearchCell: UITableViewCell {
         super.layoutSubviews()
         tickerLabel.text = ticker
         companyNameLabel.text = name
-        likeButton.isSelected = isFavorite ?? false
+        likeButton.isSelected = isFavourite ?? false
     }
     
     private func addAllSubviews() {
