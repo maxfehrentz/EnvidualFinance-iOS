@@ -11,6 +11,8 @@ target 'EnvidualFinance' do
     pod 'shared', :path => '../Envidual-Finance-Touchlab/shared'
     pod 'SnapKit'
     pod 'Kingfisher'
+    pod 'RxSwift'
+    pod 'RxCocoa'
 
 
 end
