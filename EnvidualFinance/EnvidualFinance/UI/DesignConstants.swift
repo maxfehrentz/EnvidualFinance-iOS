@@ -43,8 +43,7 @@ struct DesignConstants {
     static let borderColorForCompanyCell = UIColor.black.cgColor
     static let borderWidthForCompanyCell: CGFloat = 0.5
     static let cornerRadiusForCompanyCell: CGFloat = 20
-    static let spacingBetweenCompanyCells: CGFloat = 30
-    static let insetFromLeftAndRightForCompanyCells: CGFloat = 30
+    static let insetForContainerViewInContentView: CGFloat = 30
     
     static func setGradientBackground(for view: UIView, colorTop: UIColor, colorBottom: UIColor){
         let gradientLayer = CAGradientLayer()

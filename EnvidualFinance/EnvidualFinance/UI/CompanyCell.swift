@@ -16,6 +16,12 @@ class CompanyCell: UITableViewCell {
     let companyNameLabel = UILabel()
     let marketCapitalizationLabel = UILabel()
     
+    override var bounds: CGRect {
+        didSet {
+            configureShadow()
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addAllSubviews()
@@ -39,28 +45,25 @@ class CompanyCell: UITableViewCell {
 
     private func layout() {
         containerView.snp.makeConstraints { (make) in
-            make.top.bottom.equalToSuperview()
-            make.leading.trailing.equalToSuperview()
-                .inset(DesignConstants.insetFromLeftAndRightForCompanyCells)
+            make.top.bottom.leading.trailing.equalToSuperview()
+                .inset(DesignConstants.insetForContainerViewInContentView)
         }
         companyNameLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
-            make.leading.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
+            make.top.leading.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
             make.trailing.equalToSuperview().offset(-DesignConstants.standardInsetFromEdges)
-            make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
+            make.bottom.equalTo(tickerLabel.snp.top).offset(-DesignConstants.standardOffsetBetweenElements)
         }
         tickerLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(companyNameLabel.snp.bottom)
-                .offset(DesignConstants.standardOffsetBetweenElements)
             make.leading.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
-            make.bottom.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
-            make.right.equalTo(companyNameLabel.snp.centerX)
+            make.bottom.equalToSuperview()
+                .offset(-DesignConstants.standardInsetFromEdges)
+            make.trailing.equalTo(companyNameLabel.snp.centerX).offset(-DesignConstants.standardInsetFromEdges)
         }
         marketCapitalizationLabel.snp.makeConstraints { (make) in
             make.top.equalTo(companyNameLabel.snp.bottom)
                 .offset(DesignConstants.standardOffsetBetweenElements)
-            make.bottom.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
-            make.right.equalToSuperview().offset(-DesignConstants.standardInsetFromEdges)
+            make.bottom.trailing.equalToSuperview().offset(-DesignConstants.standardInsetFromEdges)
+            make.leading.equalTo(companyNameLabel.snp.centerX).offset(DesignConstants.standardInsetFromEdges)
         }
     }
     
@@ -71,30 +74,35 @@ class CompanyCell: UITableViewCell {
         containerView.layer.borderColor = DesignConstants.borderColorForCompanyCell
         containerView.layer.borderWidth = DesignConstants.borderWidthForCompanyCell
         containerView.layer.cornerRadius = DesignConstants.cornerRadiusForCompanyCell
+        // prepare for adding shadows later
+        contentView.backgroundColor = .white
+        containerView.backgroundColor = .white
     }
     
     private func configureTickerLabel() {
-        tickerLabel.translatesAutoresizingMaskIntoConstraints = false
-        tickerLabel.adjustsFontSizeToFitWidth = true
         tickerLabel.numberOfLines = 0
         tickerLabel.textAlignment = .left
     }
      
     private func configureCompanyNameLabel() {
-        companyNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        companyNameLabel.adjustsFontSizeToFitWidth = true
         companyNameLabel.numberOfLines = 0
         companyNameLabel.textAlignment = .left
         companyNameLabel.font = DesignConstants.companyCellNameFont
     }
     
     private func configureMarketCapitalizationLabel() {
-        marketCapitalizationLabel.translatesAutoresizingMaskIntoConstraints = false
-        marketCapitalizationLabel.adjustsFontSizeToFitWidth = true
         marketCapitalizationLabel.numberOfLines = 0
         marketCapitalizationLabel.textAlignment = .center
         marketCapitalizationLabel.textColor = DesignConstants.marketCapitalizationLabelFontColor
     }
+    
+    func configureShadow() {
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowRadius = 10
+        containerView.layer.shadowOffset = .zero
+        containerView.layer.shadowOpacity = 1
+    }
+
     
 //    override func awakeFromNib() {
 //        super.awakeFromNib()

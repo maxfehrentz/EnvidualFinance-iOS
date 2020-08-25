@@ -83,10 +83,13 @@ class FavouritesViewController: UIViewController {
     }
     
     private func setupTableView() {
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(CompanyCell.self, forCellReuseIdentifier: "CompanyCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 700
     }
     
     private func setupActivityIndicator() {
@@ -102,6 +105,7 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return companies.count
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -117,37 +121,35 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             cell.marketCapitalizationLabel.text = ""
         }
+        cell.configureShadow()
         return cell
     }
         
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return DesignConstants.cellHeight
-    }
     
-    // configure cells to look like small cards
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        DesignConstants.spacingBetweenCompanyCells
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        // only the last section gets a footer so that there is space to the TabBar at the bottom
-        if(section == companies.count - 1) {
-            return DesignConstants.spacingBetweenCompanyCells
-        }
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView()
-        footerView.backgroundColor = UIColor.clear
-        return footerView
-    }
+//    // configure cells to look like small cards
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        DesignConstants.spacingBetweenCompanyCells
+//    }
+//
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        // only the last section gets a footer so that there is space to the TabBar at the bottom
+//        if(section == companies.count - 1) {
+//            return DesignConstants.spacingBetweenCompanyCells
+//        }
+//        return 0
+//    }
+//
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let headerView = UIView()
+//        headerView.backgroundColor = UIColor.clear
+//        return headerView
+//    }
+//
+//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        let footerView = UIView()
+//        footerView.backgroundColor = UIColor.clear
+//        return footerView
+//    }
     
     // handle deleting
     func tableView(_ tableView: UITableView, canEditSection indexPath: IndexPath) -> Bool {

@@ -7,8 +7,8 @@ target 'EnvidualFinance' do
   
   	project 'EnvidualFinance/EnvidualFinance.xcodeproj'
 
-    pod 'shared', :path => '/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared'
-#    pod 'shared', :path => '../Envidual-Finance-Touchlab/shared'
+#    pod 'shared', :path => '/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared'
+    pod 'shared', :path => '../Envidual-Finance-Touchlab/shared'
     pod 'SnapKit'
     pod 'Kingfisher'
 
