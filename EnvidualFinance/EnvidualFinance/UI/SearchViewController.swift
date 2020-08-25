@@ -58,6 +58,7 @@ class SearchViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(CompanySearchCell.self, forCellReuseIdentifier: "CompanySearchCell")
         bindTableView()
+        tableView.delegate = self
     }
     
     private func bindTableView() {
@@ -135,6 +136,12 @@ extension SearchViewController: UISearchResultsUpdating {
         }
     }
     
+}
+
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return DesignConstants.cellHeight
+    }
 }
 
 
