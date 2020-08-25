@@ -60,7 +60,7 @@ class SearchViewController: UIViewController {
     
     private func setupActivityIndicator() {
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.color = UIColor.black
+        activityIndicator.color = DesignConstants.activityIndicatorColor
     }
     
     private func layout() {

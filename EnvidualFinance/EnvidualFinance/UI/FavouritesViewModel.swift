@@ -29,6 +29,7 @@ class FavouritesViewModel {
     private func dataUpdate(companies: [CompanyData]) {
         self.companies = companies
         vc.updateUI()
+        vc.stopSpinning()
     }
     
     private func errorUpdate(for errorMessage: String) {
@@ -36,6 +37,7 @@ class FavouritesViewModel {
     }
     
     func startObservingFavourites() {
+        vc.startSpinning()
         adapter.startObservingFavourites()
     }
     

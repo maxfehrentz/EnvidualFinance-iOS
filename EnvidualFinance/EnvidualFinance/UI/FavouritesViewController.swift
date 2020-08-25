@@ -26,20 +26,8 @@ class FavouritesViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         setupActivityIndicator()
-        activityIndicator.startAnimating()
         viewModel.vc = self
         viewModel.startObservingFavourites()
-    }
-
-    func updateUI() {
-        tableView.reloadData()
-        activityIndicator.stopAnimating()
-    }
-    
-    func showError(for errorMessage: String) {
-        let alertController = UIAlertController(title: "error", message: errorMessage, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-        present(alertController, animated: true, completion: nil)
     }
     
     private func addAllSubviews() {
@@ -82,6 +70,24 @@ class FavouritesViewController: UIViewController {
     private func setupActivityIndicator() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = DesignConstants.activityIndicatorColor
+    }
+    
+    func updateUI() {
+        tableView.reloadData()
+    }
+    
+    func showError(for errorMessage: String) {
+        let alertController = UIAlertController(title: "error", message: errorMessage, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func startSpinning() {
+        activityIndicator.startAnimating()
+    }
+    
+    func stopSpinning() {
+        activityIndicator.stopAnimating()
     }
     
 }
