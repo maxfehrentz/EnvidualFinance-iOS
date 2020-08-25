@@ -8,10 +8,11 @@
 
 import Foundation
 import shared
+import RxCocoa
 
 class FavouritesViewModel {
     
-    var companies = [CompanyData]()
+    var companies = BehaviorRelay<[CompanyData]>(value: [])
     var vc: FavouritesViewController!
         
     lazy var adapter: NativeViewModel = NativeViewModel(
@@ -27,8 +28,7 @@ class FavouritesViewModel {
     }
     
     private func dataUpdate(companies: [CompanyData]) {
-        self.companies = companies
-        vc.updateUI()
+        self.companies.accept(companies)
         vc.stopSpinning()
     }
     
@@ -46,3 +46,5 @@ class FavouritesViewModel {
     }
     
 }
+
+    

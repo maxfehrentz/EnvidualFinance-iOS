@@ -13,6 +13,7 @@ target 'EnvidualFinance' do
     pod 'Kingfisher'
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'RxDataSources'
 
 
 end

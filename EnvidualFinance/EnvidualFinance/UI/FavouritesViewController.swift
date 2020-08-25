@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import shared
 import SnapKit
+import RxDataSources
+import RxSwift
 
 
 class FavouritesViewController: UIViewController {
@@ -18,14 +20,15 @@ class FavouritesViewController: UIViewController {
     private let tableView = UITableView()
     private let activityIndicator = UIActivityIndicatorView()
     private var companyForSegue: CompanyData?
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addAllSubviews()
-        layout()
         setupNavigationBar()
         setupTableView()
         setupActivityIndicator()
+        layout()
         viewModel.vc = self
         viewModel.startObservingFavourites()
     }
@@ -60,20 +63,51 @@ class FavouritesViewController: UIViewController {
     private func setupTableView() {
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.register(CompanyCell.self, forCellReuseIdentifier: "CompanyCell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 700
+        // create binding between viewModel and tableView
+        bindTableView()
+        // prepare the tableView to make segues possible later on
+        setupSeguesForLater()
+        // enable deleting
+        enableDeleteBySwipe()
+    }
+    
+    private func bindTableView() {
+        viewModel.companies
+            .bind(to: tableView.rx.items(cellIdentifier: "CompanyCell")) { indexPath, company, cell in
+                if let companyCell = cell as? CompanyCell {
+                    companyCell.tickerLabel.text = company.ticker
+                    companyCell.companyNameLabel.text = company.name
+                    if let marketCap = company.marketCapitalization {
+                        companyCell.marketCapitalizationLabel.text =  "\(marketCap)"
+                    }
+                    else {
+                        companyCell.marketCapitalizationLabel.text = ""
+                    }
+                    companyCell.configureShadow()
+                }
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    private func setupSeguesForLater() {
+        tableView.rx.itemSelected.subscribe(onNext: { [weak self] in
+            self?.companyForSegue = self?.viewModel.companies.value[$0.row]
+            self?.performSegue(withIdentifier: "SegueToCompanyDetails", sender: self)
+        }).disposed(by: disposeBag)
+    }
+    
+    private func enableDeleteBySwipe() {
+        tableView.rx.itemDeleted.subscribe(onNext: { [weak self] in
+            self?.viewModel.removeFavourite(company: self!.viewModel.companies.value[$0.row])
+            }).disposed(by: disposeBag)
     }
     
     private func setupActivityIndicator() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = DesignConstants.activityIndicatorColor
-    }
-    
-    func updateUI() {
-        tableView.reloadData()
     }
     
     func showError(for errorMessage: String) {
@@ -88,51 +122,6 @@ class FavouritesViewController: UIViewController {
     
     func stopSpinning() {
         activityIndicator.stopAnimating()
-    }
-    
-}
-
-
-extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.companies.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as! CompanyCell
-        let model = viewModel.companies[indexPath.section]
-        cell.tickerLabel.text = model.ticker
-        cell.companyNameLabel.text = model.name
-        if let value = model.marketCapitalization, let curr = model.currency {
-            cell.marketCapitalizationLabel.text = "\(value) \(curr)"
-        }
-        else {
-            cell.marketCapitalizationLabel.text = ""
-        }
-        cell.configureShadow()
-        return cell
-    }
-    
-    // handle deleting
-    func tableView(_ tableView: UITableView, canEditSection indexPath: IndexPath) -> Bool {
-        true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if(editingStyle == .delete) {
-            viewModel.removeFavourite(company: viewModel.companies[indexPath.section])
-        }
-    }
-    
-    // preparation for segue
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        companyForSegue = viewModel.companies[indexPath.section]
-        performSegue(withIdentifier: "SegueToCompanyDetails", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
