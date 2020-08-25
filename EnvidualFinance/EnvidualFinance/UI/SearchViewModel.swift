@@ -8,12 +8,13 @@
 
 import Foundation
 import shared
+import RxCocoa
 
 class SearchViewModel {
     
     private var previousSearches = [CompanyData]()
     // displayedSearches is necessary to filter already exisiting searches by their ticker
-    var displayedSearches = [CompanyData]()
+    var displayedSearches = BehaviorRelay<[CompanyData]>(value: [])
     var vc: SearchViewController!
     
     lazy var adapter: NativeViewModel = NativeViewModel(
@@ -32,14 +33,14 @@ class SearchViewModel {
         previousSearches = companies
         // reverse the searches to show latest first
         previousSearches.reverse()
-        displayedSearches = previousSearches
-        vc.updateUI()
+        displayedSearches.accept(previousSearches)
         vc.stopSpinning()
         vc.collapseSearchBar()
     }
     
     private func errorUpdate(for errorMessage: String) {
         vc.showError(for: errorMessage)
+        vc.stopSpinning()
     }
     
     func startObservingSearches() {
@@ -51,7 +52,7 @@ class SearchViewModel {
             // make ticker uppercased to avoid problems
             possibleTicker = possibleTicker.uppercased()
             // check if a company with this ticker is already in the list; if it is, we don't want to start a new request
-            let companiesMappedToTickers = displayedSearches.map {
+            let companiesMappedToTickers = displayedSearches.value.map {
                 company in
                 company.ticker
             }
@@ -66,15 +67,13 @@ class SearchViewModel {
     
     // function restores the displayedSearches to show everything in the tableView
     func restoreDisplayedSearches() {
-        displayedSearches = previousSearches
-        vc.updateUI()
+        displayedSearches.accept(previousSearches)
     }
     
     func applySearchFilter(for searchText: String) {
-        displayedSearches = previousSearches.filter { company in
+        displayedSearches.accept(previousSearches.filter { company in
             company.ticker!.localizedCaseInsensitiveContains(searchText)
-        }
-        vc.updateUI()
+        })
     }
     
 }
@@ -82,7 +81,7 @@ class SearchViewModel {
 extension SearchViewModel: SearchDelegate {
     func addCompanyToFavourites(forTicker ticker: String) {
         // find the CompanyData corresponding to the ticker of the cell and call the corresponding use case
-        for displayedSearch in displayedSearches {
+        for displayedSearch in displayedSearches.value {
             if ticker == displayedSearch.ticker {
                 adapter.addFavourite(company: displayedSearch)
                 break
@@ -92,7 +91,7 @@ extension SearchViewModel: SearchDelegate {
     
     func removeCompanyFromFavourites(forTicker ticker: String) {
         // find the CompanyData corresponding to the ticker of the cell and call the corresponding use case
-        for displayedSearch in displayedSearches {
+        for displayedSearch in displayedSearches.value {
             if ticker == displayedSearch.ticker {
                 adapter.removeFavourite(company: displayedSearch)
                 break

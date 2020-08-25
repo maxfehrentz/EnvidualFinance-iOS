@@ -9,6 +9,8 @@
 import UIKit
 import shared
 import SnapKit
+import RxDataSources
+import RxSwift
 
 class SearchViewController: UIViewController {
     
@@ -16,6 +18,7 @@ class SearchViewController: UIViewController {
     private let tableView = UITableView()
     private let activityIndicator = UIActivityIndicatorView()
     private let viewModel = SearchViewModel()
+    private let disposeBag = DisposeBag()
     
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,9 +56,21 @@ class SearchViewController: UIViewController {
     
     private func setupTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.register(CompanySearchCell.self, forCellReuseIdentifier: "CompanySearchCell")
+        bindTableView()
+    }
+    
+    private func bindTableView() {
+        viewModel.displayedSearches
+            .bind(to: tableView.rx.items(cellIdentifier: "CompanySearchCell")) { [weak self] indexPath, company, cell in
+                if let companySearchCell = cell as? CompanySearchCell {
+                    companySearchCell.delegate = self?.viewModel
+                    companySearchCell.tickerLabel.text = company.ticker
+                    companySearchCell.companyNameLabel.text = company.name
+                    companySearchCell.likeButton.isSelected = company.isFavourite as? Bool ?? false
+                }
+        }
+        .disposed(by: disposeBag)
     }
     
     private func setupActivityIndicator() {
@@ -78,14 +93,9 @@ class SearchViewController: UIViewController {
         }
     }
     
-    func updateUI() {
-        tableView.reloadData()
-    }
-    
     func showError(for errorMessage: String) {
         let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
-        activityIndicator.stopAnimating()
         present(alertController, animated: true, completion: nil)
     }
     
@@ -97,6 +107,10 @@ class SearchViewController: UIViewController {
         activityIndicator.stopAnimating()
     }
 
+    func collapseSearchBar() {
+        // collapse search bar to indicate that something has been found
+        searchController.isActive = false
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -110,35 +124,7 @@ extension SearchViewController: UISearchBarDelegate {
         viewModel.restoreDisplayedSearches()
     }
     
-    func collapseSearchBar() {
-        // collapse search bar to indicate that something has been found
-        searchController.isActive = false
-    }
-    
 }
-
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.displayedSearches.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CompanySearchCell", for: indexPath) as! CompanySearchCell
-        cell.delegate = viewModel
-        let model = viewModel.displayedSearches[indexPath.row]
-        cell.tickerLabel.text = model.ticker
-        cell.companyNameLabel.text = model.name
-        cell.likeButton.isSelected = (model.isFavourite as? Bool) ?? false
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return DesignConstants.cellHeight
-    }
-    
-}
-
 
 extension SearchViewController: UISearchResultsUpdating {
     
