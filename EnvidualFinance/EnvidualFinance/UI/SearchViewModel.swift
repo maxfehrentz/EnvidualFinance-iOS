@@ -51,6 +51,10 @@ class SearchViewModel {
         if var possibleTicker = ticker {
             // make ticker uppercased to avoid problems
             possibleTicker = possibleTicker.uppercased()
+            // we need to check for BB because BB delivers BlackBerry with BB.TO which should not happen because it is just not a right ticker; that's why we need to avoid that
+            if(possibleTicker == "BB") {
+                return
+            }
             // check if a company with this ticker is already in the list; if it is, we don't want to start a new request
             let companiesMappedToTickers = displayedSearches.value.map {
                 company in

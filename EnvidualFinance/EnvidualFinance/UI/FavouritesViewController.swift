@@ -80,8 +80,8 @@ class FavouritesViewController: UIViewController {
                 if let companyCell = cell as? CompanyCell {
                     companyCell.tickerLabel.text = company.ticker
                     companyCell.companyNameLabel.text = company.name
-                    if let marketCap = company.marketCapitalization {
-                        companyCell.marketCapitalizationLabel.text =  "\(marketCap)"
+                    if let marketCap = company.marketCapitalization, let currency = company.currency {
+                        companyCell.marketCapitalizationLabel.text =  "\(marketCap) \(currency)"
                     }
                     else {
                         companyCell.marketCapitalizationLabel.text = ""
