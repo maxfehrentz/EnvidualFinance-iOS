@@ -13,8 +13,7 @@ target 'EnvidualFinance' do
     pod 'Kingfisher', '~> 5.15.0'
     pod 'RxSwift', '~> 5.1.1'
     pod 'RxCocoa', '~> 5.1.1'
-    pod 'RxDataSources', '~> 4.0.1'
-
+    pod 'RxDataSources', '~> 4.0'
     
 
 end

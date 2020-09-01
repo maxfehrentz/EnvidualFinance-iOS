@@ -23,6 +23,7 @@ class CompanyDetailViewController: UIViewController {
     private var valueLabel = UILabel()
     private var industryLabel = UILabel()
     private var ipoLabel = UILabel()
+    private var shareOutstandingLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,7 @@ class CompanyDetailViewController: UIViewController {
         cardView.addSubview(valueLabel)
         cardView.addSubview(industryLabel)
         cardView.addSubview(ipoLabel)
+        cardView.addSubview(shareOutstandingLabel)
     }
     
     private func layout() {
@@ -87,6 +89,12 @@ class CompanyDetailViewController: UIViewController {
         ipoLabel.snp.makeConstraints { (make) in
             make.trailing.equalToSuperview()
             make.top.equalTo(industryLabel.snp.bottom)
+            make.leading.equalTo(cardView.snp.centerX)
+            make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
+        }
+        shareOutstandingLabel.snp.makeConstraints { (make) in
+            make.trailing.equalToSuperview()
+            make.top.equalTo(ipoLabel.snp.bottom)
             make.leading.equalTo(cardView.snp.centerX)
             make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
         }
@@ -152,6 +160,14 @@ class CompanyDetailViewController: UIViewController {
         }
         else {
             ipoLabel.text = "IPO:\n"
+        }
+        
+        setBasicLabelProperties(for: shareOutstandingLabel)
+        if let shareOutstanding = company.shareOutstanding, let curr = company.currency {
+            shareOutstandingLabel.text = "Share Outstanding:\n\(shareOutstanding) \(curr)"
+        }
+        else {
+            shareOutstandingLabel.text = "Share Outstanding:\n"
         }
     }
     

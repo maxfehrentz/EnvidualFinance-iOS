@@ -44,8 +44,7 @@ class FavouritesViewController: UIViewController {
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         activityIndicator.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.centerX.centerY.equalToSuperview()
             make.width.equalToSuperview()
                 .multipliedBy(DesignConstants.activityIndicatorWidthAndHeightToSuperview)
             make.height.equalTo(activityIndicator.snp.width)
@@ -56,8 +55,7 @@ class FavouritesViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.title = "Favourites"
         navigationController?.navigationBar.barTintColor = DesignConstants.navConBlue
-        let navigationTitleFont = UIFont.systemFont(ofSize: 29, weight: .light)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont, NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = DesignConstants.attributesForNavBar
     }
     
     private func setupTableView() {

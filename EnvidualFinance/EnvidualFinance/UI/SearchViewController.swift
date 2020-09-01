@@ -48,8 +48,7 @@ class SearchViewController: UIViewController {
         navigationItem.title = "Search"
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = DesignConstants.navConBlue
-        let navigationTitleFont = UIFont.systemFont(ofSize: 29, weight: .light)
-        appearance.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont, NSAttributedString.Key.foregroundColor: UIColor.white]
+        appearance.titleTextAttributes = DesignConstants.attributesForNavBar
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
@@ -59,6 +58,7 @@ class SearchViewController: UIViewController {
         tableView.register(CompanySearchCell.self, forCellReuseIdentifier: "CompanySearchCell")
         bindTableView()
         tableView.delegate = self
+        enableDeleteBySwipe()
     }
     
     private func bindTableView() {
@@ -72,6 +72,12 @@ class SearchViewController: UIViewController {
                 }
         }
         .disposed(by: disposeBag)
+    }
+    
+    private func enableDeleteBySwipe() {
+        tableView.rx.itemDeleted.subscribe(onNext: { [weak self] in
+            self?.viewModel.removeCompanyFromSearches(company: self!.viewModel.displayedSearches.value[$0.row])
+            }).disposed(by: disposeBag)
     }
     
     private func setupActivityIndicator() {

@@ -11,7 +11,6 @@
 		501ADB4024F515DD000C50AF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501ADB3F24F515DD000C50AF /* SearchViewModel.swift */; };
 		50448C6124E3DE6900082E07 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50448C6024E3DE6900082E07 /* FavouritesViewController.swift */; };
 		50448C6324E3E2AD00082E07 /* CompanySearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50448C6224E3E2AD00082E07 /* CompanySearchCell.swift */; };
-		50448C6424E4122100082E07 /* Pods_EnvidualFinance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6BCF7A014CED505627E34DA /* Pods_EnvidualFinance.framework */; };
 		50448C6524E4122100082E07 /* Pods_EnvidualFinance.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6BCF7A014CED505627E34DA /* Pods_EnvidualFinance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50448C6824E413EF00082E07 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50448C6724E413EF00082E07 /* Koin.swift */; };
 		5085FC4324E52CB900CAD3CC /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085FC4224E52CB900CAD3CC /* DesignConstants.swift */; };
@@ -26,6 +25,7 @@
 		508851E324E3DD1000F577B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508851E124E3DD1000F577B2 /* Main.storyboard */; };
 		508851E524E3DD1400F577B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508851E424E3DD1400F577B2 /* Assets.xcassets */; };
 		508851E824E3DD1400F577B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508851E624E3DD1400F577B2 /* LaunchScreen.storyboard */; };
+		EDAA64AE464CC7E06D61D53F /* Pods_EnvidualFinance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712BF07DD40DF506D8E5A84A /* Pods_EnvidualFinance.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +62,7 @@
 		508851E424E3DD1400F577B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		508851E724E3DD1400F577B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		508851E924E3DD1400F577B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		712BF07DD40DF506D8E5A84A /* Pods_EnvidualFinance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnvidualFinance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71974438B1EC49878E1024D0 /* Pods-EnvidualFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnvidualFinance.debug.xcconfig"; path = "Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		B6BCF7A014CED505627E34DA /* Pods_EnvidualFinance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnvidualFinance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCBCE49935EFFC76E1938945 /* Pods-EnvidualFinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnvidualFinance.release.xcconfig"; path = "Target Support Files/Pods-EnvidualFinance/Pods-EnvidualFinance.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50448C6424E4122100082E07 /* Pods_EnvidualFinance.framework in Frameworks */,
+				EDAA64AE464CC7E06D61D53F /* Pods_EnvidualFinance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +152,7 @@
 		82FEE5C58C48978C3B002000 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B6BCF7A014CED505627E34DA /* Pods_EnvidualFinance.framework */,
+				712BF07DD40DF506D8E5A84A /* Pods_EnvidualFinance.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -343,8 +344,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8HAZXBS756;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -403,8 +407,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8HAZXBS756;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

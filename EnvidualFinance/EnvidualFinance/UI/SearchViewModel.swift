@@ -26,13 +26,11 @@ class SearchViewModel {
     )
     
     deinit {
-          adapter.onDestroy()
+        adapter.onDestroy()
     }
     
     private func dataUpdate(for companies: [CompanyData]) {
         previousSearches = companies
-        // reverse the searches to show latest first
-        previousSearches.reverse()
         displayedSearches.accept(previousSearches)
         vc.stopSpinning()
         vc.collapseSearchBar()
@@ -48,25 +46,14 @@ class SearchViewModel {
     }
     
     func searchForCompany(with ticker: String?) {
-        if var possibleTicker = ticker {
-            // make ticker uppercased to avoid problems
-            possibleTicker = possibleTicker.uppercased()
-            // we need to check for BB because BB delivers BlackBerry with BB.TO which should not happen because it is just not a right ticker; that's why we need to avoid that
-            if(possibleTicker == "BB") {
-                return
-            }
-            // check if a company with this ticker is already in the list; if it is, we don't want to start a new request
-            let companiesMappedToTickers = displayedSearches.value.map {
-                company in
-                company.ticker
-            }
-            if companiesMappedToTickers.contains(possibleTicker) {
-                return
-            }
-            // if it is not in the list, we start a new request
+        if let possibleTicker = ticker {
             vc.startSpinning()
             adapter.getCompanyByTicker(ticker: possibleTicker)
         }
+    }
+    
+    func removeCompanyFromSearches(company: CompanyData) {
+        adapter.removeCompanyFromSearches(company: company)
     }
     
     // function restores the displayedSearches to show everything in the tableView

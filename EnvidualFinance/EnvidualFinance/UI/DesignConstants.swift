@@ -44,6 +44,8 @@ struct DesignConstants {
     static let borderWidthForCompanyCell: CGFloat = 0.5
     static let cornerRadiusForCompanyCell: CGFloat = 20
     static let insetForContainerViewInContentView: CGFloat = 30
+    static let fontForNavBar = UIFont.systemFont(ofSize: 29, weight: .light)
+    static let attributesForNavBar = [NSAttributedString.Key.font: fontForNavBar, NSAttributedString.Key.foregroundColor: UIColor.white]
     
     static func setGradientBackground(for view: UIView, colorTop: UIColor, colorBottom: UIColor){
         let gradientLayer = CAGradientLayer()
