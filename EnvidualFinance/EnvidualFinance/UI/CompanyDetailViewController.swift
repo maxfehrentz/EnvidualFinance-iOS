@@ -10,20 +10,25 @@ import UIKit
 import shared
 import SnapKit
 import Kingfisher
+import RxSwift
+import RxDataSources
 
 class CompanyDetailViewController: UIViewController {
     
-    var company: CompanyData!
+    var viewModel: CompanyDetailViewModel!
     
-    private var logo = UIImageView()
-    private var cardView = CardView()
-    private var nameLabel = UILabel()
-    private var tickerLabel = UILabel()
-    private var countryLabel = UILabel()
-    private var valueLabel = UILabel()
-    private var industryLabel = UILabel()
-    private var ipoLabel = UILabel()
-    private var shareOutstandingLabel = UILabel()
+    private let logo = UIImageView()
+    private let cardView = CardView()
+    private let nameLabel = UILabel()
+    private let tickerLabel = UILabel()
+    private let countryLabel = UILabel()
+    private let valueLabel = UILabel()
+    private let industryLabel = UILabel()
+    private let ipoLabel = UILabel()
+    private let shareOutstandingLabel = UILabel()
+    private let newsTableView = UITableView()
+    private let pageControl = UIPageControl()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +38,8 @@ class CompanyDetailViewController: UIViewController {
         configureLogo()
         configureCardView()
         configureLabels()
-        // Do any additional setup after loading the view.
+        setupNewsTableView()
+        configurePageControl()
     }
     
     private func addAllSubviews() {
@@ -46,6 +52,8 @@ class CompanyDetailViewController: UIViewController {
         cardView.addSubview(industryLabel)
         cardView.addSubview(ipoLabel)
         cardView.addSubview(shareOutstandingLabel)
+        cardView.addSubview(newsTableView)
+        cardView.addSubview(pageControl)
     }
     
     private func layout() {
@@ -98,10 +106,18 @@ class CompanyDetailViewController: UIViewController {
             make.leading.equalTo(cardView.snp.centerX)
             make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
         }
+        newsTableView.snp.makeConstraints { (make) in
+            make.top.trailing.leading.equalToSuperview()
+            make.height.equalTo(cardView.snp.height).multipliedBy(DesignConstants.newsTableViewHeightToCardHeight)
+        }
+        pageControl.snp.makeConstraints { (make) in
+            make.bottom.leading.trailing.equalToSuperview().inset(DesignConstants.standardInsetFromEdges)
+            make.height.equalToSuperview().multipliedBy(0.1)
+        }
     }
     
     private func configureLogo() {
-        logo.kf.setImage(with: URL(string: company.logo!))
+        logo.kf.setImage(with: URL(string: viewModel.company.logo!))
         logo.contentMode = .scaleAspectFit
         logo.layer.cornerRadius = DesignConstants.logoCornerRadius
         logo.layer.masksToBounds = true
@@ -110,6 +126,52 @@ class CompanyDetailViewController: UIViewController {
     private func configureCardView() {
         cardView.backgroundColor = cardView.color
         cardView.layer.cornerRadius = cardView.cornerRadius
+        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
+        swipeLeftGesture.direction = .left
+        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight))
+        swipeRightGesture.direction = .right
+        cardView.addGestureRecognizer(swipeLeftGesture)
+        cardView.addGestureRecognizer(swipeRightGesture)
+        swipeLeftGesture.delegate = self
+        swipeRightGesture.delegate = self
+    }
+    
+    @objc private func swipeLeft() {
+        hideLabels()
+        makeNewsTableViewAppear()
+        pageControl.currentPage = 1
+    }
+    
+    @objc private func swipeRight() {
+        hideNewsTableView()
+        makeLabelsAppear()
+        pageControl.currentPage = 0
+    }
+    
+    private func hideLabels() {
+        tickerLabel.isHidden = true
+        countryLabel.isHidden = true
+        valueLabel.isHidden = true
+        industryLabel.isHidden = true
+        ipoLabel.isHidden = true
+        shareOutstandingLabel.isHidden = true
+    }
+    
+    private func makeNewsTableViewAppear() {
+        newsTableView.isHidden = false
+    }
+    
+    private func hideNewsTableView() {
+        newsTableView.isHidden = true
+    }
+    
+    private func makeLabelsAppear() {
+        tickerLabel.isHidden = false
+        countryLabel.isHidden = false
+        valueLabel.isHidden = false
+        industryLabel.isHidden = false
+        ipoLabel.isHidden = false
+        shareOutstandingLabel.isHidden = false
     }
     
     private func configureLabels() {
@@ -118,12 +180,12 @@ class CompanyDetailViewController: UIViewController {
         nameLabel.textAlignment = .center
         let nameLabelFont = DesignConstants.detailVcNameFont
         let attributes = [NSAttributedString.Key.font : nameLabelFont, NSAttributedString.Key.foregroundColor : DesignConstants.detailVcNameFontColor]
-        let attributedString = NSAttributedString(string: company.name ?? "", attributes: attributes)
+        let attributedString = NSAttributedString(string: viewModel.company.name ?? "", attributes: attributes)
         nameLabel.attributedText = attributedString
 
         
         setBasicLabelProperties(for: tickerLabel)
-        if let ticker = company.ticker {
+        if let ticker = viewModel.company.ticker {
             tickerLabel.text = "Ticker:\n\(ticker)"
         }
         else {
@@ -131,7 +193,7 @@ class CompanyDetailViewController: UIViewController {
         }
         
         setBasicLabelProperties(for: countryLabel)
-        if let country = company.country {
+        if let country = viewModel.company.country {
             countryLabel.text = "Country:\n\(country)"
         }
         else {
@@ -139,7 +201,7 @@ class CompanyDetailViewController: UIViewController {
         }
         
         setBasicLabelProperties(for: valueLabel)
-        if let value = company.marketCapitalization, let curr = company.currency {
+        if let value = viewModel.company.marketCapitalization, let curr = viewModel.company.currency {
             valueLabel.text = "Value:\n\(value) \(curr)"
         }
         else {
@@ -147,7 +209,7 @@ class CompanyDetailViewController: UIViewController {
         }
         
         setBasicLabelProperties(for: industryLabel)
-        if let industry = company.finnhubIndustry {
+        if let industry = viewModel.company.finnhubIndustry {
             industryLabel.text = "Industry:\n\(industry)"
         }
         else {
@@ -155,7 +217,7 @@ class CompanyDetailViewController: UIViewController {
         }
         
         setBasicLabelProperties(for: ipoLabel)
-        if let ipo = company.ipo {
+        if let ipo = viewModel.company.ipo {
             ipoLabel.text = "IPO:\n\(ipo)"
         }
         else {
@@ -163,7 +225,7 @@ class CompanyDetailViewController: UIViewController {
         }
         
         setBasicLabelProperties(for: shareOutstandingLabel)
-        if let shareOutstanding = company.shareOutstanding, let curr = company.currency {
+        if let shareOutstanding = viewModel.company.shareOutstanding, let curr = viewModel.company.currency {
             shareOutstandingLabel.text = "Share Outstanding:\n\(shareOutstanding) \(curr)"
         }
         else {
@@ -178,15 +240,43 @@ class CompanyDetailViewController: UIViewController {
         label.font = DesignConstants.detailVcCardViewLabelsFont
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupNewsTableView() {
+        newsTableView.isHidden = true
+        newsTableView.translatesAutoresizingMaskIntoConstraints = false
+        newsTableView.register(NewsCell.self, forCellReuseIdentifier: "NewsCell")
+        newsTableView.rowHeight = UITableView.automaticDimension
+        newsTableView.estimatedRowHeight = 700
+        newsTableView.layer.cornerRadius = DesignConstants.cardViewCornerRadius
+        bindTableView()
     }
-    */
+    
+    private func bindTableView() {
+        viewModel.news
+            .bind(to: newsTableView.rx.items(cellIdentifier: "NewsCell")) { indexPath, news, cell in
+                if let newsCell = cell as? NewsCell {
+                    newsCell.headlineLabel.text = news.headline
+                    // convert datetime given as Kotlinfloat to a proper Date
+                    let date = Date(timeIntervalSince1970: news.datetime as! Double)
+                    let formattedDate = DateFormatter.localizedString(from: date, dateStyle: .medium, timeStyle: .none)
+                    newsCell.dateLabel.text = "\(formattedDate)"
+                    newsCell.sourceLabel.text = news.source
+                }
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    private func configurePageControl() {
+        pageControl.pageIndicatorTintColor = UIColor.black
+        pageControl.currentPageIndicatorTintColor = DesignConstants.pinkColor
+        pageControl.numberOfPages = 2
+        pageControl.currentPage = 0
+    }
 
 }
+
+extension CompanyDetailViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        true
+    }
+}
+

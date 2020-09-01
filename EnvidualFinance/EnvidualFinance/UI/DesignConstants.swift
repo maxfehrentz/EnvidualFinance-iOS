@@ -24,11 +24,11 @@ struct DesignConstants {
     static let standardOffsetBetweenElements: CGFloat = 10
     static let activityIndicatorWidthAndHeightToSuperview = 0.75
     static let activityIndicatorColor = UIColor.black
-    static let detailVcNameLabelOffsetFromTop = 80
+    static let detailVcNameLabelOffsetFromTop = 20
     static let flatLabelHeightToSuperview = 0.2
-    static let highLabelHeightToSuperview = 0.33333
+    static let highLabelHeightToSuperview = 0.25
     static let half = 0.5
-    static let detailVcOffsetBetweenLargeElements = 30
+    static let detailVcOffsetBetweenLargeElements = 20
     static let logoCornerRadius: CGFloat = 20
     static let detailVcNameFont = UIFont.systemFont(ofSize: 40, weight: .heavy)
     static let detailVcNameFontColor = UIColor.white
@@ -46,6 +46,7 @@ struct DesignConstants {
     static let insetForContainerViewInContentView: CGFloat = 30
     static let fontForNavBar = UIFont.systemFont(ofSize: 29, weight: .light)
     static let attributesForNavBar = [NSAttributedString.Key.font: fontForNavBar, NSAttributedString.Key.foregroundColor: UIColor.white]
+    static let newsTableViewHeightToCardHeight: CGFloat = 0.8
     
     static func setGradientBackground(for view: UIView, colorTop: UIColor, colorBottom: UIColor){
         let gradientLayer = CAGradientLayer()

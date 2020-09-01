@@ -20,7 +20,8 @@ class SearchViewModel {
     lazy var adapter: NativeViewModel = NativeViewModel(
         viewUpdate: { [weak self] companies in
             self?.dataUpdate(for: companies)
-        }, errorUpdate: { [weak self] errorMessage in
+        }, newsUpdate: {news in},
+           errorUpdate: { [weak self] errorMessage in
             self?.errorUpdate(for: errorMessage)
         }
     )

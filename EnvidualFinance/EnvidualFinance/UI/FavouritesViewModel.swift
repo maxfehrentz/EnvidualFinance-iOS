@@ -18,7 +18,8 @@ class FavouritesViewModel {
     lazy var adapter: NativeViewModel = NativeViewModel(
         viewUpdate: { [weak self] companies in
             self?.dataUpdate(companies: companies)
-        }, errorUpdate: { [weak self] errorMessage in
+        }, newsUpdate: {news in},
+           errorUpdate: { [weak self] errorMessage in
             self?.errorUpdate(for: errorMessage)
         }
     )

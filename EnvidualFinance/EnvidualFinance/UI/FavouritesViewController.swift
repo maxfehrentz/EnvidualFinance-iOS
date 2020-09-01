@@ -125,7 +125,7 @@ class FavouritesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueToCompanyDetails" {
             if let viewController = segue.destination as? CompanyDetailViewController {
-                viewController.company = self.companyForSegue
+                viewController.viewModel = CompanyDetailViewModel(company: self.companyForSegue!)
             }
         }
     }
