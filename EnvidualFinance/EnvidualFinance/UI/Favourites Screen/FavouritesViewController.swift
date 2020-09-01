@@ -33,6 +33,10 @@ class FavouritesViewController: UIViewController {
         viewModel.startObservingFavourites()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "Favourites"
+    }
+    
     private func addAllSubviews() {
         view.addSubview(tableView)
         view.addSubview(activityIndicator)
@@ -53,7 +57,6 @@ class FavouritesViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "Favourites"
         navigationController?.navigationBar.barTintColor = DesignConstants.navConBlue
         self.navigationController?.navigationBar.titleTextAttributes = DesignConstants.attributesForNavBar
     }

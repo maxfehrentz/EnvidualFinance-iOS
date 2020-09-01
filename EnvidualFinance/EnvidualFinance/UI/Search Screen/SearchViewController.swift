@@ -35,6 +35,10 @@ class SearchViewController: UIViewController {
         viewModel.vc = self
         viewModel.startObservingSearches()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "Search"
+    }
 
     private func addAllSubviews() {
         view.addSubview(tableView)
@@ -45,7 +49,6 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
-        navigationItem.title = "Search"
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = DesignConstants.navConBlue
         appearance.titleTextAttributes = DesignConstants.attributesForNavBar
