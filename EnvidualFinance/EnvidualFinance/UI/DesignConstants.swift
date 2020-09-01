@@ -43,10 +43,14 @@ struct DesignConstants {
     static let borderColorForCompanyCell = UIColor.black.cgColor
     static let borderWidthForCompanyCell: CGFloat = 0.5
     static let cornerRadiusForCompanyCell: CGFloat = 20
-    static let insetForContainerViewInContentView: CGFloat = 30
+    static let insetForContainerViewInContentView: CGFloat = 10
     static let fontForNavBar = UIFont.systemFont(ofSize: 29, weight: .light)
     static let attributesForNavBar = [NSAttributedString.Key.font: fontForNavBar, NSAttributedString.Key.foregroundColor: UIColor.white]
     static let newsTableViewHeightToCardHeight: CGFloat = 0.8
+    static let shadowRadiusForCompanyCells: CGFloat = 7
+    static let shadowOffsetForCompanyCells: CGSize = .zero
+    static let shadowOpacityForCompanyCells: Float = 1
+    
     
     static func setGradientBackground(for view: UIView, colorTop: UIColor, colorBottom: UIColor){
         let gradientLayer = CAGradientLayer()

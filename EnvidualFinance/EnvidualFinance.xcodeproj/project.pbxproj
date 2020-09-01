@@ -92,6 +92,45 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		501ADB7224FE7B4E000C50AF /* Favourites Screen */ = {
+			isa = PBXGroup;
+			children = (
+				50448C6024E3DE6900082E07 /* FavouritesViewController.swift */,
+				501ADB3D24F4F717000C50AF /* FavouritesViewModel.swift */,
+				5085FC5124E6D36700CAD3CC /* CompanyCell.swift */,
+			);
+			path = "Favourites Screen";
+			sourceTree = "<group>";
+		};
+		501ADB7324FE7B66000C50AF /* Search Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5085FC4424E6B86400CAD3CC /* SearchViewController.swift */,
+				501ADB3F24F515DD000C50AF /* SearchViewModel.swift */,
+				50448C6224E3E2AD00082E07 /* CompanySearchCell.swift */,
+				5087B21424EA8FDC00892789 /* SearchDelegate.swift */,
+			);
+			path = "Search Screen";
+			sourceTree = "<group>";
+		};
+		501ADB7424FE7B75000C50AF /* CompanyDetail Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5087B21624EC12D700892789 /* CompanyDetailViewController.swift */,
+				501ADB7024FE351E000C50AF /* CompanyDetailViewModel.swift */,
+				5087B21824EC369000892789 /* CardView.swift */,
+				501ADB6E24FE32BA000C50AF /* NewsCell.swift */,
+			);
+			path = "CompanyDetail Screen";
+			sourceTree = "<group>";
+		};
+		501ADB7524FE7B7D000C50AF /* News Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "News Screen";
+			sourceTree = "<group>";
+		};
 		50448C5C24E3DE0F00082E07 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,19 +144,12 @@
 		50448C5D24E3DE2300082E07 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				501ADB7524FE7B7D000C50AF /* News Screen */,
+				501ADB7424FE7B75000C50AF /* CompanyDetail Screen */,
+				501ADB7324FE7B66000C50AF /* Search Screen */,
+				501ADB7224FE7B4E000C50AF /* Favourites Screen */,
 				5085FC4F24E6D14400CAD3CC /* CustomTabBarController.swift */,
-				50448C6024E3DE6900082E07 /* FavouritesViewController.swift */,
-				501ADB3D24F4F717000C50AF /* FavouritesViewModel.swift */,
-				5085FC4424E6B86400CAD3CC /* SearchViewController.swift */,
-				501ADB3F24F515DD000C50AF /* SearchViewModel.swift */,
-				5087B21624EC12D700892789 /* CompanyDetailViewController.swift */,
-				501ADB7024FE351E000C50AF /* CompanyDetailViewModel.swift */,
-				5087B21824EC369000892789 /* CardView.swift */,
-				50448C6224E3E2AD00082E07 /* CompanySearchCell.swift */,
-				5085FC5124E6D36700CAD3CC /* CompanyCell.swift */,
 				5085FC4224E52CB900CAD3CC /* DesignConstants.swift */,
-				5087B21424EA8FDC00892789 /* SearchDelegate.swift */,
-				501ADB6E24FE32BA000C50AF /* NewsCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";

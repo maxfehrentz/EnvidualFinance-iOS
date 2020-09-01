@@ -97,10 +97,10 @@ class CompanyCell: UITableViewCell {
     }
     
     func configureShadow() {
-        containerView.layer.shadowColor = UIColor.black.cgColor
-        containerView.layer.shadowRadius = 10
-        containerView.layer.shadowOffset = .zero
-        containerView.layer.shadowOpacity = 1
+        containerView.layer.shadowColor = DesignConstants.navConBlue.cgColor
+        containerView.layer.shadowRadius = DesignConstants.shadowRadiusForCompanyCells
+        containerView.layer.shadowOffset = DesignConstants.shadowOffsetForCompanyCells
+        containerView.layer.shadowOpacity = DesignConstants.shadowOpacityForCompanyCells
     }
 
     

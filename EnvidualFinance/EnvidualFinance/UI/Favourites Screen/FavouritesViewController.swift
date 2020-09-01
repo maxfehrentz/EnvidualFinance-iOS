@@ -67,7 +67,7 @@ class FavouritesViewController: UIViewController {
         // create binding between viewModel and tableView
         bindTableView()
         // prepare the tableView to make segues possible later on
-        setupSeguesForLater()
+        setupSegues()
         // enable deleting
         enableDeleteBySwipe()
     }
@@ -90,7 +90,7 @@ class FavouritesViewController: UIViewController {
         .disposed(by: disposeBag)
     }
     
-    private func setupSeguesForLater() {
+    private func setupSegues() {
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] in
             self?.companyForSegue = self?.viewModel.companies.value[$0.row]
             self?.performSegue(withIdentifier: "SegueToCompanyDetails", sender: self)
