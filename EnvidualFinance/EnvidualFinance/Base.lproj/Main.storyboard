@@ -38,6 +38,9 @@
                         <viewLayoutGuide key="safeArea" id="eaK-dR-DFC"/>
                     </view>
                     <navigationItem key="navigationItem" id="A6P-Gg-up2"/>
+                    <connections>
+                        <segue destination="zQp-D3-T4d" kind="presentation" identifier="SegueToCompanyNews" id="2FW-h7-IC7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzJ-sl-lcL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,6 +62,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUF-Oi-pHx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-894" y="848"/>
+        </scene>
+        <!--News View Controller-->
+        <scene sceneID="gXG-Up-KSZ">
+            <objects>
+                <viewController id="zQp-D3-T4d" customClass="NewsViewController" customModule="EnvidualFinance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nql-yU-zMs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fh2-0j-WqW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLq-QC-fD9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="648" y="461"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NBs-tN-1ON">

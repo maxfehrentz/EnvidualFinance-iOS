@@ -32,7 +32,8 @@ struct DesignConstants {
     static let logoCornerRadius: CGFloat = 20
     static let detailVcNameFont = UIFont.systemFont(ofSize: 40, weight: .heavy)
     static let detailVcNameFontColor = UIColor.white
-    static let detailVcCardViewLabelsFont = UIFont.systemFont(ofSize: 25, weight: .light)
+    static let detailVcCardViewLabelsFontSize: CGFloat = 25
+    static let detailVcCardViewLabelsFont = UIFont.systemFont(ofSize: DesignConstants.detailVcCardViewLabelsFontSize, weight: .light)
     static let cardViewCornerRadius: CGFloat = 30
     static let sfSymbolNotLiked = "heart"
     static let sfSymbolLiked = "heart.fill"
@@ -47,9 +48,12 @@ struct DesignConstants {
     static let fontForNavBar = UIFont.systemFont(ofSize: 29, weight: .light)
     static let attributesForNavBar = [NSAttributedString.Key.font: fontForNavBar, NSAttributedString.Key.foregroundColor: UIColor.white]
     static let newsTableViewHeightToCardHeight: CGFloat = 0.8
-    static let shadowRadiusForCompanyCells: CGFloat = 7
+    static let shadowRadiusForCompanyCells: CGFloat = 0
     static let shadowOffsetForCompanyCells: CGSize = .zero
     static let shadowOpacityForCompanyCells: Float = 1
+    static let fontForNewsHeadline = UIFont.systemFont(ofSize: 29, weight: .bold)
+    static let fontForNewsViewControllerLabels = UIFont.systemFont(ofSize: 20, weight: .light)
+    static let offsetBetweenNewsViewControllerLabels = 20
     
     
     static func setGradientBackground(for view: UIView, colorTop: UIColor, colorBottom: UIColor){

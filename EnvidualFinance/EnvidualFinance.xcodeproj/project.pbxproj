@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5007C44124FE8C170047A5A0 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5007C44024FE8C170047A5A0 /* NewsViewController.swift */; };
+		5007C44324FE8C230047A5A0 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5007C44224FE8C230047A5A0 /* NewsViewModel.swift */; };
 		501ADB3E24F4F717000C50AF /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501ADB3D24F4F717000C50AF /* FavouritesViewModel.swift */; };
 		501ADB4024F515DD000C50AF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501ADB3F24F515DD000C50AF /* SearchViewModel.swift */; };
 		501ADB6F24FE32BA000C50AF /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501ADB6E24FE32BA000C50AF /* NewsCell.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5007C44024FE8C170047A5A0 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		5007C44224FE8C230047A5A0 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		501ADB3D24F4F717000C50AF /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 		501ADB3F24F515DD000C50AF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		501ADB6E24FE32BA000C50AF /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 		501ADB7524FE7B7D000C50AF /* News Screen */ = {
 			isa = PBXGroup;
 			children = (
+				5007C44024FE8C170047A5A0 /* NewsViewController.swift */,
+				5007C44224FE8C230047A5A0 /* NewsViewModel.swift */,
 			);
 			path = "News Screen";
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50448C6824E413EF00082E07 /* Koin.swift in Sources */,
+				5007C44324FE8C230047A5A0 /* NewsViewModel.swift in Sources */,
 				5085FC4524E6B86400CAD3CC /* SearchViewController.swift in Sources */,
 				5087B21524EA8FDC00892789 /* SearchDelegate.swift in Sources */,
 				5085FC5024E6D14400CAD3CC /* CustomTabBarController.swift in Sources */,
@@ -332,6 +339,7 @@
 				501ADB4024F515DD000C50AF /* SearchViewModel.swift in Sources */,
 				501ADB3E24F4F717000C50AF /* FavouritesViewModel.swift in Sources */,
 				5087B21724EC12D700892789 /* CompanyDetailViewController.swift in Sources */,
+				5007C44124FE8C170047A5A0 /* NewsViewController.swift in Sources */,
 				508851DC24E3DD1000F577B2 /* AppDelegate.swift in Sources */,
 				501ADB7124FE351E000C50AF /* CompanyDetailViewModel.swift in Sources */,
 				5087B21924EC369000892789 /* CardView.swift in Sources */,

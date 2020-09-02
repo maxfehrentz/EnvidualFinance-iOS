@@ -29,6 +29,7 @@ class CompanyDetailViewController: UIViewController {
     private let newsTableView = UITableView()
     private let pageControl = UIPageControl()
     private let disposeBag = DisposeBag()
+    private var newsForSegue: CompanyNews?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -185,52 +186,52 @@ class CompanyDetailViewController: UIViewController {
 
         
         setBasicLabelProperties(for: tickerLabel)
+        var boldText = "Ticker:\n"
+        var normalText = ""
         if let ticker = viewModel.company.ticker {
-            tickerLabel.text = "Ticker:\n\(ticker)"
+            normalText = "\(ticker)"
         }
-        else {
-            tickerLabel.text = "Ticker:\n"
-        }
+        setAttributedTitle(for: tickerLabel, boldText: boldText, normalText: normalText)
         
         setBasicLabelProperties(for: countryLabel)
+        boldText = "Country:\n"
+        normalText = ""
         if let country = viewModel.company.country {
-            countryLabel.text = "Country:\n\(country)"
+            normalText = "\(country)"
         }
-        else {
-            countryLabel.text = "Country:\n"
-        }
+        setAttributedTitle(for: countryLabel, boldText: boldText, normalText: normalText)
         
         setBasicLabelProperties(for: valueLabel)
-        if let value = viewModel.company.marketCapitalization, let curr = viewModel.company.currency {
-            valueLabel.text = "Value:\n\(value) \(curr)"
+        boldText = "Value:\n"
+        normalText = ""
+        if let value = viewModel.company.marketCapitalization {
+            normalText = "\(value)"
         }
-        else {
-            valueLabel.text = "Value:\n"
-        }
+        setAttributedTitle(for: valueLabel, boldText: boldText, normalText: normalText)
         
         setBasicLabelProperties(for: industryLabel)
+        boldText = "Industry:\n"
+        normalText = ""
         if let industry = viewModel.company.finnhubIndustry {
-            industryLabel.text = "Industry:\n\(industry)"
+            normalText = "\(industry)"
         }
-        else {
-            industryLabel.text = "Industry:\n"
-        }
+        setAttributedTitle(for: industryLabel, boldText: boldText, normalText: normalText)
         
         setBasicLabelProperties(for: ipoLabel)
+        boldText = "IPO:\n"
+        normalText = ""
         if let ipo = viewModel.company.ipo {
-            ipoLabel.text = "IPO:\n\(ipo)"
+            normalText = "\(ipo)"
         }
-        else {
-            ipoLabel.text = "IPO:\n"
-        }
+        setAttributedTitle(for: ipoLabel, boldText: boldText, normalText: normalText)
         
         setBasicLabelProperties(for: shareOutstandingLabel)
-        if let shareOutstanding = viewModel.company.shareOutstanding, let curr = viewModel.company.currency {
-            shareOutstandingLabel.text = "Share Outstanding:\n\(shareOutstanding) \(curr)"
+        boldText = "Share Outstanding:\n"
+        normalText = ""
+        if let shareOutstanding = viewModel.company.shareOutstanding {
+            normalText = "\(shareOutstanding)"
         }
-        else {
-            shareOutstandingLabel.text = "Share Outstanding:\n"
-        }
+        setAttributedTitle(for: shareOutstandingLabel, boldText: boldText, normalText: normalText)
     }
     
     private func setBasicLabelProperties(for label: UILabel) {
@@ -238,6 +239,14 @@ class CompanyDetailViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = DesignConstants.detailVcCardViewLabelsFont
+    }
+    
+    private func setAttributedTitle(for label: UILabel, boldText: String, normalText: String) {
+        let attributes = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: DesignConstants.detailVcCardViewLabelsFontSize)]
+        let boldString = NSMutableAttributedString(string: boldText, attributes: attributes)
+        let normalString = NSMutableAttributedString(string: normalText)
+        boldString.append(normalString)
+        label.attributedText = boldString
     }
     
     private func setupNewsTableView() {
@@ -248,6 +257,7 @@ class CompanyDetailViewController: UIViewController {
         newsTableView.estimatedRowHeight = 700
         newsTableView.layer.cornerRadius = DesignConstants.cardViewCornerRadius
         bindTableView()
+        setupSegues()
     }
     
     private func bindTableView() {
@@ -258,11 +268,26 @@ class CompanyDetailViewController: UIViewController {
                     // convert datetime given as Kotlinfloat to a proper Date
                     let date = Date(timeIntervalSince1970: news.datetime as! Double)
                     let formattedDate = DateFormatter.localizedString(from: date, dateStyle: .medium, timeStyle: .none)
-                    newsCell.dateLabel.text = "\(formattedDate)"
+                    newsCell.dateLabel.text = formattedDate
                     newsCell.sourceLabel.text = news.source
                 }
         }
         .disposed(by: disposeBag)
+    }
+    
+    private func setupSegues() {
+        newsTableView.rx.itemSelected.subscribe(onNext: { [weak self] in
+            self?.newsForSegue = self?.viewModel.news.value[$0.row]
+            self?.performSegue(withIdentifier: "SegueToCompanyNews", sender: self)
+        }).disposed(by: disposeBag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SegueToCompanyNews" {
+            if let viewController = segue.destination as? NewsViewController {
+                viewController.viewModel = NewsViewModel(news: self.newsForSegue!)
+            }
+        }
     }
     
     private func configurePageControl() {
