@@ -19,16 +19,11 @@ class SearchViewController: UIViewController {
     private let activityIndicator = UIActivityIndicatorView()
     private let viewModel = SearchViewModel()
     private let disposeBag = DisposeBag()
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addAllSubviews()
-        setupNavigationBar()
+        setupSearchController()
         setupTableView()
         setupActivityIndicator()
         layout()
@@ -37,7 +32,13 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "Search"
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.topItem?.searchController = searchController
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.topItem?.searchController = nil
     }
 
     private func addAllSubviews() {
@@ -45,15 +46,9 @@ class SearchViewController: UIViewController {
         view.addSubview(activityIndicator)
     }
     
-    private func setupNavigationBar() {
-        navigationItem.searchController = searchController
+    private func setupSearchController() {
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = DesignConstants.navConBlue
-        appearance.titleTextAttributes = DesignConstants.attributesForNavBar
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
     private func setupTableView() {

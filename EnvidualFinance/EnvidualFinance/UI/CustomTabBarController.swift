@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class CustomTabBarController: UITabBarController {
 
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupItems()
-        setColor()
+        setupTabBarAppearance()
+        setupNavbarAppearance()
+        setupTitlesForNavBar()
     }
     
     private func setupItems() {
@@ -25,9 +31,27 @@ class CustomTabBarController: UITabBarController {
         }
     }
     
-    private func setColor() {
+    private func setupTabBarAppearance() {
         tabBar.barTintColor = DesignConstants.navConBlue
         tabBar.tintColor = DesignConstants.pinkColor
+    }
+    
+    private func setupNavbarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = DesignConstants.navConBlue
+        appearance.titleTextAttributes = DesignConstants.attributesForNavBar
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+    
+    private func setupTitlesForNavBar() {
+        // rx.didSelect only works after switching for the first time; we need to set the inital value by hand
+        self.navigationController?.navigationBar.topItem?.title = DesignConstants.tabNames[0]
+        rx.didSelect.subscribe(onNext: {
+            if let tabBarItemTitle = self.tabBar.items?[self.selectedIndex].title {
+                $0.navigationController?.navigationBar.topItem?.title = tabBarItemTitle
+            }
+        }).disposed(by: disposeBag)
     }
     
     

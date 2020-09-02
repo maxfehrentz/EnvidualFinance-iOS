@@ -25,16 +25,11 @@ class FavouritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addAllSubviews()
-        setupNavigationBar()
         setupTableView()
         setupActivityIndicator()
         layout()
         viewModel.vc = self
         viewModel.startObservingFavourites()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "Favourites"
     }
     
     private func addAllSubviews() {
@@ -54,11 +49,6 @@ class FavouritesViewController: UIViewController {
             make.height.equalTo(activityIndicator.snp.width)
         }
         
-    }
-    
-    private func setupNavigationBar() {
-        navigationController?.navigationBar.barTintColor = DesignConstants.navConBlue
-        self.navigationController?.navigationBar.titleTextAttributes = DesignConstants.attributesForNavBar
     }
     
     private func setupTableView() {
