@@ -113,7 +113,7 @@ class CompanyDetailViewController: UIViewController {
         }
         pageControl.snp.makeConstraints { (make) in
             make.bottom.leading.trailing.equalToSuperview().inset(DesignConstants.standardInsetFromEdges)
-            make.height.equalToSuperview().multipliedBy(0.1)
+            make.height.equalToSuperview().multipliedBy(DesignConstants.heightOfPageControlToSuperviewHeight)
         }
     }
     
@@ -204,8 +204,8 @@ class CompanyDetailViewController: UIViewController {
         setBasicLabelProperties(for: valueLabel)
         boldText = "Value:\n"
         normalText = ""
-        if let value = viewModel.company.marketCapitalization {
-            normalText = "\(value)"
+        if let value = viewModel.company.marketCapitalization, let currency = viewModel.company.currency {
+            normalText = "\(value) \(currency)"
         }
         setAttributedTitle(for: valueLabel, boldText: boldText, normalText: normalText)
         
@@ -228,8 +228,8 @@ class CompanyDetailViewController: UIViewController {
         setBasicLabelProperties(for: shareOutstandingLabel)
         boldText = "Share Outstanding:\n"
         normalText = ""
-        if let shareOutstanding = viewModel.company.shareOutstanding {
-            normalText = "\(shareOutstanding)"
+        if let shareOutstanding = viewModel.company.shareOutstanding, let currency = viewModel.company.currency {
+            normalText = "\(shareOutstanding) \(currency)"
         }
         setAttributedTitle(for: shareOutstandingLabel, boldText: boldText, normalText: normalText)
     }

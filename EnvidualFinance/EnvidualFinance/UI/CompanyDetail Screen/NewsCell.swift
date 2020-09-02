@@ -51,19 +51,21 @@ class NewsCell: UITableViewCell {
     }
     
     private func configureHeadlineLabel() {
-        headlineLabel.numberOfLines = 0
-        headlineLabel.textAlignment = .center
-        headlineLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        basicSetup(for: headlineLabel)
+        headlineLabel.font = DesignConstants.fontForHeadlineInNewsCell
     }
     
     private func configureDateLabel() {
-        dateLabel.numberOfLines = 0
-        dateLabel.textAlignment = .center
+        basicSetup(for: dateLabel)
     }
     
     private func configureSourceLabel() {
-        sourceLabel.numberOfLines = 0
-        sourceLabel.textAlignment = .center
+        basicSetup(for: sourceLabel)
+    }
+    
+    private func basicSetup(for label: UILabel) {
+        label.numberOfLines = 0
+        label.textAlignment = .center
     }
     
     override func awakeFromNib() {

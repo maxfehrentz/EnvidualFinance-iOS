@@ -48,12 +48,15 @@ struct DesignConstants {
     static let fontForNavBar = UIFont.systemFont(ofSize: 29, weight: .light)
     static let attributesForNavBar = [NSAttributedString.Key.font: fontForNavBar, NSAttributedString.Key.foregroundColor: UIColor.white]
     static let newsTableViewHeightToCardHeight: CGFloat = 0.8
-    static let shadowRadiusForCompanyCells: CGFloat = 0
+    static let shadowRadiusForCompanyCells: CGFloat = 3
     static let shadowOffsetForCompanyCells: CGSize = .zero
     static let shadowOpacityForCompanyCells: Float = 1
+    static let shadowColor = DesignConstants.navConBlue.cgColor
     static let fontForNewsHeadline = UIFont.systemFont(ofSize: 29, weight: .bold)
     static let fontForNewsViewControllerLabels = UIFont.systemFont(ofSize: 20, weight: .light)
     static let offsetBetweenNewsViewControllerLabels = 20
+    static let heightOfPageControlToSuperviewHeight: CGFloat = 0.1
+    static let fontForHeadlineInNewsCell = UIFont.systemFont(ofSize: 20, weight: .bold)
     
     
     static func setGradientBackground(for view: UIView, colorTop: UIColor, colorBottom: UIColor){
