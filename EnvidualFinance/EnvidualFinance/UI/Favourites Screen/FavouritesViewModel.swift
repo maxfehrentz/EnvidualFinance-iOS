@@ -14,19 +14,14 @@ class FavouritesViewModel {
     
     var companies = BehaviorRelay<[CompanyData]>(value: [])
     var vc: FavouritesViewController!
-        
-    lazy var adapter: NativeViewModel = NativeViewModel(
-        viewUpdate: { [weak self] companies in
+    private let useCases = UseCases()
+    private lazy var getCompaniesForFavouritesUseCase = useCases.getCompaniesForFavouritesUseCase
+    private lazy var deleteCompanyFromFavouritesUseCase = useCases.deleteCompanyFromFavouritesUseCase
+    private lazy var collector = CustomFlowCollector<CompanyData>(viewUpdate: {[weak self] favourites in
+        if let companies = favourites as? [CompanyData] {
             self?.dataUpdate(companies: companies)
-        }, newsUpdate: {news in},
-           errorUpdate: { [weak self] errorMessage in
-            self?.errorUpdate(for: errorMessage)
         }
-    )
-    
-    deinit {
-        adapter.onDestroy()
-    }
+    })
     
     private func dataUpdate(companies: [CompanyData]) {
         self.companies.accept(companies)
@@ -39,11 +34,13 @@ class FavouritesViewModel {
     
     func startObservingFavourites() {
         vc.startSpinning()
-        adapter.startObservingFavourites()
+        getCompaniesForFavouritesUseCase.invoke {[weak self] (flow, error) in
+            flow?.collect(collector: self?.collector as! Kotlinx_coroutines_coreFlowCollector, completionHandler: {_,_ in})
+        }
     }
     
     func removeFavourite(company: CompanyData) {
-        adapter.removeFavourite(company: company)
+        deleteCompanyFromFavouritesUseCase.invoke(companyData: company, completionHandler: {_,_ in})
     }
     
 }

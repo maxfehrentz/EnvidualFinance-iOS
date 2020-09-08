@@ -16,19 +16,19 @@ class SearchViewModel {
     // displayedSearches is necessary to filter already exisiting searches by their ticker
     var displayedSearches = BehaviorRelay<[CompanyData]>(value: [])
     var vc: SearchViewController!
+
+    private let useCases = UseCases()
+    private lazy var getCompaniesForSearchesUseCase = useCases.getCompaniesForSearchesUseCase
+    private lazy var getCompanyByTickerUseCase = useCases.getCompanyByTickerUseCase
+    private lazy var deleteCompanyFromSearchesUseCase = useCases.deleteCompanyFromSearchesUseCase
+    private lazy var addCompanyToFavouritesUseCase = useCases.addCompanyToFavouritesUseCase
+    private lazy var deleteCompanyFromFavouritesUseCase = useCases.deleteCompanyFromFavouritesUseCase
     
-    lazy var adapter: NativeViewModel = NativeViewModel(
-        viewUpdate: { [weak self] companies in
+    private lazy var collector = CustomFlowCollector<CompanyData>(viewUpdate: {[weak self] data in
+        if let companies = data as? [CompanyData] {
             self?.dataUpdate(for: companies)
-        }, newsUpdate: {news in},
-           errorUpdate: { [weak self] errorMessage in
-            self?.errorUpdate(for: errorMessage)
         }
-    )
-    
-    deinit {
-        adapter.onDestroy()
-    }
+    })
     
     private func dataUpdate(for companies: [CompanyData]) {
         previousSearches = companies
@@ -43,18 +43,24 @@ class SearchViewModel {
     }
     
     func startObservingSearches() {
-        adapter.startObservingSearches()
+        getCompaniesForSearchesUseCase.invoke {[weak self] (flow, error) in
+            flow?.collect(collector: self?.collector as! Kotlinx_coroutines_coreFlowCollector, completionHandler: {_,_ in})
+        }
     }
     
     func searchForCompany(with ticker: String?) {
         if let possibleTicker = ticker {
             vc.startSpinning()
-            adapter.getCompanyByTicker(ticker: possibleTicker)
+            getCompanyByTickerUseCase.invoke(ticker: possibleTicker, completionHandler: {[weak self] _,error in
+                if let error = error {
+                    self?.errorUpdate(for: error.localizedDescription)
+                }
+            })
         }
     }
     
     func removeCompanyFromSearches(company: CompanyData) {
-        adapter.removeCompanyFromSearches(company: company)
+        deleteCompanyFromSearchesUseCase.invoke(companyData: company, completionHandler: {_,_ in})
     }
     
     // function restores the displayedSearches to show everything in the tableView
@@ -75,7 +81,7 @@ extension SearchViewModel: SearchDelegate {
         // find the CompanyData corresponding to the ticker of the cell and call the corresponding use case
         for displayedSearch in displayedSearches.value {
             if ticker == displayedSearch.ticker {
-                adapter.addFavourite(company: displayedSearch)
+                addCompanyToFavouritesUseCase.invoke(companyData: displayedSearch, completionHandler: {_,_ in})
                 break
             }
         }
@@ -85,7 +91,7 @@ extension SearchViewModel: SearchDelegate {
         // find the CompanyData corresponding to the ticker of the cell and call the corresponding use case
         for displayedSearch in displayedSearches.value {
             if ticker == displayedSearch.ticker {
-                adapter.removeFavourite(company: displayedSearch)
+                deleteCompanyFromFavouritesUseCase.invoke(companyData: displayedSearch, completionHandler: {_,_ in})
                 break
             }
         }

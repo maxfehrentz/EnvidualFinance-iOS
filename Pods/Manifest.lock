@@ -21,7 +21,7 @@ DEPENDENCIES:
   - RxCocoa (~> 5.1.1)
   - RxDataSources (~> 4.0)
   - RxSwift (~> 5.1.1)
-  - shared (from `../Envidual-Finance-Touchlab/shared`)
+  - shared (from `/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared`)
   - SnapKit (~> 5.0.1)
 
 SPEC REPOS:
@@ -36,7 +36,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   shared:
-    :path: "../Envidual-Finance-Touchlab/shared"
+    :path: "/Users/max/Documents/Envidual/Envidual-Finance-Touchlab/shared"
 
 SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
@@ -48,6 +48,6 @@ SPEC CHECKSUMS:
   shared: eab97f234b6c99d9a9a0a79e76168a40e5cdafcd
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 6c10585c29eb709fb6bfe0e60e3505ce9a797e47
+PODFILE CHECKSUM: c64e396245e029cb4bd62dee226ef07282567431
 
 COCOAPODS: 1.9.3

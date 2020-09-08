@@ -11,10 +11,10 @@ import shared
 
 class ApplicationViewModel {
     
-    lazy var adapter: NativeViewModel = NativeViewModel(viewUpdate: {_ in}, newsUpdate: {_ in}, errorUpdate: {_ in}
-    )
+    private let useCases = UseCases()
+    private lazy var updateCompaniesUseCase = useCases.updateCompaniesUseCase
     
     func refreshDataBase() {
-        adapter.updateCompanies()
+        updateCompaniesUseCase.invoke(completionHandler: {_,_ in})
     }
 }
