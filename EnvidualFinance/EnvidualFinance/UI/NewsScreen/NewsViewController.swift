@@ -22,7 +22,7 @@ class NewsViewController: UIViewController {
     private let articleTextLabel = UILabel()
     private let dateLabel = UILabel()
     private let sourceLabel = UILabel()
-    private let linkButton = UIButton()
+    private let linkLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class NewsViewController: UIViewController {
         configureTextLabel()
         configureDateLabel()
         configureSourceLabel()
-        configureLinkButton()
+        configureLinkLabel()
     }
     
     private func addAllSubviews() {
@@ -44,7 +44,7 @@ class NewsViewController: UIViewController {
         scrollView.addSubview(articleTextLabel)
         scrollView.addSubview(dateLabel)
         scrollView.addSubview(sourceLabel)
-        scrollView.addSubview(linkButton)
+        scrollView.addSubview(linkLabel)
     }
     
     private func layout() {
@@ -76,7 +76,7 @@ class NewsViewController: UIViewController {
             make.top.equalTo(dateLabel.snp.bottom).offset(DesignConstants.offsetBetweenNewsViewControllerLabels)
             make.width.equalToSuperview().inset(DesignConstants.standardInsetFromEdges)
         }
-        linkButton.snp.makeConstraints { (make) in
+        linkLabel.snp.makeConstraints { (make) in
             make.leading.trailing.bottom.equalToSuperview().inset(DesignConstants.standardInsetFromEdges)
             make.top.equalTo(sourceLabel.snp.bottom).offset(DesignConstants.offsetBetweenNewsViewControllerLabels)
             make.width.equalToSuperview().inset(DesignConstants.standardInsetFromEdges)
@@ -122,16 +122,18 @@ class NewsViewController: UIViewController {
         sourceLabel.text = viewModel.news.source
     }
     
-    private func configureLinkButton() {
-        linkButton.setTitleColor(.blue, for: .normal)
-        linkButton.titleLabel?.textAlignment = .right
-        linkButton.titleLabel?.numberOfLines = 0
-        linkButton.setTitle(viewModel.news.url, for: .normal)
-        linkButton.addTarget(self, action: #selector(goToURL), for: .touchUpInside)
+    private func configureLinkLabel() {
+        basicSetup(for: linkLabel)
+        linkLabel.textColor = .blue
+        linkLabel.textAlignment = .right
+        linkLabel.text = viewModel.news.url
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToURL))
+        linkLabel.addGestureRecognizer(tapGesture)
+        linkLabel.isUserInteractionEnabled = true
     }
     
     @objc private func goToURL() {
-        if let urlString = linkButton.title(for: .normal) {
+        if let urlString = linkLabel.text {
             if let url = URL(string: urlString) {
                 let safariVc = SFSafariViewController(url: url)
                 present(safariVc, animated: true)

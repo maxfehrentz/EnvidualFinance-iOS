@@ -39,23 +39,27 @@ class CompanySearchCell: UITableViewCell {
     
     private func layout() {
         tickerLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
             make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(DesignConstants.standardInsetFromEdges)
             make.width.equalToSuperview().multipliedBy(DesignConstants.half)
-            make.height.equalToSuperview().multipliedBy(DesignConstants.highLabelHeightToSuperview)
+            make.bottom.equalTo(companyNameLabel.snp.top).offset(-DesignConstants.standardOffsetBetweenElements)
         }
         companyNameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(tickerLabel.snp.bottom)
-                .offset(DesignConstants.standardOffsetBetweenElements)
             make.centerX.equalToSuperview()
-            make.leading.equalToSuperview().offset(DesignConstants.standardInsetFromEdges)
-            make.trailing.equalTo(likeButton.snp.leading)
-                .offset(DesignConstants.standardInsetFromEdges)
+            make.bottom.equalToSuperview().inset(DesignConstants.standardInsetFromEdges)
+            make.width.equalToSuperview().multipliedBy(DesignConstants.half)
         }
         likeButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-DesignConstants.standardInsetFromEdges)
+            make.width.equalToSuperview().multipliedBy(DesignConstants.quarter)
+            make.height.equalTo(likeButton.snp.width)
+            make.trailing.equalToSuperview()
         }
+        // we do this to allow the button itself to be larger for easier interaction while the heart remains small
+        likeButton.imageView?.snp.makeConstraints({ (make) in
+            make.leading.trailing.equalToSuperview().inset(DesignConstants.insetForHeartSymbolHorizontal)
+            make.top.bottom.equalToSuperview().inset(DesignConstants.insetForHeartSymbolVertical)
+        })
     }
     
     private func configureCellAppearance() {
@@ -67,6 +71,7 @@ class CompanySearchCell: UITableViewCell {
         likeButton.setImage(UIImage(systemName: DesignConstants.sfSymbolLiked)?.withRenderingMode(.alwaysTemplate), for: .selected)
         likeButton.addTarget(self, action: #selector(self.likeButtonPressed), for: .touchUpInside)
         likeButton.tintColor = DesignConstants.pinkColor
+        likeButton.imageView?.translatesAutoresizingMaskIntoConstraints = false
     }
     
     @objc private func likeButtonPressed(sender : UIButton) {

@@ -59,8 +59,10 @@ class SearchViewController: UIViewController {
     private func setupTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(CompanySearchCell.self, forCellReuseIdentifier: "CompanySearchCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 700
         bindTableView()
-        tableView.delegate = self
+//        tableView.delegate = self
         enableDeleteBySwipe()
     }
     
@@ -133,12 +135,12 @@ extension SearchViewController: UISearchResultsUpdating {
     }
     
 }
-
-extension SearchViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return DesignConstants.cellHeight
-    }
-}
+//
+//extension SearchViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return DesignConstants.cellHeight
+//    }
+//}
 
 extension SearchViewController: SearchViewControllerDelegate {
     

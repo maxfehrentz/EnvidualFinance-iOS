@@ -28,6 +28,7 @@ struct DesignConstants {
     static let flatLabelHeightToSuperview = 0.2
     static let highLabelHeightToSuperview = 0.25
     static let half = 0.5
+    static let quarter = 0.25
     static let detailVcOffsetBetweenLargeElements = 20
     static let logoCornerRadius: CGFloat = 20
     static let detailVcNameFont = UIFont.systemFont(ofSize: 40, weight: .heavy)
@@ -37,8 +38,10 @@ struct DesignConstants {
     static let cardViewCornerRadius: CGFloat = 30
     static let sfSymbolNotLiked = "heart"
     static let sfSymbolLiked = "heart.fill"
-    static let companySearchCellTickerFont = UIFont.systemFont(ofSize: 25, weight: .heavy)
-    static let companySearchCellNameFont = UIFont.systemFont(ofSize: 25, weight: .ultraLight)
+    static let companySearchCellTickerFont = UIFont.systemFont(ofSize: 29, weight: .heavy)
+    static let companySearchCellNameFont = UIFont.systemFont(ofSize: 29, weight: .ultraLight)
+    static let insetForHeartSymbolVertical: CGFloat = 33
+    static let insetForHeartSymbolHorizontal: CGFloat = 31
     static let companyCellNameFont = UIFont.systemFont(ofSize: 39, weight: .light)
     static let marketCapitalizationLabelFontColor = UIColor.green
     static let borderColorForCompanyCell = UIColor.black.cgColor
