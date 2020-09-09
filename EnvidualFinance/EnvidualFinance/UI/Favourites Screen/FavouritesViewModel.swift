@@ -22,10 +22,11 @@ class FavouritesViewModel {
             self?.dataUpdate(companies: companies)
         }
     })
+    let showLoading = BehaviorRelay<Bool>(value: false)
     
     private func dataUpdate(companies: [CompanyData]) {
         self.companies.accept(companies)
-        vc.stopSpinning()
+        showLoading.accept(false)
     }
     
     private func errorUpdate(for errorMessage: String) {
@@ -33,7 +34,7 @@ class FavouritesViewModel {
     }
     
     func startObservingFavourites() {
-        vc.startSpinning()
+        showLoading.accept(true)
         getCompaniesForFavouritesUseCase.invoke {[weak self] (flow, error) in
             flow?.collect(collector: self?.collector as! Kotlinx_coroutines_coreFlowCollector, completionHandler: {_,_ in})
         }

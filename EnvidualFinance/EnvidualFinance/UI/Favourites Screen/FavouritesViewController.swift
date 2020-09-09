@@ -99,20 +99,17 @@ class FavouritesViewController: UIViewController {
     private func setupActivityIndicator() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = DesignConstants.activityIndicatorColor
+        viewModel.showLoading
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .bind(to: activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
     }
     
     func showError(for errorMessage: String) {
         let alertController = UIAlertController(title: "error", message: errorMessage, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
         present(alertController, animated: true, completion: nil)
-    }
-    
-    func startSpinning() {
-        activityIndicator.startAnimating()
-    }
-    
-    func stopSpinning() {
-        activityIndicator.stopAnimating()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

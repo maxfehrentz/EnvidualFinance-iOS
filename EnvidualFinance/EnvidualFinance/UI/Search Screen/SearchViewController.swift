@@ -81,7 +81,11 @@ class SearchViewController: UIViewController {
     private func setupActivityIndicator() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = DesignConstants.activityIndicatorColor
-        viewModel.showLoading.asObservable().observeOn(MainScheduler.instance).bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
+        viewModel.showLoading
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .bind(to: activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
     }
     
     private func layout() {
