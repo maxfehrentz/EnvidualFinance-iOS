@@ -13,10 +13,11 @@ import RxCocoa
 class SearchViewModel {
     
     private var previousSearches = [CompanyData]()
-    // displayedSearches is necessary to filter already exisiting searches by their ticker when the user types stuff into the searchbar
-    var displayedSearches = BehaviorRelay<[CompanyData]>(value: [])
-    var vc: SearchViewController!
+    // previousSearches is necessary for storing to filter already exisiting searches by their ticker when the user types stuff into the searchbar
+    private(set) var displayedSearches = BehaviorRelay<[CompanyData]>(value: [])
+    var searchViewControllerDelegate: SearchViewControllerDelegate!
     let showLoading = BehaviorRelay<Bool>(value: false)
+    let searchBarIsActive = BehaviorRelay<Bool>(value: false)
 
     private let useCases = UseCases()
     private lazy var getCompaniesForSearchesUseCase = useCases.getCompaniesForSearchesUseCase
@@ -24,7 +25,6 @@ class SearchViewModel {
     private lazy var deleteCompanyFromSearchesUseCase = useCases.deleteCompanyFromSearchesUseCase
     private lazy var addCompanyToFavouritesUseCase = useCases.addCompanyToFavouritesUseCase
     private lazy var deleteCompanyFromFavouritesUseCase = useCases.deleteCompanyFromFavouritesUseCase
-    
     private lazy var collector = CustomFlowCollector<CompanyData>(viewUpdate: {[weak self] data in
         if let companies = data as? [CompanyData] {
             self?.dataUpdate(for: companies)
@@ -35,12 +35,14 @@ class SearchViewModel {
         previousSearches = companies
         displayedSearches.accept(previousSearches)
         showLoading.accept(false)
-        vc.collapseSearchBar()
+        searchBarIsActive.accept(false)
     }
     
     private func errorUpdate(for errorMessage: String) {
-        vc.showError(for: errorMessage)
+        searchViewControllerDelegate.showError(for: errorMessage)
         showLoading.accept(false)
+        searchBarIsActive.accept(false)
+        restoreDisplayedSearches()
     }
     
     func startObservingSearches() {

@@ -27,7 +27,7 @@ class SearchViewController: UIViewController {
         setupTableView()
         setupActivityIndicator()
         layout()
-        viewModel.vc = self
+        viewModel.searchViewControllerDelegate = self
         viewModel.startObservingSearches()
     }
     
@@ -49,6 +49,11 @@ class SearchViewController: UIViewController {
     private func setupSearchController() {
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
+        viewModel.searchBarIsActive
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .bind { [weak self] in self?.searchController.isActive = $0 }
+            .disposed(by: disposeBag)
     }
     
     private func setupTableView() {
@@ -102,17 +107,7 @@ class SearchViewController: UIViewController {
             make.height.equalTo(activityIndicator.snp.width)
         }
     }
-    
-    func showError(for errorMessage: String) {
-        let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
-        present(alertController, animated: true, completion: nil)
-    }
 
-    func collapseSearchBar() {
-        // collapse search bar to indicate that something has been found
-        searchController.isActive = false
-    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -143,6 +138,16 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return DesignConstants.cellHeight
     }
+}
+
+extension SearchViewController: SearchViewControllerDelegate {
+    
+    func showError(for errorMessage: String) {
+        let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
 

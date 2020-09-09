@@ -28,7 +28,6 @@ class FavouritesViewController: UIViewController {
         setupTableView()
         setupActivityIndicator()
         layout()
-        viewModel.vc = self
         viewModel.startObservingFavourites()
     }
     
@@ -104,12 +103,6 @@ class FavouritesViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .bind(to: activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
-    }
-    
-    func showError(for errorMessage: String) {
-        let alertController = UIAlertController(title: "error", message: errorMessage, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-        present(alertController, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

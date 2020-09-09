@@ -12,8 +12,7 @@ import RxCocoa
 
 class FavouritesViewModel {
     
-    var companies = BehaviorRelay<[CompanyData]>(value: [])
-    var vc: FavouritesViewController!
+    private(set) var companies = BehaviorRelay<[CompanyData]>(value: [])
     private let useCases = UseCases()
     private lazy var getCompaniesForFavouritesUseCase = useCases.getCompaniesForFavouritesUseCase
     private lazy var deleteCompanyFromFavouritesUseCase = useCases.deleteCompanyFromFavouritesUseCase
@@ -27,10 +26,6 @@ class FavouritesViewModel {
     private func dataUpdate(companies: [CompanyData]) {
         self.companies.accept(companies)
         showLoading.accept(false)
-    }
-    
-    private func errorUpdate(for errorMessage: String) {
-        vc.showError(for: errorMessage)
     }
     
     func startObservingFavourites() {

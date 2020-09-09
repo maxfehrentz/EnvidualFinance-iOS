@@ -13,7 +13,7 @@ import RxCocoa
 class CompanyDetailViewModel {
     
     private(set) var company: CompanyData
-    var news = BehaviorRelay<[CompanyNews]>(value: [])
+    private(set) var news = BehaviorRelay<[CompanyNews]>(value: [])
     private let useCases = UseCases()
     private lazy var getCompanyNewsByTickerUseCase = useCases.getCompanyNewsByTickerUseCase
     private lazy var collector: CustomFlowCollector<CompanyData> = CustomFlowCollector<CompanyData>(viewUpdate: {[weak self] news in

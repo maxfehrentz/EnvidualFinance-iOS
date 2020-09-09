@@ -299,6 +299,7 @@ class CompanyDetailViewController: UIViewController {
 
 }
 
+// screen is presented modally; OS gets confused if gesture is supposed to target sheet (screen) or cardView; we need this method to clear up the confusion
 extension CompanyDetailViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         true
