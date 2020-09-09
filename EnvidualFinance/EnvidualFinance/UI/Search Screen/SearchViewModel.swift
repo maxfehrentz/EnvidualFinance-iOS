@@ -13,9 +13,10 @@ import RxCocoa
 class SearchViewModel {
     
     private var previousSearches = [CompanyData]()
-    // displayedSearches is necessary to filter already exisiting searches by their ticker
+    // displayedSearches is necessary to filter already exisiting searches by their ticker when the user types stuff into the searchbar
     var displayedSearches = BehaviorRelay<[CompanyData]>(value: [])
     var vc: SearchViewController!
+    let showLoading = BehaviorRelay<Bool>(value: false)
 
     private let useCases = UseCases()
     private lazy var getCompaniesForSearchesUseCase = useCases.getCompaniesForSearchesUseCase
@@ -33,13 +34,13 @@ class SearchViewModel {
     private func dataUpdate(for companies: [CompanyData]) {
         previousSearches = companies
         displayedSearches.accept(previousSearches)
-        vc.stopSpinning()
+        showLoading.accept(false)
         vc.collapseSearchBar()
     }
     
     private func errorUpdate(for errorMessage: String) {
         vc.showError(for: errorMessage)
-        vc.stopSpinning()
+        showLoading.accept(false)
     }
     
     func startObservingSearches() {
@@ -50,7 +51,7 @@ class SearchViewModel {
     
     func searchForCompany(with ticker: String?) {
         if let possibleTicker = ticker {
-            vc.startSpinning()
+            showLoading.accept(true)
             getCompanyByTickerUseCase.invoke(ticker: possibleTicker, completionHandler: {[weak self] _,error in
                 if let error = error {
                     self?.errorUpdate(for: error.localizedDescription)

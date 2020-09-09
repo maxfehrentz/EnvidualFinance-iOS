@@ -81,6 +81,7 @@ class SearchViewController: UIViewController {
     private func setupActivityIndicator() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = DesignConstants.activityIndicatorColor
+        viewModel.showLoading.asObservable().observeOn(MainScheduler.instance).bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
     }
     
     private func layout() {
@@ -102,14 +103,6 @@ class SearchViewController: UIViewController {
         let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
         present(alertController, animated: true, completion: nil)
-    }
-    
-    func startSpinning() {
-        activityIndicator.startAnimating()
-    }
-    
-    func stopSpinning() {
-        activityIndicator.stopAnimating()
     }
 
     func collapseSearchBar() {
