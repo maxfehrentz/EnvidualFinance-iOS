@@ -56,10 +56,10 @@ class CompanySearchCell: UITableViewCell {
             make.trailing.equalToSuperview()
         }
         // we do this to allow the button itself to be larger for easier interaction while the heart remains small
-        likeButton.imageView?.snp.makeConstraints({ (make) in
-            make.leading.trailing.equalToSuperview().inset(DesignConstants.insetForHeartSymbolHorizontal)
-            make.top.bottom.equalToSuperview().inset(DesignConstants.insetForHeartSymbolVertical)
-        })
+//        likeButton.imageView?.snp.makeConstraints({ (make) in
+//            make.leading.trailing.equalToSuperview().inset(DesignConstants.insetForHeartSymbolHorizontal)
+//            make.top.bottom.equalToSuperview().inset(DesignConstants.insetForHeartSymbolVertical)
+//        })
     }
     
     private func configureCellAppearance() {
@@ -67,6 +67,7 @@ class CompanySearchCell: UITableViewCell {
     }
     
     private func configureButton() {
+        likeButton.translatesAutoresizingMaskIntoConstraints = false
         likeButton.setImage(UIImage(systemName: DesignConstants.sfSymbolNotLiked)?.withRenderingMode(.alwaysTemplate), for: .normal)
         likeButton.setImage(UIImage(systemName: DesignConstants.sfSymbolLiked)?.withRenderingMode(.alwaysTemplate), for: .selected)
         likeButton.addTarget(self, action: #selector(self.likeButtonPressed), for: .touchUpInside)
