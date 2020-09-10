@@ -16,11 +16,7 @@ class CompanyDetailViewModel {
     private(set) var news = BehaviorRelay<[CompanyNews]>(value: [])
     private let useCases = UseCases()
     private lazy var getCompanyNewsByTickerUseCase = useCases.getCompanyNewsByTickerUseCase
-    private lazy var collector: CustomFlowCollector<CompanyData> = CustomFlowCollector<CompanyData>(viewUpdate: {[weak self] news in
-        if let news = news as? [CompanyNews] {
-            self?.newsUpdate(for: news)
-        }
-    })
+    var isLoadingNews = BehaviorRelay<Bool>(value: false)
     
     init(company: CompanyData) {
         self.company = company
@@ -28,14 +24,18 @@ class CompanyDetailViewModel {
     }
     
     private func getNews() {
+        isLoadingNews.accept(true)
         if let ticker = company.ticker {
-            getCompanyNewsByTickerUseCase.invoke(ticker: ticker) {[weak self] (flow, error) in
-                flow?.collect(collector: self?.collector as! Kotlinx_coroutines_coreFlowCollector, completionHandler: {_,_ in})
-            }
+            getCompanyNewsByTickerUseCase.invoke(ticker: ticker, completionHandler: {[weak self] data, error in
+                if let newNews = data {
+                    self?.news.accept(newNews)
+                }
+            })
         }
     }
     
     private func newsUpdate(for news: [CompanyNews]) {
+        isLoadingNews.accept(false)
         self.news.accept(news)
     }
     
