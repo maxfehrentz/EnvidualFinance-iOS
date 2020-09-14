@@ -11,13 +11,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         startKoin()
         let appViewModel = ApplicationViewModel()
         appViewModel.refreshDataBase()
+        let proxy = UIPageControl.appearance()
+        proxy.pageIndicatorTintColor = UIColor.black
+        proxy.currentPageIndicatorTintColor = DesignConstants.pinkColor
+        proxy.backgroundColor = .white
         return true
     }
 

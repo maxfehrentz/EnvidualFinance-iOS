@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ada-Jy-PFd">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +11,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="FavouritesViewController" customModule="EnvidualFinance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -27,20 +26,17 @@
             </objects>
             <point key="canvasLocation" x="-894" y="-491"/>
         </scene>
-        <!--Company Detail View Controller-->
+        <!--Company View Controller-->
         <scene sceneID="uST-7F-OK3">
             <objects>
-                <viewController id="qjq-WK-7Xe" customClass="CompanyDetailViewController" customModule="EnvidualFinance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qjq-WK-7Xe" customClass="CompanyViewController" customModule="EnvidualFinance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q4O-A5-FLO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="eaK-dR-DFC"/>
                     </view>
                     <navigationItem key="navigationItem" id="A6P-Gg-up2"/>
-                    <connections>
-                        <segue destination="zQp-D3-T4d" kind="presentation" identifier="SegueToCompanyNews" id="2FW-h7-IC7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzJ-sl-lcL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,7 +47,7 @@
             <objects>
                 <viewController id="dpv-8I-uO1" customClass="SearchViewController" customModule="EnvidualFinance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zbc-T2-1pF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="qMv-ze-MwC"/>
@@ -62,21 +58,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUF-Oi-pHx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-894" y="848"/>
-        </scene>
-        <!--News View Controller-->
-        <scene sceneID="gXG-Up-KSZ">
-            <objects>
-                <viewController id="zQp-D3-T4d" customClass="NewsViewController" customModule="EnvidualFinance" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nql-yU-zMs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="fh2-0j-WqW"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FLq-QC-fD9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="648" y="461"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NBs-tN-1ON">

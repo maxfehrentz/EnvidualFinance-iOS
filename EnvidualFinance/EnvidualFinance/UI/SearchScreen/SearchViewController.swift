@@ -27,7 +27,7 @@ class SearchViewController: UIViewController {
         setupTableView()
         setupActivityIndicator()
         layout()
-        viewModel.searchViewControllerDelegate = self
+        viewModel.errorDelegate = self
         viewModel.startObservingSearches()
     }
     
@@ -142,7 +142,7 @@ extension SearchViewController: UISearchResultsUpdating {
 //    }
 //}
 
-extension SearchViewController: SearchViewControllerDelegate {
+extension SearchViewController: ErrorDelegate {
     
     func showError(for errorMessage: String) {
         let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .alert)

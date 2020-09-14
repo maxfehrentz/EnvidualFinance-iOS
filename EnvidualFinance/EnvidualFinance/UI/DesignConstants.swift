@@ -29,13 +29,14 @@ struct DesignConstants {
     static let highLabelHeightToSuperview = 0.25
     static let half = 0.5
     static let quarter = 0.25
+    static let third: Float = 1.0 / 3
     static let detailVcOffsetBetweenLargeElements = 20
     static let logoCornerRadius: CGFloat = 20
     static let detailVcNameFont = UIFont.systemFont(ofSize: 40, weight: .heavy)
     static let detailVcNameFontColor = UIColor.white
     static let detailVcCardViewLabelsFontSize: CGFloat = 25
     static let detailVcCardViewLabelsFont = UIFont.systemFont(ofSize: DesignConstants.detailVcCardViewLabelsFontSize, weight: .light)
-    static let cardViewCornerRadius: CGFloat = 30
+    static let pageControllerCornerRadius: CGFloat = 30
     static let sfSymbolNotLiked = "heart"
     static let sfSymbolLiked = "heart.fill"
     static let companySearchCellTickerFont = UIFont.systemFont(ofSize: 29, weight: .heavy)

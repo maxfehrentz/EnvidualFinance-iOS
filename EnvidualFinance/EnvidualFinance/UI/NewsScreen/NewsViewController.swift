@@ -14,7 +14,7 @@ import SafariServices
 
 class NewsViewController: UIViewController {
     
-    var viewModel: NewsViewModel!
+    var viewModel: NewsViewModel
     
     private let scrollView = UIScrollView()
     private let articleImageView = UIImageView()
@@ -23,9 +23,19 @@ class NewsViewController: UIViewController {
     private let dateLabel = UILabel()
     private let sourceLabel = UILabel()
     private let linkLabel = UILabel()
-
+    
+    init(viewModel: NewsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureAppearance()
         addAllSubviews()
         layout()
         configureScrollView()
@@ -35,6 +45,10 @@ class NewsViewController: UIViewController {
         configureDateLabel()
         configureSourceLabel()
         configureLinkLabel()
+    }
+    
+    private func configureAppearance() {
+        view.backgroundColor = .white
     }
     
     private func addAllSubviews() {

@@ -1,34 +1,38 @@
 //
-//  CompanyDetailViewModel.swift
+//  CompanyNewsCollectionViewModel.swift
 //  EnvidualFinance
 //
-//  Created by Max on 01.09.20.
+//  Created by Max on 10.09.20.
 //  Copyright © 2020 Maximilian Fehrentz. All rights reserved.
 //
 
 import Foundation
 import shared
 import RxCocoa
+import shared
 
-class CompanyDetailViewModel {
+class CompanyNewsCollectionViewModel {
     
-    private(set) var company: CompanyData
+    private let company: CompanyData
     private(set) var news = BehaviorRelay<[CompanyNews]>(value: [])
     private let useCases = UseCases()
-    private lazy var getCompanyNewsByTickerUseCase = useCases.getCompanyNewsByTickerUseCase
+    lazy private var getCompanyNewsByTickerUseCase = useCases.getCompanyNewsByTickerUseCase
     var isLoadingNews = BehaviorRelay<Bool>(value: false)
+    var errorDelegate: ErrorDelegate!
     
     init(company: CompanyData) {
         self.company = company
-        getNews()
     }
     
-    private func getNews() {
+    func getNews() {
         isLoadingNews.accept(true)
         if let ticker = company.ticker {
             getCompanyNewsByTickerUseCase.invoke(ticker: ticker, completionHandler: {[weak self] data, error in
                 if let newNews = data {
-                    self?.news.accept(newNews)
+                    self?.newsUpdate(for: newNews)
+                }
+                if let newError = error {
+                    self?.errorUpdate(for: newError.localizedDescription)
                 }
             })
         }
@@ -40,6 +44,7 @@ class CompanyDetailViewModel {
     }
     
     private func errorUpdate(for errorMessage: String) {
-        print("An error occured but I don't know what to do with it yet. Error message is: \(errorMessage)")
+        isLoadingNews.accept(false)
+        errorDelegate.showError(for: errorMessage)
     }
 }

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol SearchViewControllerDelegate {
+protocol ErrorDelegate {
     func showError(for errorMessage: String)
 }
