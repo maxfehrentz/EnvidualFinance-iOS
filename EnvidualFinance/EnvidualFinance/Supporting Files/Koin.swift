@@ -25,6 +25,9 @@ var koin: Koin_coreKoin {
     return _koin!
 }
 
+func resolve<T: AnyObject>() -> T {
+    koin.get(objCClass: T.self, qualifier: nil) as! T
+}
 
 class IosAppInfo: AppInfo {
     let appId: String = Bundle.main.bundleIdentifier!

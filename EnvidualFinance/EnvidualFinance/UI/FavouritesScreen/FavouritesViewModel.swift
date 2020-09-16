@@ -13,9 +13,8 @@ import RxCocoa
 class FavouritesViewModel {
     
     private(set) var companies = BehaviorRelay<[CompanyData]>(value: [])
-    private let useCases = UseCases()
-    private lazy var getCompaniesForFavouritesUseCase = useCases.getCompaniesForFavouritesUseCase
-    private lazy var deleteCompanyFromFavouritesUseCase = useCases.deleteCompanyFromFavouritesUseCase
+    private lazy var getCompaniesForFavouritesUseCase: GetCompaniesForFavouritesUseCase = resolve()
+    private lazy var deleteCompanyFromFavouritesUseCase: DeleteCompanyFromFavouritesUseCase = resolve()
     private lazy var collector = CustomFlowCollector<CompanyData>(viewUpdate: {[weak self] favourites in
         if let companies = favourites as? [CompanyData] {
             self?.dataUpdate(companies: companies)
@@ -31,7 +30,10 @@ class FavouritesViewModel {
     func startObservingFavourites() {
         showLoading.accept(true)
         getCompaniesForFavouritesUseCase.invoke {[weak self] (flow, error) in
-            flow?.collect(collector: self?.collector as! Kotlinx_coroutines_coreFlowCollector, completionHandler: {_,_ in})
+            guard let self = self else {
+                return
+            }
+            flow?.collect(collector: self.collector, completionHandler: {_,_ in})
         }
     }
     

@@ -11,8 +11,11 @@ import shared
 
 class ApplicationViewModel {
     
-    private let useCases = UseCases()
-    private lazy var updateCompaniesUseCase = useCases.updateCompaniesUseCase
+    private let updateCompaniesUseCase: UpdateCompaniesUseCase
+    
+    init() {
+        updateCompaniesUseCase = resolve()
+    }
     
     func refreshDataBase() {
         updateCompaniesUseCase.invoke(completionHandler: {_,_ in})

@@ -15,8 +15,7 @@ class CompanyNewsCollectionViewModel {
     
     private let company: CompanyData
     private(set) var news = BehaviorRelay<[CompanyNews]>(value: [])
-    private let useCases = UseCases()
-    lazy private var getCompanyNewsByTickerUseCase = useCases.getCompanyNewsByTickerUseCase
+    private let getCompanyNewsByTickerUseCase: GetCompanyNewsByTickerUseCase = resolve()
     var isLoadingNews = BehaviorRelay<Bool>(value: false)
     var errorDelegate: ErrorDelegate!
     

@@ -19,12 +19,11 @@ class SearchViewModel {
     let showLoading = BehaviorRelay<Bool>(value: false)
     let searchBarIsActive = BehaviorRelay<Bool>(value: false)
 
-    private let useCases = UseCases()
-    private lazy var getCompaniesForSearchesUseCase = useCases.getCompaniesForSearchesUseCase
-    private lazy var getCompanyByTickerUseCase = useCases.getCompanyByTickerUseCase
-    private lazy var deleteCompanyFromSearchesUseCase = useCases.deleteCompanyFromSearchesUseCase
-    private lazy var addCompanyToFavouritesUseCase = useCases.addCompanyToFavouritesUseCase
-    private lazy var deleteCompanyFromFavouritesUseCase = useCases.deleteCompanyFromFavouritesUseCase
+    private let getCompaniesForSearchesUseCase: GetCompaniesForSearchesUseCase = resolve()
+    private let getCompanyByTickerUseCase: GetCompanyByTickerUseCase = resolve()
+    private let deleteCompanyFromSearchesUseCase: DeleteCompanyFromSearchesUseCase = resolve()
+    private let addCompanyToFavouritesUseCase: AddCompanyToFavouritesUseCase = resolve()
+    private let deleteCompanyFromFavouritesUseCase: DeleteCompanyFromFavouritesUseCase = resolve()
     private lazy var collector = CustomFlowCollector<CompanyData>(viewUpdate: {[weak self] data in
         if let companies = data as? [CompanyData] {
             self?.dataUpdate(for: companies)
@@ -47,7 +46,10 @@ class SearchViewModel {
     
     func startObservingSearches() {
         getCompaniesForSearchesUseCase.invoke {[weak self] (flow, error) in
-            flow?.collect(collector: self?.collector as! Kotlinx_coroutines_coreFlowCollector, completionHandler: {_,_ in})
+            guard let self = self else {
+                return
+            }
+            flow?.collect(collector: self.collector, completionHandler: {_,_ in})
         }
     }
     
