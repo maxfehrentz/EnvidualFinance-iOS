@@ -44,7 +44,9 @@ struct DesignConstants {
     static let insetForHeartSymbolVertical: CGFloat = 33
     static let insetForHeartSymbolHorizontal: CGFloat = 31
     static let companyCellNameFont = UIFont.systemFont(ofSize: 39, weight: .light)
-    static let marketCapitalizationLabelFontColor = UIColor.green
+    static let marketCapitalizationLabelFontColor = #colorLiteral(red: 0, green: 1, blue: 0.2622444928, alpha: 1)
+    static let marketCapitalizationLabelBackgroundColor = #colorLiteral(red: 0.865657866, green: 1, blue: 0.8741024733, alpha: 1).cgColor
+    static let marketCapitalizationLabelCornerRadius: CGFloat = 6
     static let borderColorForCompanyCell = UIColor.black.cgColor
     static let borderWidthForCompanyCell: CGFloat = 0.5
     static let cornerRadiusForCompanyCell: CGFloat = 20
@@ -52,9 +54,9 @@ struct DesignConstants {
     static let fontForNavBar = UIFont.systemFont(ofSize: 29, weight: .light)
     static let attributesForNavBar = [NSAttributedString.Key.font: fontForNavBar, NSAttributedString.Key.foregroundColor: UIColor.white]
     static let newsTableViewHeightToCardHeight: CGFloat = 0.8
-    static let shadowRadiusForCompanyCells: CGFloat = 3
+    static let shadowRadiusForCompanyCells: CGFloat = 5
     static let shadowOffsetForCompanyCells: CGSize = .zero
-    static let shadowOpacityForCompanyCells: Float = 1
+    static let shadowOpacityForCompanyCells: Float = 0.5
     static let shadowColor = DesignConstants.navConBlue.cgColor
     static let fontForNewsHeadline = UIFont.systemFont(ofSize: 29, weight: .bold)
     static let fontForNewsViewControllerLabels = UIFont.systemFont(ofSize: 20, weight: .light)

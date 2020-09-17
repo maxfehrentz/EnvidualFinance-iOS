@@ -15,7 +15,7 @@ class SearchViewModel {
     private var previousSearches = [CompanyData]()
     // previousSearches is necessary for storing to filter already exisiting searches by their ticker when the user types stuff into the searchbar
     private(set) var displayedSearches = BehaviorRelay<[CompanyData]>(value: [])
-    var errorDelegate: ErrorDelegate!
+    var errorDelegate: ErrorDelegate
     let showLoading = BehaviorRelay<Bool>(value: false)
     let searchBarIsActive = BehaviorRelay<Bool>(value: false)
 
@@ -29,6 +29,10 @@ class SearchViewModel {
             self?.dataUpdate(for: companies)
         }
     })
+    
+    init(errorDelegate: ErrorDelegate) {
+        self.errorDelegate = errorDelegate
+    }
     
     private func dataUpdate(for companies: [CompanyData]) {
         previousSearches = companies

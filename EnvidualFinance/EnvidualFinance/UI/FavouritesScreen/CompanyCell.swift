@@ -93,7 +93,9 @@ class CompanyCell: UITableViewCell {
     private func configureMarketCapitalizationLabel() {
         marketCapitalizationLabel.numberOfLines = 0
         marketCapitalizationLabel.textAlignment = .center
+        marketCapitalizationLabel.layer.cornerRadius = DesignConstants.marketCapitalizationLabelCornerRadius
         marketCapitalizationLabel.textColor = DesignConstants.marketCapitalizationLabelFontColor
+        marketCapitalizationLabel.layer.backgroundColor =  DesignConstants.marketCapitalizationLabelBackgroundColor
     }
     
     func configureShadow() {

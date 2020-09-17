@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
     private let searchController = UISearchController()
     private let tableView = UITableView()
     private let activityIndicator = UIActivityIndicatorView()
-    private let viewModel = SearchViewModel()
+    private lazy var viewModel = SearchViewModel(errorDelegate: self)
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -27,7 +27,6 @@ class SearchViewController: UIViewController {
         setupTableView()
         setupActivityIndicator()
         layout()
-        viewModel.errorDelegate = self
         viewModel.startObservingSearches()
     }
     

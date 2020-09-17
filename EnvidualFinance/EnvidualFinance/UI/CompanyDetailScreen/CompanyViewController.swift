@@ -65,6 +65,14 @@ class CompanyViewController: UIViewController {
         }
     }
     
+    private func layoutNoImage() {
+        logo.removeFromSuperview()
+        pageController.view.snp.makeConstraints { (make) in
+            make.top.equalTo(nameLabel.snp.bottom)
+                .offset(DesignConstants.detailVcOffsetBetweenLargeElements)
+        }
+    }
+    
     private func setupPageController() {
         pageController.dataSource = self
         pageController.delegate = self
@@ -80,7 +88,14 @@ class CompanyViewController: UIViewController {
     }
     
     private func configureLogo() {
-        logo.kf.setImage(with: URL(string: viewModel.company.logo!))
+        logo.kf.setImage(with: URL(string: viewModel.company.logo!), completionHandler: {[weak self] result in
+            switch result {
+            case .failure:
+                self?.layoutNoImage()
+            default:
+                print("Fetching image was succesful")
+            }
+        })
         logo.contentMode = .scaleAspectFit
         logo.layer.cornerRadius = DesignConstants.logoCornerRadius
         logo.layer.masksToBounds = true

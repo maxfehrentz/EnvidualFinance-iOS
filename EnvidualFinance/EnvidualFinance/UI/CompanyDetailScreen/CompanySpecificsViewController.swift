@@ -87,50 +87,50 @@ class CompanySpecificsViewController: UIViewController {
     
     private func configureLabels() {
         setBasicLabelProperties(for: tickerLabel)
-        var boldText = "Ticker:\n"
-        var normalText = ""
+        var normalText = "Ticker:\n"
+        var boldText = ""
         if let ticker = viewModel.company.ticker {
-            normalText = "\(ticker)"
+            boldText = "\(ticker)"
         }
         setAttributedTitle(for: tickerLabel, boldText: boldText, normalText: normalText)
         
         setBasicLabelProperties(for: countryLabel)
-        boldText = "Country:\n"
-        normalText = ""
+        normalText = "Country:\n"
+        boldText = ""
         if let country = viewModel.company.country {
-            normalText = "\(country)"
+            boldText = "\(country)"
         }
         setAttributedTitle(for: countryLabel, boldText: boldText, normalText: normalText)
         
         setBasicLabelProperties(for: valueLabel)
-        boldText = "Value:\n"
-        normalText = ""
+        normalText = "Value:\n"
+        boldText = ""
         if let value = viewModel.company.marketCapitalization, let currency = viewModel.company.currency {
-            normalText = "\(value) \(currency)"
+            boldText = "\(value) \(currency)"
         }
         setAttributedTitle(for: valueLabel, boldText: boldText, normalText: normalText)
         
         setBasicLabelProperties(for: industryLabel)
-        boldText = "Industry:\n"
-        normalText = ""
+        normalText = "Industry:\n"
+        boldText = ""
         if let industry = viewModel.company.finnhubIndustry {
-            normalText = "\(industry)"
+            boldText = "\(industry)"
         }
         setAttributedTitle(for: industryLabel, boldText: boldText, normalText: normalText)
         
         setBasicLabelProperties(for: ipoLabel)
-        boldText = "IPO:\n"
-        normalText = ""
+        normalText = "IPO:\n"
+        boldText = ""
         if let ipo = viewModel.company.ipo {
-            normalText = "\(ipo)"
+            boldText = "\(ipo)"
         }
         setAttributedTitle(for: ipoLabel, boldText: boldText, normalText: normalText)
         
         setBasicLabelProperties(for: shareOutstandingLabel)
-        boldText = "Share Outstanding:\n"
-        normalText = ""
+        normalText = "Share Outstanding:\n"
+        boldText = ""
         if let shareOutstanding = viewModel.company.shareOutstanding, let currency = viewModel.company.currency {
-            normalText = "\(shareOutstanding) \(currency)"
+            boldText = "\(shareOutstanding) \(currency)"
         }
         setAttributedTitle(for: shareOutstandingLabel, boldText: boldText, normalText: normalText)
     }
@@ -146,8 +146,8 @@ class CompanySpecificsViewController: UIViewController {
         let attributes = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: DesignConstants.detailVcCardViewLabelsFontSize)]
         let boldString = NSMutableAttributedString(string: boldText, attributes: attributes)
         let normalString = NSMutableAttributedString(string: normalText)
-        boldString.append(normalString)
-        label.attributedText = boldString
+        normalString.append(boldString)
+        label.attributedText = normalString
     }
     
 }

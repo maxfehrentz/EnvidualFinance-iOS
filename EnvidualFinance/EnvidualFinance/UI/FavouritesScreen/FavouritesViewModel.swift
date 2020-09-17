@@ -21,6 +21,11 @@ class FavouritesViewModel {
         }
     })
     let showLoading = BehaviorRelay<Bool>(value: false)
+    private let errorDelegate: ErrorDelegate
+    
+    init(errorDelegate: ErrorDelegate) {
+        self.errorDelegate = errorDelegate
+    }
     
     private func dataUpdate(companies: [CompanyData]) {
         self.companies.accept(companies)
@@ -30,6 +35,10 @@ class FavouritesViewModel {
     func startObservingFavourites() {
         showLoading.accept(true)
         getCompaniesForFavouritesUseCase.invoke {[weak self] (flow, error) in
+            if let newError = error {
+                self?.showLoading.accept(false)
+                self?.errorDelegate.showError(for: newError.localizedDescription)
+            }
             guard let self = self else {
                 return
             }

@@ -97,6 +97,13 @@ class NewsViewController: UIViewController {
         }
     }
     
+    private func layoutNoImage() {
+        articleImageView.removeFromSuperview()
+        headlineLabel.snp.makeConstraints { (make) in
+                    make.top.leading.trailing.equalToSuperview().inset(DesignConstants.standardInsetFromEdges)
+        }
+    }
+    
     private func configureScrollView() {
         scrollView.showsVerticalScrollIndicator = false
     }
@@ -104,7 +111,14 @@ class NewsViewController: UIViewController {
     private func configureImageView() {
         articleImageView.contentMode = .scaleAspectFit
         if let imageURLString = viewModel.news.image {
-            articleImageView.kf.setImage(with: URL(string: imageURLString))
+            articleImageView.kf.setImage(with: URL(string: imageURLString), completionHandler: {[weak self] result in
+                switch result {
+                case .failure:
+                    self?.layoutNoImage()
+                default:
+                    print("Retrieving news image was succesful")
+                }
+            })
         }
     }
     

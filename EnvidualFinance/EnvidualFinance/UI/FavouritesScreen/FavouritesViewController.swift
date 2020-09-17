@@ -16,7 +16,7 @@ import RxSwift
 
 class FavouritesViewController: UIViewController {
     
-    private let viewModel = FavouritesViewModel()
+    private lazy var viewModel = FavouritesViewModel(errorDelegate: self)
     private let tableView = UITableView()
     private let activityIndicator = UIActivityIndicatorView()
     private var companyForSegue: CompanyData?
@@ -112,4 +112,14 @@ class FavouritesViewController: UIViewController {
             }
         }
     }
+}
+
+extension FavouritesViewController: ErrorDelegate {
+    
+    func showError(for errorMessage: String) {
+        let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }
