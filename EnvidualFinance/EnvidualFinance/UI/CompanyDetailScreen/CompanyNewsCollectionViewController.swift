@@ -94,13 +94,10 @@ class CompanyNewsCollectionViewController: UIViewController {
             }
         }).disposed(by: disposeBag)
     }
-}
-
-extension CompanyNewsCollectionViewController: ErrorDelegate {
-    func showError(for errorMessage: String) {
-        let alertController = UIAlertController(title: "No news!", message: errorMessage, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
-        present(alertController, animated: true, completion: nil)
+    
+    func hideTableView() {
         newsTableView.isHidden = true
     }
 }
+
+

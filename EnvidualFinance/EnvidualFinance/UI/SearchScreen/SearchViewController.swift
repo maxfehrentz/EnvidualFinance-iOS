@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
     private let searchController = UISearchController()
     private let tableView = UITableView()
     private let activityIndicator = UIActivityIndicatorView()
-    private lazy var viewModel = SearchViewModel(errorDelegate: self)
+    private(set) lazy var viewModel = SearchViewModel(errorDelegate: self)
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -111,44 +111,5 @@ class SearchViewController: UIViewController {
 
 }
 
-extension SearchViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.searchForCompany(with: searchBar.text)
-    }
-    
-    // function restores the displayedSearches to show everything in the tableView
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.restoreDisplayedSearches()
-    }
-    
-}
-
-extension SearchViewController: UISearchResultsUpdating {
-    
-    // filter the tableView by user input in the searchBar
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            viewModel.applySearchFilter(for: searchText)
-        }
-    }
-    
-}
-//
-//extension SearchViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return DesignConstants.cellHeight
-//    }
-//}
-
-extension SearchViewController: ErrorDelegate {
-    
-    func showError(for errorMessage: String) {
-        let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
-        present(alertController, animated: true, completion: nil)
-    }
-    
-}
 
 

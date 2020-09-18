@@ -21,7 +21,7 @@ class CompanyViewController: UIViewController {
     private let nameLabel = UILabel()
     private let disposeBag = DisposeBag()
     private let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-    private var pages = [UIViewController]()
+    private(set) var pages = [UIViewController]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,48 +113,3 @@ class CompanyViewController: UIViewController {
     
 }
 
-// screen is presented modally; OS gets confused if gesture is supposed to target sheet (screen) or cardView; we need this method to clear up the confusion
-extension CompanyViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        true
-    }
-}
-
-extension CompanyViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if let viewControllerIndex = pages.firstIndex(of: viewController) {
-            if viewControllerIndex == 0 {
-                // wrap to last page in array
-                return pages.last
-            } else {
-                // go to previous page in array
-                return pages[viewControllerIndex - 1]
-            }
-        }
-        return nil
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if let viewControllerIndex = pages.firstIndex(of: viewController) {
-            if viewControllerIndex < pages.count - 1 {
-                // go to next page in array
-                return pages[viewControllerIndex + 1]
-            } else {
-                // wrap to first page in array
-                return pages.first
-            }
-        }
-        return nil
-    }
-    
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return pages.count
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        if let currentViewController = pageViewController.presentedViewController {
-            return pages.firstIndex(of: currentViewController)!
-        }
-        return 0
-    }
-}

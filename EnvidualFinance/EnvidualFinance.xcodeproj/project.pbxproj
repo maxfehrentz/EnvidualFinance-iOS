@@ -15,6 +15,14 @@
 		5007C44C250A67E80047A5A0 /* CompanySpecificsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5007C44B250A67E80047A5A0 /* CompanySpecificsViewController.swift */; };
 		5007C44E250A68A00047A5A0 /* CompanyNewsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5007C44D250A68A00047A5A0 /* CompanyNewsCollectionViewModel.swift */; };
 		5007C450250A68C60047A5A0 /* CompanySpecificsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5007C44F250A68C60047A5A0 /* CompanySpecificsViewModel.swift */; };
+		5019BB822514BD12007B407F /* CompanyViewController+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019BB812514BD12007B407F /* CompanyViewController+UIGestureRecognizerDelegate.swift */; };
+		5019BB842514BDA8007B407F /* CompanyViewController+UIPageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019BB832514BDA8007B407F /* CompanyViewController+UIPageViewControllerDataSource.swift */; };
+		5019BB862514BE35007B407F /* CompanyViewController+UIPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019BB852514BE35007B407F /* CompanyViewController+UIPageViewControllerDelegate.swift */; };
+		5019BB882514BF7A007B407F /* SearchViewController+ErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019BB872514BF7A007B407F /* SearchViewController+ErrorDelegate.swift */; };
+		5019BB8A2514BFC7007B407F /* SearchViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019BB892514BFC6007B407F /* SearchViewController+UISearchBarDelegate.swift */; };
+		5019BB8C2514C015007B407F /* SearchViewController+UISearchResultsUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019BB8B2514C015007B407F /* SearchViewController+UISearchResultsUpdating.swift */; };
+		5019BB8E2514C0DB007B407F /* CompanyNewsCollectionViewController+ErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019BB8D2514C0DB007B407F /* CompanyNewsCollectionViewController+ErrorDelegate.swift */; };
+		5019BB922514C1F7007B407F /* FavouritesViewController+ErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019BB912514C1F7007B407F /* FavouritesViewController+ErrorDelegate.swift */; };
 		501ADB3E24F4F717000C50AF /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501ADB3D24F4F717000C50AF /* FavouritesViewModel.swift */; };
 		501ADB4024F515DD000C50AF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501ADB3F24F515DD000C50AF /* SearchViewModel.swift */; };
 		501ADB6F24FE32BA000C50AF /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501ADB6E24FE32BA000C50AF /* NewsCell.swift */; };
@@ -60,6 +68,14 @@
 		5007C44B250A67E80047A5A0 /* CompanySpecificsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanySpecificsViewController.swift; sourceTree = "<group>"; };
 		5007C44D250A68A00047A5A0 /* CompanyNewsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyNewsCollectionViewModel.swift; sourceTree = "<group>"; };
 		5007C44F250A68C60047A5A0 /* CompanySpecificsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanySpecificsViewModel.swift; sourceTree = "<group>"; };
+		5019BB812514BD12007B407F /* CompanyViewController+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyViewController+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
+		5019BB832514BDA8007B407F /* CompanyViewController+UIPageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyViewController+UIPageViewControllerDataSource.swift"; sourceTree = "<group>"; };
+		5019BB852514BE35007B407F /* CompanyViewController+UIPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyViewController+UIPageViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		5019BB872514BF7A007B407F /* SearchViewController+ErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+ErrorDelegate.swift"; sourceTree = "<group>"; };
+		5019BB892514BFC6007B407F /* SearchViewController+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
+		5019BB8B2514C015007B407F /* SearchViewController+UISearchResultsUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+UISearchResultsUpdating.swift"; sourceTree = "<group>"; };
+		5019BB8D2514C0DB007B407F /* CompanyNewsCollectionViewController+ErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyNewsCollectionViewController+ErrorDelegate.swift"; sourceTree = "<group>"; };
+		5019BB912514C1F7007B407F /* FavouritesViewController+ErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouritesViewController+ErrorDelegate.swift"; sourceTree = "<group>"; };
 		501ADB3D24F4F717000C50AF /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 		501ADB3F24F515DD000C50AF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		501ADB6E24FE32BA000C50AF /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -110,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				50448C6024E3DE6900082E07 /* FavouritesViewController.swift */,
+				5019BB912514C1F7007B407F /* FavouritesViewController+ErrorDelegate.swift */,
 				501ADB3D24F4F717000C50AF /* FavouritesViewModel.swift */,
 				5085FC5124E6D36700CAD3CC /* CompanyCell.swift */,
 			);
@@ -120,6 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				5085FC4424E6B86400CAD3CC /* SearchViewController.swift */,
+				5019BB872514BF7A007B407F /* SearchViewController+ErrorDelegate.swift */,
+				5019BB892514BFC6007B407F /* SearchViewController+UISearchBarDelegate.swift */,
+				5019BB8B2514C015007B407F /* SearchViewController+UISearchResultsUpdating.swift */,
 				501ADB3F24F515DD000C50AF /* SearchViewModel.swift */,
 				50448C6224E3E2AD00082E07 /* CompanySearchCell.swift */,
 				5087B21424EA8FDC00892789 /* SearchDelegate.swift */,
@@ -131,9 +151,13 @@
 			isa = PBXGroup;
 			children = (
 				5087B21624EC12D700892789 /* CompanyViewController.swift */,
+				5019BB812514BD12007B407F /* CompanyViewController+UIGestureRecognizerDelegate.swift */,
+				5019BB832514BDA8007B407F /* CompanyViewController+UIPageViewControllerDataSource.swift */,
+				5019BB852514BE35007B407F /* CompanyViewController+UIPageViewControllerDelegate.swift */,
 				501ADB7024FE351E000C50AF /* CompanyViewModel.swift */,
 				501ADB6E24FE32BA000C50AF /* NewsCell.swift */,
 				5007C449250A67CD0047A5A0 /* CompanyNewsCollectionViewController.swift */,
+				5019BB8D2514C0DB007B407F /* CompanyNewsCollectionViewController+ErrorDelegate.swift */,
 				5007C44D250A68A00047A5A0 /* CompanyNewsCollectionViewModel.swift */,
 				5007C44B250A67E80047A5A0 /* CompanySpecificsViewController.swift */,
 				5007C44F250A68C60047A5A0 /* CompanySpecificsViewModel.swift */,
@@ -346,12 +370,20 @@
 				5085FC4524E6B86400CAD3CC /* SearchViewController.swift in Sources */,
 				5087B21524EA8FDC00892789 /* SearchDelegate.swift in Sources */,
 				5085FC5024E6D14400CAD3CC /* CustomTabBarController.swift in Sources */,
+				5019BB862514BE35007B407F /* CompanyViewController+UIPageViewControllerDelegate.swift in Sources */,
 				501ADB6F24FE32BA000C50AF /* NewsCell.swift in Sources */,
 				5085FC4324E52CB900CAD3CC /* DesignConstants.swift in Sources */,
 				5007C44C250A67E80047A5A0 /* CompanySpecificsViewController.swift in Sources */,
+				5019BB8C2514C015007B407F /* SearchViewController+UISearchResultsUpdating.swift in Sources */,
+				5019BB842514BDA8007B407F /* CompanyViewController+UIPageViewControllerDataSource.swift in Sources */,
+				5019BB922514C1F7007B407F /* FavouritesViewController+ErrorDelegate.swift in Sources */,
 				5007C44E250A68A00047A5A0 /* CompanyNewsCollectionViewModel.swift in Sources */,
 				5085FC5224E6D36700CAD3CC /* CompanyCell.swift in Sources */,
+				5019BB882514BF7A007B407F /* SearchViewController+ErrorDelegate.swift in Sources */,
+				5019BB8A2514BFC7007B407F /* SearchViewController+UISearchBarDelegate.swift in Sources */,
+				5019BB8E2514C0DB007B407F /* CompanyNewsCollectionViewController+ErrorDelegate.swift in Sources */,
 				50448C6324E3E2AD00082E07 /* CompanySearchCell.swift in Sources */,
+				5019BB822514BD12007B407F /* CompanyViewController+UIGestureRecognizerDelegate.swift in Sources */,
 				5007C4482508BE0E0047A5A0 /* ErrorDelegate.swift in Sources */,
 				50448C6124E3DE6900082E07 /* FavouritesViewController.swift in Sources */,
 				501ADB4024F515DD000C50AF /* SearchViewModel.swift in Sources */,

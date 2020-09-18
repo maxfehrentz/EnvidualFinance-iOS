@@ -113,13 +113,3 @@ class FavouritesViewController: UIViewController {
         }
     }
 }
-
-extension FavouritesViewController: ErrorDelegate {
-    
-    func showError(for errorMessage: String) {
-        let alertController = UIAlertController(title: "Ups!", message: errorMessage, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
-        present(alertController, animated: true, completion: nil)
-    }
-    
-}
